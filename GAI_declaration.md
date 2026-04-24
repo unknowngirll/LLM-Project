@@ -1,6 +1,6 @@
-#Generative AI Declaration
+##Generative AI Declaration
 
-#Student Name/ID: 201930340
+##Student Name/ID: 201930340
 
 Model Used: Gemini 3 Flash (Google)
 
