@@ -1,0 +1,115 @@
+=====================================================================
+EXAMPLE 1 - Genetic loss-of-function + Surgical induction
+=====================================================================
+INPUT ABSTRACT:
+"Aggrecanase-2 (ADAMTS5) is the primary aggrecanase in mouse cartilage.
+To determine its role in osteoarthritis (OA), we induced OA in wild-type
+and Adamts5 knockout (Adamts5-/-) mice by surgical destabilization of
+the medial meniscus (DMM). Adamts5-/- mice showed significantly reduced
+cartilage destruction compared to wild-type mice."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "Adamts5",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Adamts5-/- mice showed significantly reduced cartilage destruction compared to wild-type mice."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 2 - Pharmacological + Spontaneous induction
+=====================================================================
+INPUT ABSTRACT:
+"Cathepsin K inhibition reduces CTXII levels and joint pain in the guinea
+pig model of spontaneous osteoarthritis. Prolonged administration of the
+cathepsin K inhibitor AZ12606133 via an osmotic pump significantly
+reduced mechanosensitivity and cartilage turnover."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "CTSK",
+      "manipulation": "Pharmacological",
+      "manipulation_direction": "Loss",
+      "species": "Guinea Pigs",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Joint",
+      "drug_detail": "AZ12606133, osmotic pump, dose not stated",
+      "genetic_detail": "N/A",
+      "evidence_snippet": "significantly reduced mechanosensitivity and cartilage turnover."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 3 - REJECT: in vitro / human only
+=====================================================================
+INPUT ABSTRACT:
+"Osteoarthritis is characterized by cartilage degradation. We
+investigated the role of miR-140 in primary human chondrocytes. Cells
+were treated with IL-1b in vitro. Transfection with miR-140 mimics
+decreased MMP13 expression."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+
+=====================================================================
+EXAMPLE 4 - Multiple observations: same gene, two models
+=====================================================================
+INPUT ABSTRACT:
+"We examined Tlr4 in osteoarthritis. Tlr4 knockout mice were protected
+against high-fat-diet-induced OA, showing reduced cartilage loss.
+However, in the surgical DMM model, Tlr4 knockout mice developed
+cartilage damage comparable to wild-type controls."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "Tlr4",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Metabolic",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Tlr4 knockout mice were protected against high-fat-diet-induced OA, showing reduced cartilage loss."
+    },
+    {
+      "observation_number": 2,
+      "target": "Tlr4",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "No Change",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Tlr4 knockout mice developed cartilage damage comparable to wild-type controls."
+    }
+  ]
+}
+
+=====================================================================
+NOW EXTRACT DATA FROM THE FOLLOWING ABSTRACT.
+Output only JSON. Do not include explanations.
+=====================================================================
+{abstract}

@@ -1,0 +1,28 @@
+# Virtual environment
+py311/
+*.pyc
+__pycache__/
+
+# Models (too large for git)
+models/
+data2/
+
+# Data (large / licensing)
+data/abstracts/
+data/eval_dataset/
+data/split_dataset/
+data/*.jsonl
+Pubmed_abstracts/
+*.xlsx
+
+# Model outputs and logs
+results/
+logs/
+*.out
+*.err
+
+# OS / editor cruft
+.DS_Store
+*.swp
+models
+26.0.1
