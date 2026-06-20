@@ -1,159 +1,191 @@
 #!/usr/bin/env python3
-"""
-score.py - evaluate one model's outputs against the OATargets gold standard.
-
-Reports precision / recall / F1 at three levels:
-  1. GENE-level    : did the model find the right genes? (set-based per paper)
-  2. ATTRIBUTE-level: for matched (gene+direction) pairs, are the other fields right?
-  3. STRICT        : an observation counts correct only if ALL scored fields match.
-
-Matching key = (gene, manipulation_direction) so a gene with opposite effects
-in the same paper is handled correctly.
-"""
-import os, re, json, argparse
+"""score.py - Jamie's table-based scoring (TP/FP/FN/TN)."""
+import os
+import re
+import json
+import argparse
 from collections import defaultdict
 
-# ---------- crosswalk (model vocab -> gold vocab) ----------
-OUTCOME_TO_GOLD = {"increased":"detrimental","decreased":"protective",
-                   "no change":"no effect"}
-SPECIES_NORM = {"mice":"mouse","mouse":"mouse","rats":"rat","rat":"rat",
-                "rabbits":"rabbit","rabbit":"rabbit","guinea pigs":"guinea pig",
-                "guinea pig":"guinea pig","pigs":"pig","pig":"pig","dogs":"dog","dog":"dog"}
-INDUCTION_TO_GOLD = {"surgical":{"surgical"},"chemical":{"mia","protease"},
-                     "mechanical":{"exercise"},"spontaneous":{"ageing"},"ageing":{"ageing"},
-                     "metabolic":{"high fat diet"},"transgenic":{"genetic"}}
-# gold effect_on_gene_product -> coarse direction (Loss/Gain)
-GOLD_EFFECT_TO_DIR = {"removal":"loss","knockdown":"loss","inhibition":"loss",
-                      "haploinsufficiency":"loss","deficiency":"loss",
-                      "overexpression":"gain","increase":"gain","activation":"gain",
-                      "mutation":"other"}
+OUTCOME_TO_GOLD = {"increased": "detrimental", "decreased": "protective", "no change": "no effect"}
+SPECIES_NORM = {"mice": "mouse", "mouse": "mouse", "rats": "rat", "rat": "rat",
+                "rabbits": "rabbit", "rabbit": "rabbit", "guinea pigs": "guinea pig",
+                "guinea pig": "guinea pig", "pigs": "pig", "pig": "pig", "dogs": "dog", "dog": "dog"}
+INDUCTION_TO_GOLD = {"surgical": {"surgical"}, "chemical": {"mia", "protease"},
+                     "mechanical": {"exercise"}, "spontaneous": {"ageing"}, "ageing": {"ageing"},
+                     "metabolic": {"high fat diet"}, "transgenic": {"genetic", "ageing"}}
+GOLD_EFFECT_TO_DIR = {"removal": "loss", "knockdown": "loss", "inhibition": "loss",
+                      "haploinsufficiency": "loss", "deficiency": "loss", "overexpression": "gain",
+                      "increase": "gain", "activation": "gain", "mutation": "other"}
+NOT_STATED = {"not stated", "n/a", ""}
 
-def norm(s): return (s or "").strip().lower()
+def norm(s):
+    return (s or "").strip().lower()
 
-def model_outcome_to_gold(o): return OUTCOME_TO_GOLD.get(norm(o))
-def model_species_to_gold(s): return SPECIES_NORM.get(norm(s), norm(s))
-def induction_match(model_ind, gold_simple):
-    s = INDUCTION_TO_GOLD.get(norm(model_ind))
-    return s is not None and norm(gold_simple) in s
+def is_abstain(s):
+    return norm(s) in NOT_STATED
 
-def gold_dir(effect): return GOLD_EFFECT_TO_DIR.get(norm(effect), "other")
+def gold_direction(effect):
+    return GOLD_EFFECT_TO_DIR.get(norm(effect), "other")
 
-# ---------- load gold ----------
 def load_gold(path):
     gold = {}
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         for line in f:
-            line=line.strip()
-            if not line: continue
-            r=json.loads(line)
-            gold[r["pmid"]] = r["gold_observations"]
+            line = line.strip()
+            if line:
+                rec = json.loads(line)
+                gold[rec["pmid"]] = rec["gold_observations"]
     return gold
 
-# ---------- parse a model output file (robust to extra text / <think>) ----------
 def parse_model_file(path):
-    txt = open(path, encoding="utf-8").read()
-    txt = re.sub(r"<think>.*?</think>", "", txt, flags=re.DOTALL)
-    # grab the first {...} JSON block
-    m = re.search(r"\{.*\}", txt, flags=re.DOTALL)
-    if not m: return None
+    text = open(path, encoding="utf-8").read()
+    if "</think>" in text:
+        answer = text.rsplit("</think>", 1)[1]
+    else:
+        answer = re.sub(r"<think>.*", "", text, flags=re.DOTALL)
+    m = re.search(r"\{.*\}", answer, flags=re.DOTALL)
+    if not m:
+        return None
     try:
         data = json.loads(m.group(0))
     except Exception:
-        return None
-    if isinstance(data, dict) and data.get("result"):  # "no valid perturbations"
+        m2 = re.search(r"\{.*?\}", answer, flags=re.DOTALL)
+        if not m2:
+            return None
+        try:
+            data = json.loads(m2.group(0))
+        except Exception:
+            return None
+    if isinstance(data, dict) and data.get("result"):
         return []
-    return data.get("observations", []) if isinstance(data, dict) else []
+    if isinstance(data, dict):
+        return data.get("observations", [])
+    return []
 
-# ---------- counters ----------
-class PRF:
-    def __init__(self): self.tp=0; self.fp=0; self.fn=0
-    def add(self, tp, fp, fn): self.tp+=tp; self.fp+=fp; self.fn+=fn
-    def prf(self):
-        p = self.tp/(self.tp+self.fp) if (self.tp+self.fp) else 0.0
-        r = self.tp/(self.tp+self.fn) if (self.tp+self.fn) else 0.0
-        f = 2*p*r/(p+r) if (p+r) else 0.0
-        return p,r,f
+def align_paper(golds, preds):
+    gold_set = {norm(o["gene"]) for o in golds}
+    pred_set = {norm(o.get("target", "")) for o in preds if o.get("target")}
+    tp_genes = gold_set & pred_set
+    fp_genes = pred_set - gold_set
+    fn_genes = gold_set - pred_set
+    gold_by_gene = defaultdict(list)
+    for o in golds:
+        gold_by_gene[norm(o["gene"])].append(o)
+    pred_by_gene = defaultdict(list)
+    for o in preds:
+        if o.get("target"):
+            pred_by_gene[norm(o["target"])].append(o)
+    pairs = []
+    for g in tp_genes:
+        glist = gold_by_gene[g]
+        plist = pred_by_gene[g]
+        for gp in glist:
+            gd = gold_direction(gp["effect_on_gene_product"])
+            match = None
+            for pp in plist:
+                if norm(pp.get("manipulation_direction", "")) == gd:
+                    match = pp
+                    break
+            if match is None and plist:
+                match = plist[0]
+            if match is not None:
+                pairs.append((gp, match))
+    return {"tp": len(tp_genes), "fp": len(fp_genes), "fn": len(fn_genes), "pairs": pairs}
 
 def main():
-    ap=argparse.ArgumentParser()
+    ap = argparse.ArgumentParser()
     ap.add_argument("--gold", default="data/gold_answers.jsonl")
-    ap.add_argument("--pred_dir", required=True, help="dir with <pmid>.txt model outputs")
-    args=ap.parse_args()
-
+    ap.add_argument("--pred_dir", required=True)
+    ap.add_argument("--show_table", default=None)
+    args = ap.parse_args()
     gold = load_gold(args.gold)
 
-    gene_prf = PRF()
-    attr_prf = {f:PRF() for f in ["outcome","induction","species"]}
-    strict_prf = PRF()
-    n_files=0; n_parse_fail=0
+    if args.show_table:
+        pmid = args.show_table
+        preds = parse_model_file(os.path.join(args.pred_dir, f"{pmid}.txt")) or []
+        golds = gold.get(pmid, [])
+        print(f"\nPMID {pmid}")
+        print(f"{'LLM_prediction':20s} {'OATargets':20s} result")
+        gold_set = {norm(o['gene']) for o in golds}
+        pred_set = {norm(o.get('target', '')) for o in preds if o.get('target')}
+        if not gold_set and not pred_set:
+            print(f"{'NA':20s} {'NA':20s} TN")
+        for g in sorted(pred_set | gold_set):
+            inp = g.upper() if g in pred_set else "NA"
+            ing = g.upper() if g in gold_set else "NA"
+            res = "TP" if (g in pred_set and g in gold_set) else ("FP" if g in pred_set else "FN")
+            print(f"{inp:20s} {ing:20s} {res}")
+        print()
+        return
+
+    TP = FP = FN = TN = 0
+    attr = {f: {"correct": 0, "wrong": 0, "abstain": 0} for f in ["outcome", "induction", "species"]}
+    n_files = 0
+    n_parse_fail = 0
 
     for fn in os.listdir(args.pred_dir):
-        if not fn.endswith(".txt") or fn.endswith("_raw.txt"): continue
+        if not fn.endswith(".txt") or fn.endswith("_raw.txt"):
+            continue
         pmid = fn[:-4]
-        if pmid not in gold: continue
-        n_files+=1
+        if pmid not in gold:
+            continue
+        n_files += 1
         preds = parse_model_file(os.path.join(args.pred_dir, fn))
         if preds is None:
-            n_parse_fail+=1; preds=[]
+            n_parse_fail += 1
+            preds = []
         golds = gold[pmid]
+        has_gold = len(golds) > 0
+        has_pred = any(o.get("target") for o in preds)
+        if not has_gold and not has_pred:
+            TN += 1
+            continue
+        res = align_paper(golds, preds)
+        TP += res["tp"]
+        FP += res["fp"]
+        FN += res["fn"]
+        for g, p in res["pairs"]:
+            mv = p.get("oa_severity_outcome")
+            if is_abstain(mv):
+                attr["outcome"]["abstain"] += 1
+            elif OUTCOME_TO_GOLD.get(norm(mv)) == norm(g["susceptibility_observed"]):
+                attr["outcome"]["correct"] += 1
+            else:
+                attr["outcome"]["wrong"] += 1
+            mv = p.get("oa_induction")
+            if is_abstain(mv):
+                attr["induction"]["abstain"] += 1
+            else:
+                allowed = INDUCTION_TO_GOLD.get(norm(mv))
+                if allowed is not None and norm(g["simple_model"]) in allowed:
+                    attr["induction"]["correct"] += 1
+                else:
+                    attr["induction"]["wrong"] += 1
+            mv = p.get("species")
+            if is_abstain(mv):
+                attr["species"]["abstain"] += 1
+            elif SPECIES_NORM.get(norm(mv), norm(mv)) == norm(g["species"]):
+                attr["species"]["correct"] += 1
+            else:
+                attr["species"]["wrong"] += 1
 
-        # ---- GENE level (set based) ----
-        gset = {norm(o["gene"]) for o in golds}
-        pset = {norm(o.get("target","")) for o in preds if o.get("target")}
-        tp=len(gset&pset); fp=len(pset-gset); fn_=len(gset-pset)
-        gene_prf.add(tp,fp,fn_)
+    precision = TP / (TP + FP) if (TP + FP) else 0.0
+    recall = TP / (TP + FN) if (TP + FN) else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
 
-        # ---- build matching key (gene, direction) ----
-        gold_by_key=defaultdict(list)
-        for o in golds:
-            gold_by_key[(norm(o["gene"]), gold_dir(o["effect_on_gene_product"]))].append(o)
-        pred_by_key=defaultdict(list)
-        for o in preds:
-            pred_by_key[(norm(o.get("target","")), norm(o.get("manipulation_direction","")))].append(o)
-
-        matched_pairs=[]
-        used_keys=set()
-        for key, glist in gold_by_key.items():
-            plist = pred_by_key.get(key, [])
-            for i in range(min(len(glist), len(plist))):
-                matched_pairs.append((glist[i], plist[i]))
-            used_keys.add(key)
-
-        # ---- ATTRIBUTE level on matched pairs ----
-        for g,p in matched_pairs:
-            # outcome
-            ok = model_outcome_to_gold(p.get("oa_severity_outcome")) == norm(g["susceptibility_observed"])
-            attr_prf["outcome"].add(1 if ok else 0, 0 if ok else 1, 0)
-            # induction
-            ok = induction_match(p.get("oa_induction"), g["simple_model"])
-            attr_prf["induction"].add(1 if ok else 0, 0 if ok else 1, 0)
-            # species
-            ok = model_species_to_gold(p.get("species")) == norm(g["species"])
-            attr_prf["species"].add(1 if ok else 0, 0 if ok else 1, 0)
-
-        # ---- STRICT (all fields incl. gene+direction already matched) ----
-        strict_tp=0
-        for g,p in matched_pairs:
-            allok = (model_outcome_to_gold(p.get("oa_severity_outcome"))==norm(g["susceptibility_observed"])
-                     and induction_match(p.get("oa_induction"), g["simple_model"])
-                     and model_species_to_gold(p.get("species"))==norm(g["species"]))
-            if allok: strict_tp+=1
-        strict_fp = len(preds)-strict_tp
-        strict_fn = len(golds)-strict_tp
-        strict_prf.add(strict_tp, max(strict_fp,0), max(strict_fn,0))
-
-    # ---------- report ----------
     print(f"\n=== Scoring: {args.pred_dir} ===")
     print(f"Files scored: {n_files} | JSON parse failures: {n_parse_fail}\n")
-    def row(name, prf):
-        p,r,f=prf.prf(); print(f"  {name:14s}  P={p:.3f}  R={r:.3f}  F1={f:.3f}")
-    print("GENE level (did it find the right genes?)")
-    row("gene", gene_prf)
-    print("\nATTRIBUTE level (on matched gene+direction pairs)")
-    for k,v in attr_prf.items(): row(k, v)
-    print("\nSTRICT (all scored fields correct)")
-    row("strict", strict_prf)
+    print("GENE level (Jamie's TP/FP/FN/TN table)")
+    print(f"  TP={TP}  FP={FP}  FN={FN}  TN={TN}")
+    print(f"  Precision = TP/(TP+FP) = {precision:.3f}")
+    print(f"  Recall    = TP/(TP+FN) = {recall:.3f}")
+    print(f"  F1        = {f1:.3f}")
+    print("\nATTRIBUTE level (accuracy on matched gene pairs)")
+    for k, c in attr.items():
+        total = c["correct"] + c["wrong"]
+        acc = c["correct"] / total if total else 0.0
+        print(f"  {k:12s} accuracy={acc:.3f}  (correct={c['correct']}, wrong={c['wrong']}, abstain={c['abstain']}, n={total})")
     print()
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
