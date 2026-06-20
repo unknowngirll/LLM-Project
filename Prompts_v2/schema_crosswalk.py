@@ -2,7 +2,7 @@
 schema_crosswalk.py
 ===================
 
-Bridges the LLM extraction schema (rich, abstract-friendly) to the
+Bridges the LLM extraction schema to the
 OATargets gold-standard columns (used for scoring).
 
 Design principle
@@ -25,9 +25,9 @@ Extraction-only fields (useful, NOT scored): tissue_specificity,
 genetic_detail, drug_detail, evidence_snippet.
 """
 
-# ---------------------------------------------------------------------------
+
 # 1. OUTCOME  (the critical one — directions are equivalent, not reversed)
-# ---------------------------------------------------------------------------
+
 # Model reports OA-severity direction; gold reports it as "Susceptibility
 # observed". These are the SAME concept in different words:
 #   knockout that REDUCES damage -> outcome "Decreased" -> gold "Protective"
@@ -40,9 +40,9 @@ OUTCOME_TO_GOLD = {
 # reverse, for convenience
 GOLD_SUSCEPTIBILITY = {"Detrimental", "Protective", "No effect"}
 
-# ---------------------------------------------------------------------------
+
 # 2. MANIPULATION  (model's 8 categories -> gold "Effect on gene product")
-# ---------------------------------------------------------------------------
+
 # NOTE: gold splits Global/Conditional/Inducible KO all into "Removal".
 # Abstracts usually cannot distinguish those, so for SCORING we collapse
 # them. The fine-grained label is still emitted by the model and kept for
@@ -73,9 +73,9 @@ MANIPULATION_TO_GOLD_TYPE = {
 # match at the coarser "Type" level (Genetic vs Exogenous) as the robust
 # signal, and treat the Effect-level match as a secondary, looser metric.
 
-# ---------------------------------------------------------------------------
+
 # 3. OA INDUCTION  (model's 5 categories -> gold "simpleModel", 7 values)
-# ---------------------------------------------------------------------------
+
 OA_INDUCTION_TO_GOLD = {
     "Surgical":     "Surgical",
     "Chemical":     {"MIA", "Protease"},   # gold separates these two
@@ -89,9 +89,9 @@ OA_INDUCTION_TO_GOLD = {
 # Protease. High Fat Diet exists in gold but has no clean model-side label;
 # decide with supervisor whether to add a "Metabolic" category to the prompt.
 
-# ---------------------------------------------------------------------------
+
 # 4. SPECIES  (near-identical, just normalise plural/case)
-# ---------------------------------------------------------------------------
+
 SPECIES_TO_GOLD = {
     "mice": "Mouse", "mouse": "Mouse",
     "rats": "Rat", "rat": "Rat",
@@ -101,9 +101,9 @@ SPECIES_TO_GOLD = {
     "pigs": "Pig", "pig": "Pig",
 }
 
-# ---------------------------------------------------------------------------
+
 # Helper functions used at scoring time
-# ---------------------------------------------------------------------------
+
 def norm_gene(g):
     """Genes compared case-insensitively (model: Adamts5, gold: ADAMTS5)."""
     return (g or "").strip().upper()

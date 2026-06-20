@@ -1,3 +1,4 @@
+
 =====================================================================
 ROLE
 =====================================================================
@@ -131,34 +132,3 @@ STEP 4 - OUTPUT FORMAT
 }
 Add more objects to "observations" for multiple experiments.
 
-=====================================================================
-FEW-SHOT EXAMPLE
-=====================================================================
-ABSTRACT:
-"Cartilage-specific deletion of Opa1, driven by Col2a1-Cre, resulted in
-mitochondrial fragmentation in chondrocytes and accelerated
-osteoarthritis progression in mice following destabilization of the
-medial meniscus surgery. OARSI scores were significantly elevated in
-Opa1 conditional knockout animals compared to floxed controls."
-
-CORRECT OUTPUT:
-{
-  "observations": [
-    {
-      "observation_number": 1,
-      "target": "Opa1",
-      "manipulation": "Conditional KO",
-      "manipulation_direction": "Loss",
-      "species": "Mice",
-      "oa_induction": "Surgical",
-      "oa_severity_outcome": "Increased",
-      "tissue_specificity": "Chondrocytes",
-      "drug_detail": "N/A",
-      "genetic_detail": "Col2a1-Cre",
-      "evidence_snippet": "OARSI scores were significantly elevated in Opa1 conditional knockout animals compared to floxed controls."
-    }
-  ]
-}
-=====================================================================
-Now extract data from the abstract provided by the user.
-=====================================================================
