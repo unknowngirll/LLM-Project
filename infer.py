@@ -37,7 +37,10 @@ for i, ex in enumerate(ds):
     pmid = ex["metadata"]["pmid"]
     # strip the gold assistant message; keep only system + user
     msgs = [m for m in ex["messages"] if m["role"] != "assistant"]
-    prompt = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+    try:
+        prompt = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=False)
+    except TypeError:
+        prompt = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
     inputs = tok(prompt, return_tensors="pt").to(model.device)
     t0 = time.time()
     with torch.no_grad():
