@@ -1,0 +1,101 @@
+PMID	PubDate	Species	TrueNegative	Notes
+12464558	2002 Dec	Mouse	1	
+11677139	2001 Nov 19	Mouse	1	
+18501644	2008 Dec	Mouse	1	Collagen induced arthritis excluded
+32298781	2020 Oct	Mouse	1	
+27680963	2016 Oct	Rat	1	
+33946919	2021 Apr 29	Rat	1	Bacteria treatment is excluded
+23248728	2012	Mouse	1	
+29039501	2017 Dec	Mouse	1	Traditional medicine excluded
+32271407	2020 Mar	Rat	1	
+16959360	2006 Oct 10	Rat	1	
+16632350	2006 Jul 1	Rat	1	
+20621685	2010 Aug	Rat	1	Pain models are excluded
+31949990	2019 Dec	Rat	0	Not in OATargets- Risedronate target gene FDPS would be annotated
+24512762	2014 Jul	Rat	1	
+24662735	2014 Jun	Rabbit	0	Not in OATargets
+25091889	2014 Jul	Mouse	1	
+4460502	1974	Mouse	NA	No abstract – could remove papers pre 2000?
+20950722	2011 Mar 1	Rat	1	
+19376109	2009 Jun 24	Rat	1	
+30139714	2018 Aug	Mouse	1	
+26778531	2016 Jun	Rat	1	
+29775231	2018 Sep	Mouse	1	
+21506092	2011 Aug	Mouse	1	
+12709548	2003 May	Rat	NA	No abstract on pubmed
+34490639	2021 Oct	Rat	1	
+11518285	2001 Jul	Pig	1	
+10092766	1999 Mar 15	Mouse	1	
+26625129	2016 Feb	Mouse	1	
+31661326	2020 May-Jul	Pig	1	
+23777533	2013 Jul	Mouse	1	
+27703516	2016 Oct	Rat	1	
+33995052	2021	Rat	1	
+25196420	2014 Dec	Mouse	1	
+24769230	2014 Jun	Rabbit	1	
+32156482	2020 Apr	Mouse	1	
+21482542	2011 Aug	Pig	1	
+26631347	2016	Rat	1	
+19293161	2010 Feb	Rabbit	1	TNF induced arthritis is out of curation scope – no OA
+28835277	2017 Aug 23	Mouse	1	Pain with no report on joint damage is out of scope
+9497939	1997 Sep	Mouse	1	
+10806052	2000 May	Mouse	1	
+23666827	2013 Aug	Mouse	1	collagen-induced arthritis out of scope
+30366509	2018 Oct	Mouse	1	
+17072658	2007 May	Rabbit	1	
+22908007	2012	Pig	1	
+29618773	2018 Apr 4	Mouse	1	glucosamine isn’t a gene
+17376710	2007 Aug	Rabbit	1	
+33872738	2021 Jul 15	Rat	1	
+26992380	2016 Mar 18	Rat	1	
+32985762	2020 Dec	Rat	1	
+29393346	2018 Apr	Rat	1	
+17109745	2006	Rat	1	
+34127028	2021 Jun 14	Mouse	1	
+33880054	2021	Mouse	1	
+27368432	2016 Oct	Mouse	1	
+8548361	1995 Aug	Mouse	NA	No abstract 
+9361918	1997	Pig	1	
+31993924	2020 Jun	Mouse	1	
+25330343	2014 Nov 26	Mouse	1	
+28122526	2017 Jan 25	Rat	1	
+23934157	2013 Oct	Rat	0	Not in OATargets
+29708818	2018 May	Rat	1	
+28945000	2018 Jan	Rat	1	
+34396019	2021 Sep-Oct	Rat	1	Pain only effects are not in scope
+28036032	2016 Dec 28	Rat	1	
+33499145	2021 Jan 22	Mouse	1	
+33573682	2021 Feb 11	Mouse	1	
+9135032	1997 Apr 25	Rat	1	
+34702854	2021 Oct 26	Mouse	1	No in vivo perturbation evidence
+27845067	2017 Jan 5	Rabbit	1	
+2027128	1991 Feb	Pig	1	
+33408335	2021 Jan	Mouse	1	CIA out of scope
+9167621	1997 Mar	Rabbit	1	
+25889371	2015 Sep	Rabbit	1	
+11317676	2001	Rabbit	1	
+34853968	2021 Dec	Rat	1	
+35223983	2021	Rat	1	
+11680693	2001	Mouse	1	
+24729965	2014	Rabbit	1	
+29766025	2018 Jun 15	Rat	1	
+12939359	2003 Sep	Rabbit	1	
+28736799	2017 Aug	Mouse	1	
+31186141	2019 Aug 13	Mouse	1	
+32634440	2020 Sep 15	Rat	1	
+33155655	2020 Nov 27	Mouse	1	
+4168366	1967 Dec 1	Rabbit	1	
+15607881	2005 Jan	Pig	1	
+20460191	2010 Jun	Mouse	1	
+25675406	2015	Rat	1	
+28860852	2017	Rat	1	
+19950019	2010	Mouse	1	
+15188359	2004 Jun	Pig	1	Excluded as Ascorbic acid has no direct protein target
+20511611	2010 Aug	Pig	1	
+31164994	2019 Jun	Mouse	1	
+28420082	2017 Apr 14	Rabbit	1	
+15579310	2004 Nov	Rat	1	
+8240430	1993 Nov	Rabbit	1	
+19404941	2009 May	Rat	1	
+17185834	2006 Oct-Dec	Rabbit	NA	No abstract 
+29868252	2018	Mouse	0	Not in OATargets – note that OATargets records negative evidence so OE of TSG6 in this model having no effect would be recorded as an observation

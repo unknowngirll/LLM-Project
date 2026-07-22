@@ -1,0 +1,106 @@
+=====================================================================
+EXAMPLE 1 - Genetic loss-of-function + Surgical induction
+=====================================================================
+INPUT ABSTRACT:
+"Aggrecanase-2 (ADAMTS5) is the primary aggrecanase in mouse cartilage.
+To determine its role in osteoarthritis (OA), we induced OA in wild-type
+and Adamts5 knockout (Adamts5-/-) mice by surgical destabilization of
+the medial meniscus (DMM). Adamts5-/- mice showed significantly reduced
+cartilage destruction compared to wild-type mice."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "Adamts5",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Adamts5-/- mice showed significantly reduced cartilage destruction compared to wild-type mice."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 2 - Mixed Study (in vitro + in vivo)
+=====================================================================
+INPUT ABSTRACT:
+"We investigated the role of miR-140 in primary human chondrocytes treated with IL-1b in vitro. Additionally, to confirm in vivo relevance, we subjected C57BL/6 mice to DMM surgery. Intra-articular injection of miR-140 mimics significantly reduced the severity of cartilage degradation."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "miR-140",
+      "manipulation": "Pharmacological",
+      "manipulation_direction": "Gain",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Joint",
+      "drug_detail": "miR-140 mimics, intra-articular injection, dose not stated",
+      "genetic_detail": "N/A",
+      "evidence_snippet": "injection of miR-140 mimics significantly reduced the severity of cartilage degradation."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 3 - REJECT: Inflammatory Model Exclusion
+=====================================================================
+INPUT ABSTRACT:
+"We explored the therapeutic potential of targeting TNF-alpha in inflammatory joint diseases. Mice were subjected to collagen-induced arthritis (CIA). Treatment with a novel TNF inhibitor significantly reduced joint swelling, synovial inflammation, and paw pain scores."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+
+=====================================================================
+EXAMPLE 4 - Multiple genes in one experiment MUST be separated
+=====================================================================
+INPUT ABSTRACT:
+"To evaluate synergistic effects, we generated Lumican and Fibromodulin double knockout (Lum-/- Fmod-/-) mice. Following aging to 18 months, these mice developed severe spontaneous osteoarthritis compared to wild-type controls, characterized by extensive proteoglycan loss."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "Lum",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Lum-/- Fmod-/- mice... developed severe spontaneous osteoarthritis compared to wild-type controls"
+    },
+    {
+      "observation_number": 2,
+      "target": "Fmod",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Lum-/- Fmod-/- mice... developed severe spontaneous osteoarthritis compared to wild-type controls"
+    }
+  ]
+}
+
+=====================================================================
+NOW EXTRACT DATA FROM THE FOLLOWING ABSTRACT.
+Output only JSON. Do not include explanations.
+=====================================================================
+{abstract}

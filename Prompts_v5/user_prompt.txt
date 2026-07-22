@@ -1,0 +1,163 @@
+=====================================================================
+EXAMPLE 1 - Genetic loss-of-function + Surgical  (official symbol case)
+=====================================================================
+INPUT ABSTRACT:
+"Aggrecanase-2 (ADAMTS5) is the primary aggrecanase in mouse cartilage.
+We induced OA in wild-type and Adamts5 knockout (Adamts5-/-) mice by
+surgical destabilization of the medial meniscus (DMM). Adamts5-/- mice
+showed significantly reduced cartilage destruction compared to wild-type."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "ADAMTS5",
+      "target_raw": "Adamts5",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Adamts5-/- mice showed significantly reduced cartilage destruction compared to wild-type"
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 2 - Alias / Greek-letter normalisation + qualitative outcome
+=====================================================================
+INPUT ABSTRACT:
+"Nrf2 protects cartilage from oxidative stress. Nrf2-deficient mice
+developed accelerated cartilage degeneration in a collagenase-induced
+model, indicating aggravated joint damage."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "NFE2L2",
+      "target_raw": "Nrf2",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Chemical",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Nrf2-deficient mice developed accelerated cartilage degeneration"
+    }
+  ]
+}
+NOTE: "Nrf2" was normalised to its official symbol NFE2L2 (target_raw
+keeps the verbatim name). "Accelerated cartilage degeneration" is a
+qualitative but valid severity increase - it is NOT a reason to reject.
+
+=====================================================================
+EXAMPLE 3 - Double perturbation -> SPLIT into one obs per gene
+=====================================================================
+INPUT ABSTRACT:
+"Mice lacking both Ccl2 and its receptor Ccr2 were protected from
+surgically induced OA, showing reduced cartilage loss."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "CCL2",
+      "target_raw": "Ccl2",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Mice lacking both Ccl2 and its receptor Ccr2 were protected"
+    },
+    {
+      "observation_number": 2,
+      "target": "CCR2",
+      "target_raw": "Ccr2",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Mice lacking both Ccl2 and its receptor Ccr2 were protected"
+    }
+  ]
+}
+NOTE: never write target "CCL2 + CCR2". One gene per observation.
+
+=====================================================================
+EXAMPLE 4 - miRNA arm-suffix stripping + spontaneous KO phenotype
+=====================================================================
+INPUT ABSTRACT:
+"miR-XYZ-5p knockout mice showed significant spontaneous degeneration of
+the knee cartilage, whereas intra-articular delivery of a miR-XYZ-5p
+agomir alleviated cartilage damage."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "miR-XYZ",
+      "target_raw": "miR-XYZ-5p",
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "miR-XYZ-5p knockout mice showed significant spontaneous degeneration of the knee cartilage"
+    },
+    {
+      "observation_number": 2,
+      "target": "miR-XYZ",
+      "target_raw": "miR-XYZ-5p agomir",
+      "manipulation": "Overexpression",
+      "manipulation_direction": "Gain",
+      "species": "Mice",
+      "oa_induction": "Not stated",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Not stated",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "intra-articular delivery of a miR-XYZ-5p agomir alleviated cartilage damage"
+    }
+  ]
+}
+NOTE: arm suffix "-5p" removed from target (kept in target_raw). A KO
+mouse that spontaneously degenerates is a valid in vivo observation even
+with no surgery; induction = Spontaneous.
+
+=====================================================================
+EXAMPLE 5 - REJECT: in vitro / human only
+=====================================================================
+INPUT ABSTRACT:
+"We investigated miR-140 in primary human chondrocytes. Cells were
+treated with IL-1b in vitro. Transfection with miR-140 mimics decreased
+MMP13 expression."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+
+=====================================================================
+NOW EXTRACT DATA FROM THE FOLLOWING ABSTRACT.
+Output only JSON. Do not include explanations.
+=====================================================================
+{abstract}
