@@ -1,0 +1,6 @@
+HGNC complete set — provenance
+URL:        https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt
+Retrieved:  2026-07-21 01:40:45
+Size:       16921235 bytes
+MD5:        d18bd538c7580c1a2353befa2d3440a8
+Rows:       45021

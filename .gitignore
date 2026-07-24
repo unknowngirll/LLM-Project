@@ -27,3 +27,18 @@ logs/
 models
 26.0.1
 unsloth_compiled_cache/
+
+# normalised / adjudicated output (regenerable from the scripts)
+results_norm/
+results_jamie/
+results_jamie_fair/
+results_cascade/
+results_jamie_think/
+
+# datasets (rebuilt by build_v*.py)
+data/eval_*_dataset/
+data/negatives_dataset/
+data/split_dataset/
+
+# backups
+*.bak
