@@ -1,0 +1,403 @@
+PMID,row_type,gene_gold,gene_LLM,gene_match,induction_gold,induction_LLM,induction_match,outcome_gold,outcome_LLM,outcome_match,species_gold,species_LLM,species_match
+10943864,FN,COL2A1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+11285272,TP,SMAD3,Smad3,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+12089156,TP,FMOD,Fmod,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+12089156,TP,LUM,Lum,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+14673992,FN,OSM,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+14673992,FN,TNF,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+16087873,FN,ERRFI1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+16087873,FP,NONE,Mig-6,no,NONE,Transgenic,no,NONE,Increased,no,NONE,Mice,no
+16431140,TP,COL2A1,Col2a1,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+16947423,TP,COL9A1,Col9a1,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+17326835,FN,LGALS3,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+17326835,FP,NONE,Galectin-3,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+17328064,TP,TIMP3,Timp3,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+17623656,TP,MMP13,MMP13,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Rabbit,Rats,no
+17968948,TP,ADAMTS5,ADAMTS5,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+17968948,FP,NONE,ADAMTS4,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+18344557,TP,HYAL1,Hyal1,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+18941854,TP,BMP7,BMP7,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Rabbit,Rabbits,yes
+19010693,TP,ADAMTS5,ADAMTS5,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+19342682,FN,AGER,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+19342682,FP,NONE,RAGE,no,NONE,Surgical,no,NONE,No Change,no,NONE,Mice,no
+19404941,FP,NONE,BMP-4,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Rats,no
+19404941,FP,NONE,sFlt-1,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Rats,no
+19747998,FN,TNC,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+19747998,FN,TNC,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+19747998,FP,NONE,TN-C,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+19747998,FP,NONE,TN-C,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+20187155,TP,AKT1,Akt1,yes,Surgical,Surgical,yes,Protective,Not stated,abstain,Mouse,Mice,yes
+20506144,TP,PRG4,PRG4,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Rats,no
+21368873,FN,MIA,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+21590680,TP,IL6,Il6,yes,Surgical,Chemical,no,Protective,Decreased,yes,Mouse,Mice,yes
+21590680,TP,IL6,Il6,yes,Ageing,Chemical,no,Detrimental,Decreased,no,Mouse,Mice,yes
+21590680,FP,NONE,Epas1,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+21590680,FP,NONE,Epas1,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+21643724,FN,PHEX,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+21911068,TP,GSK3B,Gsk3b,yes,Ageing,Chemical,no,Detrimental,Increased,yes,Mouse,Rats,no
+22028304,TP,COL2A1,Col2a1,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+22057346,FN,C3,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+22057346,TP,C5,C5,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+22057346,TP,C5,C5,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+22057346,TP,C5,C5,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+22057346,TP,C6,C6,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+22057346,FN,CD59,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+22057346,FN,CD59,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+22057346,FP,NONE,CD59a,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+22057346,FP,NONE,Complement,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+22143922,TP,S100A9,S100A9,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+22143922,TP,S100A9,S100A9,yes,Surgical,Chemical,no,No effect,Decreased,no,Mouse,Mice,yes
+22143922,FP,NONE,S100A8,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+22448243,TP,COL6A1,Col6a1,yes,Ageing,Spontaneous,yes,Detrimental,Decreased,no,Mouse,Mice,yes
+22484689,FN,CTSK,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+22484689,FN,CTSK,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rabbit,MISSED,no
+22484689,FP,NONE,Cathepsin K,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rabbits,no
+22484689,FP,NONE,Cathepsin K,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+23233270,FN,SOST,MISSED,no,Ageing,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+23233270,FN,SOST,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Rat,MISSED,no
+23233270,FP,NONE,Sclerostin,no,NONE,Spontaneous,no,NONE,No Change,no,NONE,Mice,no
+23233270,FP,NONE,Sclerostin,no,NONE,Surgical,no,NONE,No Change,no,NONE,Rats,no
+23339896,TP,HSPG2,Hspg2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+24309371,FN,TGFB1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+24309371,FP,NONE,TGF-β1,no,NONE,Transgenic,no,NONE,Increased,no,NONE,Mice,no
+24386478,TP,ATRX,Atrx,yes,Ageing,Spontaneous,yes,No effect,No Change,yes,Mouse,Mice,yes
+24577103,TP,FGF18,Fgf18,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Rat,Rats,yes
+24757033,FN,GSK3B,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+24757033,FP,NONE,GSK-3,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+24966136,FN,ERRFI1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+24966136,FP,NONE,Mig6,no,NONE,Transgenic,no,NONE,Increased,no,NONE,Mice,no
+24966136,FP,NONE,Mig6,no,NONE,Transgenic,no,NONE,Increased,no,NONE,Mice,no
+24999110,TP,VHL,Vhl,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+24999110,TP,VHL,Vhl,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+25080367,FN,DKK1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+25080367,FP,NONE,Dkk-1,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+25135253,TP,CXCR2,CXCR2,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+25200274,FN,F2R,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+25200274,FN,F2RL1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+25200274,FP,NONE,PAR-1,no,NONE,Surgical,no,NONE,No Change,no,NONE,Mice,no
+25200274,FP,NONE,PAR-2,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+25628784,TP,RUNX2,Runx2,yes,Exercise,Chemical,no,Protective,Decreased,yes,Mouse,Mice,yes
+25889639,TP,BMP7,BMP7,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+25969431,TP,S100A9,S100A9,yes,Surgical,Chemical,no,Protective,Decreased,yes,Mouse,Mice,yes
+25969431,TP,S100A9,S100A9,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+26687826,TP,APOE,Apoe,yes,Protease,Chemical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+26687826,FP,NONE,S100a9,no,NONE,Chemical,no,NONE,Not stated,no,NONE,Mice,no
+26698846,FN,F2RL1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+26698846,FP,NONE,PAR2,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+26698846,FP,NONE,PAR2,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+26783110,FN,PRKCD,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+26783110,FP,NONE,PKCδ,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+26837060,FN,TGFB1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+26837060,FP,NONE,TGF-β,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Not stated,no
+26851314,TP,CXCR4,CXCR4,yes,MIA,Chemical,yes,Protective,Decreased,yes,Rat,Rats,yes
+26903297,FN,XDH,MISSED,no,High Fat Diet,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+26903297,FP,NONE,XOR,no,NONE,Metabolic,no,NONE,Decreased,no,NONE,Mice,no
+27041213,TP,FGFR1,FGFR1,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27052304,FN,MTOR,MISSED,no,Protease,MISSED,no,Protective,MISSED,no,Rabbit,MISSED,no
+27052304,FP,NONE,Autophagy,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Rabbits,no
+27052304,FP,NONE,Autophagy,no,NONE,Chemical,no,NONE,Increased,no,NONE,Rabbits,no
+27147711,TP,WNT16,WNT16,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+27270603,TP,MATN1,Matn1,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+27322244,TP,CXCR4,CXCR4,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27345362,FN,CALCA,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+27345362,FP,NONE,Calcitonin,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+27388701,TP,TRPV4,Trpv4,yes,Surgical,Spontaneous,no,No effect,Decreased,no,Mouse,Mice,yes
+27388701,TP,TRPV4,Trpv4,yes,Ageing,Spontaneous,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27539076,FN,IL1RN,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+27539076,FP,NONE,IL1-ra,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+27541035,FN,TNFRSF11B,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+27541035,FP,NONE,Opg,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+27564840,TP,MIF,MIF,yes,Ageing,Spontaneous,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27564840,TP,MIF,MIF,yes,Surgical,Spontaneous,no,No effect,Decreased,no,Mouse,Mice,yes
+27681622,FN,RELA,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+27681622,FP,NONE,NF-κB,no,NONE,Mechanical,no,NONE,Decreased,no,NONE,Mice,no
+27830706,TP,RELA,Rela,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+27830706,TP,RELA,Rela,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+27911782,TP,EGFR,Egfr,yes,Ageing,Surgical,no,Detrimental,Increased,yes,Mouse,Mice,yes
+27911782,TP,EGFR,Egfr,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+27965260,TP,CCL2,Ccl2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27965260,TP,CCL2,Ccl2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27965260,TP,CCL5,Ccl5,yes,Surgical,Surgical,yes,No effect,No Change,yes,Mouse,Mice,yes
+27965260,TP,CCR2,Ccr2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27965260,TP,CCR2,Ccr2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+27965260,TP,CCR5,Ccr5,yes,Surgical,Surgical,yes,No effect,No Change,yes,Mouse,Mice,yes
+28128866,FN,CDKN1A,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+28128866,FP,NONE,p21,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+28165497,TP,WNT7A,Wnt7a,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+28348422,FN,OLR1,MISSED,no,Ageing,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+28348422,FP,NONE,LOX-1,no,NONE,Spontaneous,no,NONE,Decreased,no,NONE,Mice,no
+28383548,TP,mir-146a,miR-146a,yes,Ageing,Spontaneous,yes,Protective,Decreased,yes,Mouse,Mice,yes
+28383548,TP,mir-146a,miR-146a,yes,Surgical,Spontaneous,no,Protective,Decreased,yes,Mouse,Mice,yes
+28627522,TP,DOT1L,DOT1L,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+28627522,FP,NONE,SIRT1,no,NONE,Transgenic,no,NONE,Decreased,no,NONE,Mice,no
+28716756,FN,TGFBR1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+28716756,FP,NONE,Alk5,no,NONE,Transgenic,no,NONE,Increased,no,NONE,Mice,no
+28743292,TP,A2M,A2M,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Rat,Rats,yes
+28765635,TP,HYAL2,Hyal2,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+28767178,TP,CCR7,Ccr7,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+28823646,FN,LEPR,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+28823646,FP,NONE,Ob-Rb,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+28898438,TP,COL11A1,Col11a1,yes,Surgical,Mechanical,no,Detrimental,Decreased,no,Mouse,Mice,yes
+29205898,FN,PTGS2,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rabbit,MISSED,no
+29219023,TP,TNC,TNC,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29247173,TP,ESRRG,Esrrg,yes,Surgical,Transgenic,no,Detrimental,Increased,yes,Mouse,Mice,yes
+29247173,TP,ESRRG,Esrrg,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29247173,TP,ESRRG,Esrrg,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+29247173,TP,ESRRG,Esrrg,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29247173,TP,ESRRG,Esrrg,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29323130,TP,OPTC,Optc,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29440889,TP,IHH,Ihh,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Rat,Rats,yes
+29444976,TP,FOXO1,FoxO1,yes,Exercise,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO1,FoxO1,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO1,FoxO1,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO3,FoxO3,yes,Exercise,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO3,FoxO3,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO3,FoxO3,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+29444976,TP,FOXO4,FoxO4,yes,Exercise,Spontaneous,no,Detrimental,No Change,no,Mouse,Mice,yes
+29444976,TP,FOXO4,FoxO4,yes,Surgical,Spontaneous,no,Detrimental,No Change,no,Mouse,Mice,yes
+29444976,TP,FOXO4,FoxO4,yes,Ageing,Spontaneous,yes,Detrimental,No Change,no,Mouse,Mice,yes
+29524442,FN,MAPK14,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+29524442,FP,NONE,p38 MAPK,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+29622035,TP,CCL17,Ccl17,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29622035,TP,CCL17,Ccl17,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29622035,TP,CCR4,Ccr4,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29622035,TP,IRF4,Irf4,yes,Protease,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+29622035,FN,KDM6B,MISSED,no,Protease,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+29622035,FN,PTGS2,MISSED,no,Protease,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+29622035,FN,TNF,MISSED,no,Protease,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+29622035,FP,NONE,Jmjd3,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+29736207,FN,IL6,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+29736207,TP,STAT3,STAT3,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Not stated,abstain
+29736207,FP,NONE,IL-6,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Not stated,no
+30070692,TP,AXIN1,Axin1,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+30106092,FN,mir-204,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+30106092,FP,NONE,miR-204-5p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+30144298,FN,FLT4,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+30144298,FP,NONE,VEGFR-3,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+30144298,FP,NONE,Bortezomib,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+30154423,TP,TFEB,TFEB,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+30261507,TP,NCOA3,NCOA3,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+30287418,FN,mir-181a,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+30287418,FP,NONE,miR-181a-5p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+30287418,FP,NONE,miR-181a-5p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+30302948,FN,TUT7,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+30302948,FP,NONE,Zcchc6,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+30305454,TP,ITGBL1,Itgbl1,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+30305454,TP,ITGBL1,Itgbl1,yes,Ageing,Surgical,no,Detrimental,Decreased,no,Mouse,Mice,yes
+30731321,FN,mir-10a,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+30731321,FN,mir-10a,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+30731321,FP,NONE,miR-10a-5p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+30731321,FP,NONE,miR-10a-5p,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+30891766,FN,IL4,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+30891766,FP,NONE,IL-4,no,NONE,Exercise,no,NONE,Increased,no,NONE,Mice,no
+30891766,FP,NONE,IL-4,no,NONE,Exercise,no,NONE,Decreased,no,NONE,Mice,no
+30912140,TP,CTNNB1,CTNNB1,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+30944169,TP,mir-204,miR-204,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Not stated,abstain
+30944169,TP,mir-204,miR-204,yes,Surgical,Transgenic,no,Detrimental,Increased,yes,Mouse,Not stated,abstain
+30944169,TP,mir-204,miR-204,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Not stated,abstain
+30972197,TP,DNMT3B,Dnmt3b,yes,Surgical,Transgenic,no,Detrimental,Increased,yes,Mouse,Mice,yes
+30972197,TP,DNMT3B,Dnmt3b,yes,MIA,Not stated,abstain,Protective,Decreased,yes,Mouse,Mice,yes
+31084709,FN,FCER1A,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31084709,FN,MCL1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31084709,FP,NONE,Mast cells,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+31084709,FP,NONE,Syk,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+31108241,TP,CXCR4,CXCR4,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Rats,no
+31108241,FP,NONE,SDF-1,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+31108241,FP,NONE,SDF-1,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+31113964,TP,RUNX1,Runx1,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31119776,TP,PRG4,Prg4,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31160553,FN,mir-140,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+31160553,TP,WWP2,Wwp2,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31160553,TP,WWP2,Wwp2,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+31160553,TP,WWP2,Wwp2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31186141,FP,NONE,METTL3,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+31186141,FP,NONE,METTL3,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+31307784,TP,CDK9,CDK9,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31424112,TP,CCL2,Ccl2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31424112,TP,CCL2,Ccl2,yes,Ageing,Surgical,no,No effect,Decreased,no,Mouse,Mice,yes
+31424112,TP,CCL2,Ccl2,yes,Surgical,Surgical,yes,No effect,Decreased,no,Mouse,Mice,yes
+31424112,TP,CCR2,Ccr2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31424112,TP,CCR2,Ccr2,yes,Ageing,Surgical,no,No effect,Decreased,no,Mouse,Mice,yes
+31424112,TP,CCR2,Ccr2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31482846,FN,PTCH1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+31496660,TP,SOX9,SOX9,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31511053,FN,ATF6,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+31511053,FP,NONE,Tg<sup>cog</sup>,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+31511053,FP,NONE,Atf6a,no,NONE,Surgical,no,NONE,No Change,no,NONE,Mice,no
+31586040,FN,mir-455,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+31586040,FP,NONE,miR-455-3p,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+31608494,TP,SMO,Smo,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31608494,TP,SMO,Smo,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+31634652,FN,NELL1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+31634652,FP,NONE,Nell-1,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+31634652,FP,NONE,Nell-1,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+31634652,FP,NONE,NELL-1,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+31653858,FN,TNKS,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31653858,FN,TNKS,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31653858,FN,TNKS2,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31653858,FN,TNKS2,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31653858,FP,NONE,Tankyrase,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+31673109,FN,TGFB1I1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31673109,FP,NONE,Hic-5,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+31735552,FN,KAT2B,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+31735552,FP,NONE,PCAF,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+31742919,FN,NCAM1,MISSED,no,MIA,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+31742919,FP,NONE,NCAM,no,NONE,Not stated,no,NONE,Increased,no,NONE,Mice,no
+31742919,FP,NONE,NCAM,no,NONE,Chemical,no,NONE,Increased,no,NONE,Rats,no
+31841119,FN,F2RL1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+31841119,FP,NONE,PAR2,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+31901095,TP,FGF2,FGF2,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31901095,FP,NONE,FGFR,no,NONE,Transgenic,no,NONE,Decreased,no,NONE,Mice,no
+31980519,TP,FOXO1,FoxO1,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO1,FoxO1,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO1,FoxO1,yes,Exercise,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO3,FoxO3,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO3,FoxO3,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO3,FoxO3,yes,Exercise,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO4,FoxO4,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO4,FoxO4,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+31980519,TP,FOXO4,FoxO4,yes,Exercise,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+32162789,TP,DCN,Dcn,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+32162789,TP,DCN,Dcn,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+32208385,TP,PDGFB,Pdgfb,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+32208385,TP,PDGFB,Pdgfb,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+32269734,TP,SOX9,Sox9,yes,Ageing,Transgenic,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+32335541,TP,mir-375,miR-375,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Mice,yes
+32339698,TP,CRY1,Cry1,yes,Surgical,Not stated,abstain,No effect,No Change,yes,Mouse,Mice,yes
+32339698,TP,CRY2,Cry2,yes,Surgical,Not stated,abstain,Detrimental,Increased,yes,Mouse,Mice,yes
+32377874,FN,mir-9,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+32377874,FN,mir-9,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Rat,MISSED,no
+32377874,FP,NONE,miR-9-5p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+32377874,FP,NONE,SDC1,no,NONE,Surgical,no,NONE,Increased,no,NONE,Rats,no
+32431699,FN,IL17A,MISSED,no,MIA,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+32431699,FN,IL1RN,MISSED,no,MIA,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+32431699,FP,NONE,IL-1Ra,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+32431699,FP,NONE,IL-17,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+32499111,TP,SIRT1,Sirt1,yes,Ageing,Surgical,no,Detrimental,Increased,yes,Mouse,Mice,yes
+32499111,TP,SIRT1,Sirt1,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+32550912,FN,RSK3,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+32550912,FP,NONE,RSK-3,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+32550912,FP,NONE,RSK-3,no,NONE,Spontaneous,no,NONE,Decreased,no,NONE,Mice,no
+32584470,FN,mir-877,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+32616521,TP,CCN2,Ccn2,yes,Surgical,Mechanical,no,No effect,No Change,yes,Mouse,Mice,yes
+32616521,TP,CCN2,Ccn2,yes,Surgical,Mechanical,no,No effect,No Change,yes,Mouse,Mice,yes
+32626917,TP,mir-1,miR-1,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+32693649,TP,mir-29b,miR-29b,yes,Surgical,Mechanical,no,Detrimental,Increased,yes,Mouse,Mice,yes
+32693649,TP,mir-29b,miR-29b,yes,Surgical,Mechanical,no,Protective,Decreased,yes,Mouse,Mice,yes
+32818603,FN,EXT1,MISSED,no,Ageing,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+32858189,FN,EDN1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+32858189,FN,EDNRA,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+32858189,FN,EDNRB,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+32858189,FP,NONE,ET-1,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+32858189,FP,NONE,ETBR,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+32895234,FN,RIPK3,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+32895234,FN,RIPK3,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+32895234,TP,TRIM24,Trim24,yes,Ageing,Surgical,no,Detrimental,Increased,yes,Mouse,Mice,yes
+32895234,FP,NONE,Rip3,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+32895234,FP,NONE,Rip3,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+32895234,FP,NONE,Rip3,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+32926854,TP,HDAC6,HDAC6,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+32938794,TP,ROR2,ROR2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+32940061,TP,EPAS1,Epas1,yes,Surgical,Surgical,yes,No effect,No Change,yes,Mouse,Mice,yes
+33109602,TP,mir-141/200c,miR-141/200c,yes,Surgical,Surgical,yes,Protective,Not stated,abstain,Mouse,Mice,yes
+33109602,TP,mir-141/200c,miR-141/200c,yes,Ageing,Surgical,no,Protective,Not stated,abstain,Mouse,Mice,yes
+33109602,TP,mir-141/200c,miR-141/200c,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+33109602,TP,mir-141/200c,miR-141/200c,yes,Surgical,Surgical,yes,Protective,Not stated,abstain,Mouse,Mice,yes
+33133598,FN,IL1RL1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33133598,FN,IL33,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33133598,FN,IL33,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33133598,FN,IL33,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+33133598,FN,IL33,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+33133598,FN,IL33,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33133598,FP,NONE,IL-33,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+33133598,FP,NONE,IL-33,no,NONE,Not stated,no,NONE,No Change,no,NONE,Mice,no
+33133598,FP,NONE,IL-33,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+33133598,FP,NONE,IL-33,no,NONE,Not stated,no,NONE,Increased,no,NONE,Mice,no
+33133598,FP,NONE,ST2,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+33361529,FN,PTGDS,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+33361529,FP,NONE,L-PGDS,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+33392201,FN,ITGAM,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+33392201,FP,NONE,CD11b,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+33441426,TP,EGFR,Egfr,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+33441426,TP,HBEGF,Hbegf,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+33441426,FN,TGFA,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33485930,TP,SLPI,SLPI,yes,Surgical,Surgical,yes,No effect,No Change,yes,Mouse,Mice,yes
+33499145,FP,NONE,Panx3,no,NONE,Spontaneous,no,NONE,No Change,no,NONE,Mice,no
+33499145,FP,NONE,Panx3,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+33781898,FN,TARDBP,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33781898,FP,NONE,TDP-43,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Not stated,no
+33827816,FN,PLA2G2A,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33827816,FN,PLA2G2A,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+33827816,FP,NONE,sPLA2,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+33880054,FP,NONE,JNK,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+34039624,TP,circPde4b,circPDE4B,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+34039624,TP,RIC8A,RIC8A,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+34102226,TP,mir-892b,miR-892b,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Rat,Rats,yes
+34136574,FN,CXCL12,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+34136574,FP,NONE,SDF-1,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+34176242,FN,FSHB,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+34176242,FP,NONE,FSH,no,NONE,Chemical,no,NONE,Increased,no,NONE,Mice,no
+34383111,TP,NRG4,Nrg4,yes,Surgical,Not stated,abstain,Detrimental,Increased,yes,Mouse,Mice,yes
+34463587,FN,TNFAIP3,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+34463587,FP,NONE,A20,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+34466014,FN,NFE2L2,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+34466014,FP,NONE,Nrf2,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+34506942,TP,CAMKK2,Camkk2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+34506942,TP,CAMKK2,Camkk2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+34706873,TP,METTL3,METTL3,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+34777685,TP,NLRP3,NLRP3,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Mice,yes
+34826631,FN,ADORA3,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+34826631,FP,NONE,CF101,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+34829531,FN,CYBB,MISSED,no,Protease,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+34829531,FP,NONE,Nox2,no,NONE,Chemical,no,NONE,Decreased,no,NONE,Mice,no
+34982732,FN,SPP1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+34982732,FN,SPP1,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+34982732,FP,NONE,OPN,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+34982732,FP,NONE,PI3K/AKT,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+34987154,TP,ACOT12,Acot12,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+34987154,FN,PPARG,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+34987154,FP,NONE,Ppara,no,NONE,Spontaneous,no,NONE,Increased,no,NONE,Mice,no
+35061535,FN,SEL1L,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+35061535,FN,SEL1L,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+35061535,FP,NONE,ERAD,no,NONE,Not stated,no,NONE,Increased,no,NONE,Mice,no
+35095883,TP,ADRB2,Adrb2,yes,Surgical,Surgical,yes,Detrimental,No Change,no,Mouse,Mice,yes
+35145063,FN,IKBKB,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+35148687,FN,mir-18a,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Rat,MISSED,no
+35148687,FP,NONE,miR-18a-3p,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Rats,no
+35608871,FN,SLC2A1,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+35608871,FN,SLC2A1,MISSED,no,Ageing,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+35608871,FN,SLC2A1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+35608871,FP,NONE,Glut1,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+35608871,FP,NONE,Glut1,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+35689396,TP,ALPK1,ALPK1,yes,MIA,Chemical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+35689396,TP,ALPK1,ALPK1,yes,MIA,Chemical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+36026443,TP,LIN28A,Lin28a,yes,Surgical,Not stated,abstain,Detrimental,Increased,yes,Mouse,Mice,yes
+36026443,TP,LIN28A,Lin28a,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Mice,yes
+36261443,TP,RUNX2,Runx2,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+36261443,TP,RUNX2,Runx2,yes,Surgical,Surgical,yes,Detrimental,Decreased,no,Mouse,Mice,yes
+36261443,TP,RUNX3,Runx3,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+36261443,TP,RUNX3,Runx3,yes,Ageing,Surgical,no,No effect,Increased,no,Mouse,Mice,yes
+36530063,FN,IKBKE,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+36530063,FP,NONE,IKKε,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+36753544,TP,DDAH1,DDAH1,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+36753544,TP,DDAH1,DDAH1,yes,Ageing,Spontaneous,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+36753544,TP,DDAH1,DDAH1,yes,Surgical,Spontaneous,no,Detrimental,Increased,yes,Mouse,Mice,yes
+37144868,FN,APOE,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+37144868,FN,AXL,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+37144868,FP,NONE,GAS6,no,NONE,Metabolic,no,NONE,Decreased,no,NONE,Mice,no
+37344157,FN,FOS,MISSED,no,Surgical,MISSED,no,Detrimental,MISSED,no,Mouse,MISSED,no
+37344157,FP,NONE,c-Fos,no,NONE,Surgical,no,NONE,Increased,no,NONE,Mice,no
+37344157,FP,NONE,Pdk,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+37422640,FN,PIM1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+37422640,FP,NONE,PIM-1,no,NONE,Surgical,no,NONE,Decreased,no,NONE,Mice,no
+37462629,TP,GZMA,GzmA,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+37462629,FN,PRF1,MISSED,no,Surgical,MISSED,no,No effect,MISSED,no,Mouse,MISSED,no
+37462629,FP,NONE,GzmB,no,NONE,Surgical,no,NONE,No Change,no,NONE,Mice,no
+37462629,FP,NONE,Perf,no,NONE,Surgical,no,NONE,No Change,no,NONE,Mice,no
+37542771,TP,PTX3,Ptx3,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+37648149,TP,KLF15,KLF15,yes,Surgical,Surgical,yes,Detrimental,Increased,yes,Mouse,Mice,yes
+37681413,FN,HDAC1,MISSED,no,Surgical,MISSED,no,Protective,MISSED,no,Mouse,MISSED,no
+37681413,FP,NONE,Mocetinostat,no,NONE,Not stated,no,NONE,Decreased,no,NONE,Mice,no
+38036734,TP,IGSF11,IgSF11,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes
+38389178,TP,OGT,OGT,yes,Surgical,Not stated,abstain,Protective,Decreased,yes,Mouse,Mice,yes
+38609896,TP,FTH1,FTH1,yes,Surgical,Surgical,yes,Protective,Decreased,yes,Mouse,Mice,yes

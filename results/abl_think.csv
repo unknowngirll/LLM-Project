@@ -1,0 +1,279 @@
+original,normalised,method,reasoning
+ET1,EDN1,llm,"""ET1"" is an exact synonym for EDN1, matching the gene symbol directly and aligning with the biological context of endothelin-1 in the abstract."
+XOR,XDH,llm,"""XOR"" is listed as a synonym for XDH in the NCBI database, providing an exact match."
+HDAC6,HDAC6,direct,exact symbol match
+FSH,BRD2,llm,"""FSH"" appears as a synonym in the BRD2 gene's list, matching the abstract's mention of FSH injection, and is an exact synonym match."
+Fgf2,FGF2,direct,exact symbol match
+Fgfr,Fgfr,llm_declined,"""Fgfr"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions are biologically plausible for the context of osteoarthritis research."
+Hic-5,Hic-5,llm_declined,"""Hic-5"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to a gene involved in osteoarthritis based on the abstract contex"
+Trpv4,TRPV4,direct,exact symbol match
+CF101,CF101,llm_declined,"""CF101"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to a molecule that delays OA progression, reduces inflammation, a"
+Egfr,EGFR,direct,exact symbol match
+Col2a1,COL2A1,direct,exact symbol match
+Par2,Par2,llm_declined,"""Par2"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions align with the biological context of PAR2 (proteinase-activated receptor 2) in osteoarthritis resea"
+Elane,ELANE,direct,exact symbol match
+Sirt1,SIRT1,direct,exact symbol match
+S100a9,S100A9,direct,exact symbol match
+Camkk2,CAMKK2,direct,exact symbol match
+ERAD,ERAD,llm_declined,"None of the candidate gene symbols have ""ERAD"" in their synonym lists, and ""ERAD"" is not biologically plausible for the described context of cartilage destruction in osteoarthritis."
+NCOA3,NCOA3,direct,exact symbol match
+Sox9,SOX9,direct,exact symbol match
+Sost,SOST,direct,exact symbol match
+Adrb2,ADRB2,direct,exact symbol match
+Rip3,Rip3,llm_declined,"""Rip3"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for a gene involved in osteoarthritis pathogenesis based on the ab"
+Trim24,TRIM24,direct,exact symbol match
+TGF beta,TGF beta,llm_declined,"None of the candidate gene symbols have ""TGF beta"" in their synonym lists, and ""TGF beta"" is a well-known signaling molecule not represented among the provided candidates."
+circPDE4B,circPDE4B,llm_declined,"""circPDE4B"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are circRNAs or related to cartilage matrix breakdown, which is the context of the abstract."
+C5,C5,direct,exact symbol match
+C6,C6,direct,exact symbol match
+CD59a,CD59a,llm_declined,"None of the candidate gene symbols or their synonyms match ""CD59a"", and the context of complement involvement in arthritis does not align with the functions of the listed candidates."
+Mia,MIA,direct,exact symbol match
+Mig6,Mig6,llm_declined,"""Mig6"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions are biologically relevant to osteoarthritis or cartilage biology."
+Col11a1,COL11A1,direct,exact symbol match
+ALPK1,ALPK1,direct,exact symbol match
+SDF-1,SDF-1,llm_declined,"None of the candidate gene symbols have ""SDF-1"" in their synonym lists, and none of the gene descriptions are biologically plausible matches for SDF-1, which is a chemokine involved in cell migration "
+BMP7,BMP7,direct,exact symbol match
+FGFR1,FGFR1,direct,exact symbol match
+IL1RA,IL1RN,llm,"""IL1RA"" is listed as a synonym for the gene symbol IL1RN, which is biologically relevant to interleukin-1 receptor antagonist activity described in the abstract."
+Not stated,Not stated,llm_declined,"""Not stated"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically relevant to the context of osteoarthritis or lymphatic drainage"
+Sdf1,Sdf1,llm_declined,"""Sdf1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically related to the SDF-1/CXCR4 axis mentioned in the abstract context."
+Lin28a,LIN28A,direct,exact symbol match
+PIM-1,PIM-1,llm_declined,"None of the candidate gene symbols have ""PIM-1"" in their synonym lists, and none of the gene descriptions are biologically plausible matches for a gene involved in osteoarthritis or synovium expressio"
+Dkk-1,Dkk-1,llm_declined,"None of the candidate gene symbols have ""Dkk-1"" in their synonym lists, and ""Dkk-1"" is not biologically plausible for the listed candidates based on the context of osteoarthritis research."
+CXCR4,CXCR4,direct,exact symbol match
+TGF-β,TGF-β,llm_declined,"None of the candidate gene symbols have ""TGF-β"" in their synonym lists, and none of the gene descriptions are biologically related to TGF-β signaling or osteoarthritis."
+Prg4,PRG4,direct,exact symbol match
+Rela,RELA,direct,exact symbol match
+Cd11b,Cd11b,llm_declined,"None of the candidate gene symbols have ""Cd11b"" in their synonym lists, and ""Cd11b"" is a known integrin subunit (ITGB2) not represented among the provided candidates."
+ZCCHC6,TUT7,llm,"""ZCCHC6"" appears as a synonym in the TUT7 gene's list, providing an exact match."
+LOX1,OLR1,llm,"""LOX1"" is explicitly listed as a synonym for OLR1, matching exactly and confirming the correct gene symbol."
+Il17,Il17,llm_declined,"""Il17"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for IL-17 based on the abstract context."
+Alk5,Alk5,llm_declined,"""Alk5"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for a gene involved in osteoarthritis or cartilage degradation."
+Hspg2,HSPG2,direct,exact symbol match
+Itgbl1,ITGBL1,direct,exact symbol match
+NCAM,NCAM1,llm,"""NCAM"" appears as a synonym in the NCAM1 entry, providing an exact match, and the context of chondrocyte hypertrophy in osteoarthritis aligns with NCAM1's known biological functions in cell adhesion a"
+METTL3,METTL3,direct,exact symbol match
+NF-κB,NF-κB,llm_declined,"None of the candidate gene symbols have ""NF-κB"" in their synonym lists, and none of the gene descriptions are biologically related to NF-κB, a transcription factor involved in inflammation and immune "
+Dnmt3b,DNMT3B,direct,exact symbol match
+Tnnc1,TNNC1,direct,exact symbol match
+Cry2,CRY2,direct,exact symbol match
+Cry1,CRY1,direct,exact symbol match
+Klf15,KLF15,direct,exact symbol match
+Ob-Rb,Ob-Rb,llm_declined,"""Ob-Rb"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions suggest a biological connection to osteoarthritis or the context provided."
+Nrf2,Nrf2,llm_declined,"None of the candidate gene symbols have ""Nrf2"" in their synonym lists, and ""Nrf2"" is a well-known transcription factor involved in oxidative stress response, which is not biologically plausible for an"
+KLF4,KLF4,direct,exact symbol match
+Wnt7a,WNT7A,direct,exact symbol match
+TNC,TNC,direct,exact symbol match
+GAS6,GAS6,direct,exact symbol match
+Esrrg,ESRRG,direct,exact symbol match
+FTH1,FTH1,direct,exact symbol match
+IKKε,IKKε,llm_declined,"""IKKε"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to the context of osteoarthritis research."
+GlcN.HCl,GlcN.HCl,llm_declined,"""GlcN.HCl"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically related to glucosamine hydrochloride, which is a common supplement used in osteo"
+MucoP,MucoP,llm_declined,"""MucoP"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the context of MucoP treatment in osteoarthritis research."
+L-PGDS,PTGDS,llm,"""L-PGDS"" is explicitly listed as a synonym for PTGDS, matching the gene name directly and exactly."
+Smo,SMO,direct,exact symbol match
+OGT,OGT,direct,exact symbol match
+PLA2,PLA2G2A,llm,"""PLA2"" appears as a synonym in the synonym list of PLA2G2A, and the abstract context involves sPLA2, which is directly related to the gene product of PLA2G2A."
+SOD2,SOD2,direct,exact symbol match
+JNK,MAPK8,llm,"""JNK"" appears as a synonym in the MAPK8 gene's list, and it is biologically relevant to the context of apoptosis and signaling pathways mentioned in the abstract."
+MIF,MIF,direct,exact symbol match
+Hyal2,HYAL2,direct,exact symbol match
+Atrx,ATRX,direct,exact symbol match
+Wwp2,WWP2,direct,exact symbol match
+Hyal1,HYAL1,direct,exact symbol match
+Foxo1,FOXO1,direct,exact symbol match
+Foxo3,FOXO3,direct,exact symbol match
+Foxo4,FOXO4,direct,exact symbol match
+Vhl,VHL,direct,exact symbol match
+Runx1,RUNX1,direct,exact symbol match
+c-Fos,c-Fos,llm_declined,"""c-Fos"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to the context of cartilage destruction in osteoarthritis."
+Ctnnb1,CTNNB1,direct,exact symbol match
+Opg,Opg,llm_declined,"""Opg"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for a gene involved in osteoarthritis or bone remodeling."
+Akt1,AKT1,direct,exact symbol match
+CDK9,CDK9,direct,exact symbol match
+WNT16,WNT16,direct,exact symbol match
+Ccl2,CCL2,direct,exact symbol match
+Ccr2,CCR2,direct,exact symbol match
+Col9a1,COL9A1,direct,exact symbol match
+Lum,LUM,direct,exact symbol match
+Fmod,FMOD,direct,exact symbol match
+miR-141/200c,miR-141/200c,llm_declined,"None of the candidate gene symbols or synonyms match ""miR-141/200c"", which is a microRNA, not a protein-coding gene or non-coding RNA listed among the candidates."
+A2M,A2M,direct,exact symbol match
+GSK3,GSK3,llm_declined,"None of the candidate gene symbols have ""GSK3"" in their synonym lists, and ""GSK3"" is not biologically plausible for the described context of osteoarthritis research."
+Optc,OPTC,direct,exact symbol match
+Gzma,GZMA,direct,exact symbol match
+Gzmb,GZMB,direct,exact symbol match
+Perf,Perf,llm_declined,"""Perf"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions suggest a biological connection to perforin or osteoarthritis."
+Il4,IL4,direct,exact symbol match
+Ccr7,CCR7,direct,exact symbol match
+Smad3,SMAD3,direct,exact symbol match
+A20,TNFAIP3,llm,"""A20"" is explicitly listed as a synonym for TNFAIP3, matching exactly and directly."
+SLPI,SLPI,direct,exact symbol match
+Il6,IL6,direct,exact symbol match
+Dcn,DCN,direct,exact symbol match
+IgSF11,IGSF11,direct,exact symbol match
+NLRP3,NLRP3,direct,exact symbol match
+Ptch1,PTCH1,direct,exact symbol match
+DOT1L,DOT1L,direct,exact symbol match
+Ptx3,PTX3,direct,exact symbol match
+Ccn2,CCN2,direct,exact symbol match
+TGF-β1,TGF-β1,llm_declined,"None of the candidate gene symbols or their synonyms include ""TGF-β1"", and the context does not suggest any of the listed genes are related to TGF-β1, a known growth factor involved in cartilage biolo"
+Epas1,EPAS1,direct,exact symbol match
+ROR2,ROR2,direct,exact symbol match
+Col6a1,COL6A1,direct,exact symbol match
+PCAF,KAT2B,llm,"""PCAF"" is explicitly listed as a synonym for KAT2B, matching the gene name directly and exactly."
+RSK3,RPS6KA2,llm,"""RSK3"" is explicitly listed as a synonym for RPS6KA2, matching exactly and directly."
+Cxcr2,CXCR2,direct,exact symbol match
+Irf4,IRF4,direct,exact symbol match
+Ccl17,CCL17,direct,exact symbol match
+Ccr4,CCR4,direct,exact symbol match
+Tnf,TNF,direct,exact symbol match
+Gmcsf,Gmcsf,llm_declined,"None of the candidate gene symbols or their synonyms match ""Gmcsf"" case-insensitively, and the context does not suggest any of these genes are related to the GM-CSF pathway."
+Panx3,PANX3,direct,exact symbol match
+P38,AIMP2,llm,"""P38"" is explicitly listed as a synonym for AIMP2, matching exactly and directly."
+OPN,SPP1,llm,"""OPN"" is listed as a synonym for SPP1, which directly matches the gene name in the abstract and is the most accurate and exact match."
+Fgf18,FGF18,direct,exact symbol match
+Gsk3β,Gsk3β,llm_declined,"None of the candidate gene symbols have ""Gsk3β"" in their synonym lists, and none of the gene descriptions are biologically plausible matches for Gsk3β, which is a known kinase involved in Wnt/β-cateni"
+Ctsk,CTSK,direct,exact symbol match
+Nrg4,NRG4,direct,exact symbol match
+Acot12,ACOT12,direct,exact symbol match
+ApoE,APOE,direct,exact symbol match
+p21,TCEAL1,llm,"""p21"" is explicitly listed as a synonym for TCEAL1, matching exactly and directly."
+TDP-43,TARDBP,llm,"""TDP-43"" is an exact synonym listed for the gene with symbol TARDBP, matching the gene name directly from the abstract."
+Pkcδ,Pkcδ,llm_declined,"None of the candidate gene symbols have ""Pkcδ"" in their synonym lists, and none of the gene functions align with the context of PKCδ in osteoarthritis research."
+Tg^cog,Tg^cog,llm_declined,"""Tg^cog"" does not match any of the candidate gene symbols or their synonyms, and there is no biological context in the abstract that suggests a match to any of the listed genes."
+Atf6α,Atf6α,llm_declined,"""Atf6α"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to a gene involved in ER function or osteoarthritis based on the "
+Nox2,Nox2,llm_declined,"""Nox2"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for the context of macrophage function in osteoarthritis."
+Ccl5,CCL5,direct,exact symbol match
+Ccr5,CCR5,direct,exact symbol match
+Flt1,FLT1,direct,exact symbol match
+Bmp4,BMP4,direct,exact symbol match
+Glut1,Glut1,llm_declined,"""Glut1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to a glucose transporter gene based on the abstract context."
+MMP13,MMP13,direct,exact symbol match
+TFEB,TFEB,direct,exact symbol match
+TNKS,TNKS,direct,exact symbol match
+Runx3,RUNX3,direct,exact symbol match
+Runx2,RUNX2,direct,exact symbol match
+Pdgfb,PDGFB,direct,exact symbol match
+Timp3,TIMP3,direct,exact symbol match
+Il33,IL33,direct,exact symbol match
+Ihh,IHH,direct,exact symbol match
+Adamts5,ADAMTS5,direct,exact symbol match
+Matn1,MATN1,direct,exact symbol match
+ADAMTS4,ADAMTS4,direct,exact symbol match
+PAR-1,F2R,llm,"""PAR-1"" is explicitly listed as a synonym for F2R, matching exactly and directly."
+PAR-2,PAR-2,llm_declined,"None of the candidate gene symbols or synonyms match ""PAR-2"" case-insensitively or punctuation-insensitively, and no candidate is biologically plausible for the context of osteoarthritis research."
+HBEGF,HBEGF,direct,exact symbol match
+Axin1,AXIN1,direct,exact symbol match
+Ddah1,DDAH1,direct,exact symbol match
+mTORC1,mTORC1,llm_declined,"None of the candidate gene symbols or their synonyms match ""mTORC1"" exactly or contextually, and the abstract context does not suggest a plausible biological link to any of the listed candidates."
+ET-1,ET-1,llm_declined,"""ET-1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches for the context of osteoarthritis and endothelin-1 signaling."
+ETBR,EDNRB,llm,"""ETBR"" is explicitly listed as a synonym for EDNRB, matching the gene symbol directly and exactly."
+Hyp,Hyp,llm_declined,"""Hyp"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the context of ""Hyp mice"" in the abstract."
+Autophagy,Autophagy,llm_declined,"None of the candidate gene symbols have ""Autophagy"" in their synonym lists, and none of the gene descriptions or functions are biologically plausible for autophagy."
+SDC1,SDC1,direct,exact symbol match
+Adenosine A3 receptor,Adenosine A3 receptor,llm_declined,"None of the candidate gene symbols have ""Adenosine A3 receptor"" in their synonym list, and the context does not suggest a match for this gene."
+TNF-alpha,TNF,llm,"""TNF-alpha"" is explicitly listed as a synonym for the gene symbol TNF, matching exactly and directly."
+Sclerostin,Sclerostin,llm_declined,"""Sclerostin"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the biological context of sclerostin, which is a protein involved in "
+Ascorbic acid,Ascorbic acid,llm_declined,"""Ascorbic acid"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically plausible for ascorbic acid."
+RAGE,AGER,llm,"""RAGE"" appears as a synonym in the AGER gene's list, making it an exact match."
+S-DCs,S-DCs,llm_declined,"""S-DCs"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions suggest a biological role consistent with the context of osteoarthritis or cell-based therapy."
+RIC8A,RIC8A,direct,exact symbol match
+MIA/CD-RAP,MIA/CD-RAP,llm_declined,"None of the candidate gene symbols or synonyms match ""MIA/CD-RAP"" case-insensitively or punctuation-insensitively, and the context does not suggest a plausible match."
+Bone morphogenic protein-7,Bone morphogenic protein-7,llm_declined,"None of the candidate gene symbols have ""Bone morphogenic protein-7"" in their synonym list, and no candidate gene is directly related to bone morphogenic protein-7 based on the provided descriptions."
+Nell-1,Nell-1,llm_declined,"None of the candidate gene symbols or their synonyms match ""Nell-1"" case-insensitively or punctuation-insensitively."
+VEGFR3,FLT4,llm,"""VEGFR3"" is an exact synonym listed for FLT4, matching the gene symbol directly and confirming biological relevance through the context of lymphangiogenesis and VEGF signaling."
+Bortezomib,Bortezomib,llm_declined,"""Bortezomib"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically related to the drug Bortezomib, which is a proteasome inhibitor used in cancer"
+HMGA2,HMGA2,direct,exact symbol match
+LOX-1,LOX-1,llm_declined,"""LOX-1"" does not appear as a synonym or official symbol for any of the listed candidate genes, and none of the gene descriptions suggest a biological connection to LOX-1."
+IL-17,IL17A,llm,"""IL-17"" is an exact synonym for ""IL17A"" as listed in the candidate gene's synonyms, and it is biologically relevant to the context of inflammation and immune response described in the abstract."
+IL-1Ra,IL6R,llm,"""IL-1Ra"" appears as a synonym in the IL6R gene's list, indicating it is an exact match."
+TN-C,TNC,llm,"""TN-C"" is an exact synonym for the gene symbol TNC, which encodes tenascin C, a protein relevant to extracellular matrix and cartilage biology, aligning with the context of osteoarthritis research."
+Mocetinostat,Mocetinostat,llm_declined,"""Mocetinostat"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically plausible for a drug used in osteoarthritis research."
+Lactobacillus rhamnosus,Lactobacillus rhamnosus,llm_declined,"""Lactobacillus rhamnosus"" is a bacterial species, not a gene, and none of the candidate gene symbols or synonyms match this name."
+sPLA2,PLA2G2A,llm,"""sPLA2"" is explicitly listed as a synonym for PLA2G2A, matching exactly and confirming the gene symbol."
+H2,RLN2,llm,"""H2"" appears as a synonym in the RLN2 gene's list, matching the abstract's mention of hydrogen (H2) in the context of OA research."
+Mig-6,Mig-6,llm_declined,"None of the candidate gene symbols have ""Mig-6"" in their synonym lists, and the context does not align with any of the provided gene functions."
+Diacerein-thymol prodrug,Diacerein-thymol prodrug,llm_declined,"""Diacerein-thymol prodrug"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically plausible matches for a prodrug used in osteoarth"
+Pdk,Pdk,llm_declined,"None of the candidate gene symbols have ""Pdk"" in their synonym lists, and ""Pdk"" is not biologically plausible for any of the listed genes based on the abstract context."
+β-catenin,β-catenin,llm_declined,"None of the candidate gene symbols have ""β-catenin"" in their synonym lists, and none are biologically plausible for cartilage degeneration in osteoarthritis research."
+Mast cells,SPACA9,llm,"""Mast"" appears in the synonym list of SPACA9, matching the abstract's mention of ""Mast cells,"" and is a direct synonym."
+Syk,SYK,direct,exact symbol match
+GSK-3,GSK-3,llm_declined,"None of the candidate gene symbols have ""GSK-3"" in their synonym lists, and none of the gene descriptions are biologically plausible matches for a GSK-3 inhibitor's effect on cartilage damage."
+IL-4,IL4,llm,"""IL-4"" is an exact synonym listed for the gene symbol IL4, matching the gene name directly from the abstract."
+Galectin-3,Galectin-3,llm_declined,"""Galectin-3"" does not appear in any of the candidate gene synonym lists, and none of the candidate gene descriptions are biologically plausible for a protein involved in knee swelling and cartilage le"
+IL-6,IL6,llm,"""IL-6"" appears as a synonym in the IL6 gene's list, matching exactly and confirming the correct gene symbol."
+Calcitonin,Calcitonin,llm_declined,"""Calcitonin"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the biological context of calcitonin in cartilage degeneration."
+Jmjd3,Jmjd3,llm_declined,"""Jmjd3"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the biological context of osteoarthritis or Jmjd3's known role in histone "
+Cox2,COX2,direct,exact symbol match
+p38 MAPK,MAPK1,llm,"""p38"" appears as a synonym for MAPK1, and this gene is biologically relevant to inflammation and joint destruction, matching the context of the abstract."
+CatK,CatK,llm_declined,"""CatK"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions are biologically plausible matches for a chondroprotective gene in osteoarthritis research."
+Ppara,PPARA,direct,exact symbol match
+Tgcog,Tgcog,llm_declined,"""Tgcog"" does not match any of the candidate gene symbols or their synonyms, and there is no biological context in the abstract that suggests a plausible match."
+Diacerein,Diacerein,llm_declined,"""Diacerein"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically plausible for Diacerein, which is a drug used in osteoarthritis "
+Vegf,Vegf,llm_declined,"None of the candidate gene symbols have ""Vegf"" in their synonym lists, and ""Vegf"" is not biologically plausible for any of the listed genes in the context of osteoarthritis research."
+Tankyrase,Tankyrase,llm_declined,"""Tankyrase"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or synonyms are biologically plausible matches for a protein involved in osteoarthritis."
+PDGF-BB,PDGF-BB,llm_declined,"None of the candidate gene symbols have ""PDGF-BB"" in their synonym lists, and ""PDGF-BB"" is not biologically plausible for any of the listed genes based on the abstract context."
+IL-33,IL-33,llm_declined,"None of the candidate gene symbols or synonyms match ""IL-33"", and the context suggests a cytokine-related gene, which is not represented among the provided candidates."
+ST2,IL1RL1,llm,"""ST2"" is explicitly listed as a synonym for IL1RL1, matching the gene name directly and exactly."
+Shikonin,Shikonin,llm_declined,"""Shikonin"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions are biologically plausible for a compound named ""Shikonin,"" which is a known herba"
+PAK2,PAK2,direct,exact symbol match
+ADAMTS-4,ADAMTS4,llm,"""ADAMTS-4"" matches exactly with the synonym ""ADAMTS-4"" in the ADAMTS4 gene's list, and the context from the abstract aligns with the biological function of this gene in osteoarthritis."
+ADAMTS-5,ADAMTS5,llm,"""ADAMTS-5"" is an exact synonym of the gene symbol ADAMTS5, matching case-insensitively and punctuation-insensitively, and is biologically relevant to the context of osteoarthritis research."
+PHOSPHO1,PHOSPHO1,direct,exact symbol match
+TORIN1,TORIN1,llm_declined,"None of the candidate gene symbols or their synonyms match ""TORIN1"" case-insensitively, and ""TORIN1"" is a known inhibitor of mTOR, which is not biologically related to any of the listed candidate gene"
+HIC5,TGFB1I1,llm,"""HIC5"" is explicitly listed as a synonym for TGFB1I1, matching the gene name in the abstract exactly."
+ADORA3,ADORA3,direct,exact symbol match
+CAMK2,CAMK2B,llm,"""CAMK2"" appears as a synonym in the CAMK2B entry, matching exactly and directly, and the context of CaMKK2 inhibition aligns with the function of CaMKII beta subunit."
+TGFβ,TGFβ,llm_declined,"""TGFβ"" does not appear in any of the candidate gene synonym lists, and none of the gene functions are biologically plausible for the context of osteoarthritis research involving ascorbic acid."
+CD59,CD59,direct,exact symbol match
+CXCL12,CXCL12,direct,exact symbol match
+NELL1,NELL1,direct,exact symbol match
+PIM1,PIM1,direct,exact symbol match
+DKK1,DKK1,direct,exact symbol match
+IL1B,IL1B,direct,exact symbol match
+ITGAM,ITGAM,direct,exact symbol match
+LOX,LOX,direct,exact symbol match
+NFKB1,NFKB1,direct,exact symbol match
+LEPR,LEPR,direct,exact symbol match
+NFE2L2,NFE2L2,direct,exact symbol match
+ESRRA,ESRRA,direct,exact symbol match
+OSM,OSM,direct,exact symbol match
+IKKE,IKBKE,llm,"""IKKE"" appears as a synonym in the IKBKE gene's list of synonyms, providing an exact match."
+GLUCOSAMINE HYDROCHLORIDE,GLUCOSAMINE HYDROCHLORIDE,llm_declined,"""GLUCOSAMINE HYDROCHLORIDE"" is not a gene symbol or synonym for any of the provided candidate genes, and it refers to a compound, not a gene."
+MUCOPOLYSACCHARIDE PROTEIN,MUCOPOLYSACCHARIDE PROTEIN,llm_declined,"""MUCOPOLYSACCHARIDE PROTEIN"" does not match any of the candidate gene synonyms, and none of the candidate genes are biologically plausible for a protein related to mucopolysaccharides."
+LPGDS,PTGDS,llm,"""LPGDS"" is listed as a synonym for PTGDS, and the context of the abstract aligns with the function of prostaglandin D2 synthase in cartilage degradation."
+PLA2G2A,PLA2G2A,direct,exact symbol match
+MST1R,MST1R,direct,exact symbol match
+WWPIP1,WWPIP1,llm_declined,"""WWPIP1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to the context of osteoarthritis research."
+CFOS,CFOS,llm_declined,"""CFOS"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to the context of cartilage destruction in osteoarthritis."
+PDK1,PDK1,direct,exact symbol match
+TNFRSF11B,TNFRSF11B,direct,exact symbol match
+FCER1,FCER1,llm_declined,"""FCER1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically relevant to mast cells or osteoarthritis based on the abstract context."
+SERPINA3,SERPINA3,direct,exact symbol match
+GAL3,LGALS3,llm,"""GAL3"" is an exact synonym listed for LGALS3, matching the gene symbol directly and confirming biological relevance through the context of gal-3-induced effects in osteoarthritis."
+TNFAIP3,TNFAIP3,direct,exact symbol match
+ALOX5,ALOX5,direct,exact symbol match
+EXT1,EXT1,direct,exact symbol match
+CALCA,CALCA,direct,exact symbol match
+RPS6KB1,RPS6KB1,direct,exact symbol match
+CSF2,CSF2,direct,exact symbol match
+JMJDC,JMJDC,llm_declined,"""JMJDC"" does not appear in any of the candidate gene synonym lists, and none of the gene descriptions or functions align with the context of osteoarthritis or the Jmjd3 gene family."
+IGF1,IGF1,direct,exact symbol match
+SPP1,SPP1,direct,exact symbol match
+GSK3B,GSK3B,direct,exact symbol match
+PPARG,PPARG,direct,exact symbol match
+CDKN1A,CDKN1A,direct,exact symbol match
+TARDBP,TARDBP,direct,exact symbol match
+PRKCD,PRKCD,direct,exact symbol match
+COLIITG,COLIITG,llm_declined,"""COLIITG"" does not match any of the candidate gene symbols or their synonyms, and there is no biological context in the abstract that suggests a match to any of the listed genes."
+ATF6,ATF6,direct,exact symbol match
+TGFβ1,TGFβ1,llm_declined,"""TGFβ1"" does not appear in any of the candidate gene synonym lists, and none of the candidate genes are biologically plausible matches to TGFβ1 based on the context of cartilage degradation and osteoa"
+LPAR1,LPAR1,direct,exact symbol match
+VEGFA,VEGFA,direct,exact symbol match
+SLC2A1,SLC2A1,direct,exact symbol match
+HIF2A,EPAS1,llm,"""HIF2A"" is explicitly listed as a synonym for EPAS1, matching exactly and confirming the correct gene symbol."
+PROKR1,PROKR1,direct,exact symbol match
+PROKR2,PROKR2,direct,exact symbol match
+TGFα,TGFα,llm_declined,"None of the candidate gene symbols have ""TGFα"" in their synonym lists, and ""TGFα"" is a well-known gene symbol for ""transforming growth factor alpha,"" which is not represented among the provided candid"
+MTOR,MTOR,direct,exact symbol match
