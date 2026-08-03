@@ -94,6 +94,13 @@ for i, ex in enumerate(ds):
     text = text_tok.decode(gen, skip_special_tokens=False)
     for sp in SPECIALS:
         text = text.replace(sp, "")
+    # Gemma 4 marks reasoning with its own channel tokens rather than
+    # <think>/</think>; rewrite them so score_v2.py can split answer from
+    # reasoning. No-op for models that do not emit these markers.
+    if "<|channel>thought" in text or "<channel|>" in text:
+        text = text.replace("<|channel>thought", "<think>")
+        text = text.replace("<channel|>", "</think>")
+        text = text.replace("<turn|>", "").replace("<|turn>", "")
     text = text.strip()
 
     with open(out_path, "w", encoding="utf-8") as f:

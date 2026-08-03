@@ -11,22 +11,27 @@ import os, re, sys, csv, glob, subprocess, argparse
 
 # (label, params_B, mode, prompt, results subpath)
 RUNS = [
-    ("Qwen3.5-4B",     4,  "Instruct", "v3", "nothink_35/Qwen3.5-4B"),
-    ("Qwen3-8B",       8,  "Instruct", "v3", "nothink_8b/Qwen3-8B"),
-    ("Llama-3.1-8B",   8,  "Instruct", "v3", "llama31_v3/Llama-3.1-8B-Instruct"),
-    ("Magistral-Small",24, "Instruct", "v3", "magistral_v3_new/Magistral-Small-2509"),
-    ("Qwen3.6-27B",    27, "Instruct", "v3", "qwen36_v3/Qwen3.6-27B"),
-    ("Qwen3-8B",       8,  "Thinking", "v3", "simple_8b/Qwen3-8B"),
-    ("Qwen3.6-27B",    27, "Thinking", "v3", "simple_36/Qwen3.6-27B"),
-    ("Qwen3-8B",       8,  "Thinking", "v5", "v5_think_8b/Qwen3-8B"),
-    # add when the run finishes:
-    # ("Magistral-Small", 24, "Thinking", "v5", "magi_think_v5/Magistral-Small-2509"),
+    # (label, params_B, mode, prompt, results subpath)
+    ("Qwen3.5-4B",     4,  "Instruct", "v3",     "nothink_35/Qwen3.5-4B"),
+    ("Qwen3-8B",       8,  "Instruct", "v3",     "nothink_8b/Qwen3-8B"),
+    ("Llama-3.1-8B",   8,  "Instruct", "v3",     "llama31_v3/Llama-3.1-8B-Instruct"),
+    ("Magistral",     24,  "Instruct", "v3",     "magistral_v3_new/Magistral-Small-2509"),
+    ("Qwen3.6-27B",   27,  "Instruct", "v3",     "qwen36_v3/Qwen3.6-27B"),
+    ("Qwen3-8B",       8,  "Thinking", "v3",     "simple_8b/Qwen3-8B"),
+    ("Qwen3.6-27B",   27,  "Thinking", "v3",     "simple_36/Qwen3.6-27B"),
+    ("Qwen3-8B",       8,  "Thinking", "v5",     "v5_think_8b/Qwen3-8B"),
+    ("Magistral",     24,  "Thinking", "v5",     "magi_think_v5/Magistral-Small-2509"),
+    ("Qwen3-8B",       8,  "Thinking", "v6lite", "q8b_think_v6lite/Qwen3-8B"),
+    ("Magistral",     24,  "Thinking", "v6",     "magi_think_v6/Magistral-Small-2509"),
+    ("Gemma-4-12B",   12,  "Thinking", "v6",     "gemma4_v6/gemma-4-12B-it"),
 ]
 
 NORMS = [
-    ("none",  "results",       "data/gold_answers.jsonl"),
-    ("hgnc",  "results_norm",  "data/gold_answers_norm.jsonl"),
-    ("jamie", "results_jamie", "data/gold_answers.jsonl"),
+    ("none",    "results",             "data/gold_answers.jsonl"),
+    ("jamie",   "results_jamie",       "data/gold_answers.jsonl"),
+    ("hgnc",    "results_norm",        "data/gold_answers_norm.jsonl"),
+    # cascade output sits one level deeper (it was run over results_norm/)
+    ("cascade", "results_cascade_all", "data/gold_answers_norm.jsonl"),
 ]
 
 ap = argparse.ArgumentParser()
@@ -59,7 +64,11 @@ def score(pred_dir, gold):
 rows = []
 for label, params, mode, prompt, sub in RUNS:
     for norm, root, gold in NORMS:
-        d = os.path.join(root, sub)
+        if norm == "cascade":
+            hits = glob.glob(os.path.join(root, "**", sub), recursive=True)
+            d = hits[0] if hits else os.path.join(root, sub)
+        else:
+            d = os.path.join(root, sub)
         s = score(d, gold)
         if s is None:
             print(f"  missing: {d}  [{norm}]", flush=True)

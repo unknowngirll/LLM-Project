@@ -42,3 +42,4 @@ data/split_dataset/
 
 # backups
 *.bak
+py311_gemma/

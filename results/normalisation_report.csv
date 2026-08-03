@@ -1,11 +1,34 @@
 dir,change,count
-results/magi_think_v5/Magistral-Small-2509,RIP3 -> RIPK3,2
-results/magi_think_v5/Magistral-Small-2509,MIG6 -> ERRFI1,2
-results/magi_think_v5/Magistral-Small-2509,ZCCHC6 -> TUT7,1
-results/magi_think_v5/Magistral-Small-2509,TNNC -> TNNC1,1
-results/magi_think_v5/Magistral-Small-2509,TGC -> TGM2,1
-results/magi_think_v5/Magistral-Small-2509,LPA1 -> LPAR1,2
-results/magi_think_v5/Magistral-Small-2509,Chondroitin sulfate -> CHONDROITINSULFATE,2
-results/magi_think_v5/Magistral-Small-2509,glucosamine sulfate -> GLUCOSAMINESULFATE,1
-results/magi_think_v5/Magistral-Small-2509,glucosamine hydrochloride -> GLUCOSAMINEHYDROCHLORIDE,1
-results/magi_think_v5/Magistral-Small-2509,IL1F9 -> IL36G,3
+results/gemma4_v6/gemma-4-12B-it,ET1 -> EDN1,1
+results/gemma4_v6/gemma-4-12B-it,XOR -> XDH,1
+results/gemma4_v6/gemma-4-12B-it,HIC5 -> TGFB1I1,1
+results/gemma4_v6/gemma-4-12B-it,P38ALPHA -> MAPK14,1
+results/gemma4_v6/gemma-4-12B-it,P53 -> TP53,1
+results/gemma4_v6/gemma-4-12B-it,RIP3 -> RIPK3,2
+results/gemma4_v6/gemma-4-12B-it,MIG6 -> ERRFI1,3
+results/gemma4_v6/gemma-4-12B-it,IL1R -> IL1R1,1
+results/gemma4_v6/gemma-4-12B-it,VEGFR3 -> FLT4,1
+results/gemma4_v6/gemma-4-12B-it,CD11B -> ITGAM,1
+results/gemma4_v6/gemma-4-12B-it,ZCCHC6 -> TUT7,1
+results/gemma4_v6/gemma-4-12B-it,LOX1 -> OLR1,1
+results/gemma4_v6/gemma-4-12B-it,IL17 -> IL17A,1
+results/gemma4_v6/gemma-4-12B-it,ALK5 -> TGFBR1,1
+results/gemma4_v6/gemma-4-12B-it,NCAM -> NCAM1,1
+results/gemma4_v6/gemma-4-12B-it,NFKB -> NFKB1,1
+results/gemma4_v6/gemma-4-12B-it,ERRG -> ESRRG,2
+results/gemma4_v6/gemma-4-12B-it,TNFA -> TNF,1
+results/gemma4_v6/gemma-4-12B-it,IKKE -> IKBKE,1
+results/gemma4_v6/gemma-4-12B-it,LPGDS -> PTGDS,1
+results/gemma4_v6/gemma-4-12B-it,BCATENIN -> CTNNB1,1
+results/gemma4_v6/gemma-4-12B-it,PERF -> FABP9,1
+results/gemma4_v6/gemma-4-12B-it,PCAF -> KAT2B,1
+results/gemma4_v6/gemma-4-12B-it,RSK3 -> RPS6KA2,2
+results/gemma4_v6/gemma-4-12B-it,GMCSF -> CSF2,1
+results/gemma4_v6/gemma-4-12B-it,JMJD3 -> KDM6B,1
+results/gemma4_v6/gemma-4-12B-it,P38A -> MAPK14,1
+results/gemma4_v6/gemma-4-12B-it,P38B -> MAPK11,1
+results/gemma4_v6/gemma-4-12B-it,OPN -> SPP1,1
+results/gemma4_v6/gemma-4-12B-it,TDP43 -> TARDBP,1
+results/gemma4_v6/gemma-4-12B-it,ATF6A -> ATF6,1
+results/gemma4_v6/gemma-4-12B-it,NOX2 -> CYBB,1
+results/gemma4_v6/gemma-4-12B-it,GLUT1 -> SLC2A1,2

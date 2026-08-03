@@ -30,8 +30,7 @@ for r in rows:
         r[k] = float(r[k]) if r[k] not in ("", "-", None) else float("nan")
     for k in ("TP","FP","FN","TN","params","fail"):
         r[k] = int(r[k])
-    r["key"] = (f"{r['model']} {r['params']}B \u2013 "
-                f"{r['mode']}{'*' if r['prompt']=='v5' else ''}")
+    r["key"] = f"{r['model']} ({r['mode'][:4]}, {r['prompt']})"
 
 main = [r for r in rows if r["norm"] == a.norm]
 main.sort(key=lambda r: r["F1"])

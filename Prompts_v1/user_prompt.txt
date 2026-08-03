@@ -1,0 +1,99 @@
+=====================================================================
+EXAMPLE 1 - Genetic Perturbation + Surgical OA Induction
+=====================================================================
+INPUT ABSTRACT:
+"Aggrecanase-2 (ADAMTS5) is the primary aggrecanase in mouse cartilage.
+To determine its role in osteoarthritis (OA), we induced OA in wild-type
+and Adamts5 knockout (Adamts5-/-) mice by surgical destabilization of
+the medial meniscus (DMM). Adamts5-/- mice showed significantly reduced
+cartilage destruction compared to wild-type mice."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "Adamts5",
+      "manipulation_type": "Global KO",
+      "genetic_detail": "Not stated",
+      "drug_detail": "N/A",
+      "animal_species": "Mice",
+      "tissue_specificity": "Whole body",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "evidence_snippet": "Adamts5-/- mice showed significantly reduced cartilage destruction compared to wild-type mice."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 2 - Pharmacological Perturbation + Spontaneous OA Induction
+=====================================================================
+INPUT ABSTRACT:
+"Cathepsin K inhibition reduces CTXII levels and joint pain in the
+guinea pig model of spontaneous osteoarthritis. Prolonged administration
+of the cathepsin K inhibitor AZ12606133 via an osmotic pump significantly
+reduced mechanosensitivity and cartilage turnover."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "CTSK",
+      "manipulation_type": "Pharmacological",
+      "genetic_detail": "N/A",
+      "drug_detail": "AZ12606133, osmotic pump, duration not stated",
+      "animal_species": "Guinea Pigs",
+      "tissue_specificity": "Joint",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Decreased",
+      "evidence_snippet": "significantly reduced mechanosensitivity and cartilage turnover."
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 3 - REJECT: In Vitro / Human Study Only
+=====================================================================
+INPUT ABSTRACT:
+"Osteoarthritis is characterized by cartilage degradation. We
+investigated the role of miR-140 in primary human chondrocytes. Cells
+were treated with IL-1b in vitro. Transfection with miR-140 mimics
+decreased MMP13 expression."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+
+=====================================================================
+EXAMPLE 4 - Pharmacological Rescue + Surgical OA Induction
+=====================================================================
+INPUT ABSTRACT:
+"mTOR activation represents an essential pathogenic mechanism in OA. We
+subjected C57BL/6 mice to DMM surgery. Intra-articular injection of
+rapamycin, a specific mTOR inhibitor, significantly reduced the severity
+of cartilage degradation and synovial inflammation."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "MTOR",
+      "manipulation_type": "Pharmacological",
+      "genetic_detail": "N/A",
+      "drug_detail": "Rapamycin, intra-articular injection, dose not stated",
+      "animal_species": "Mice",
+      "tissue_specificity": "Joint",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "evidence_snippet": "rapamycin significantly reduced the severity of cartilage degradation and synovial inflammation."
+    }
+  ]
+}
+
+=====================================================================
+NOW EXTRACT DATA FROM THE FOLLOWING ABSTRACT:
+Do not include explanations.
+=====================================================================
+{abstract}
