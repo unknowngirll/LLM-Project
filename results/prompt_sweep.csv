@@ -1,0 +1,15 @@
+mode,version,F1_raw,F1_hgnc,rejected
+instruct,v1,0.443,0.681,89
+instruct,v2,0.469,0.634,116
+instruct,v3,0.518,0.692,100
+instruct,v4,0.51,0.683,93
+instruct,v5,0.643,0.736,70
+instruct,v6lite,0.481,0.543,178
+instruct,v6full,0.565,0.709,116
+thinking,v1,0.517,0.711,67
+thinking,v2,0.544,0.737,89
+thinking,v3,0.598,0.761,93
+thinking,v4,0.595,0.756,99
+thinking,v5,0.677,0.753,75
+thinking,v6lite,0.625,0.739,106
+thinking,v6full,0.642,0.76,108

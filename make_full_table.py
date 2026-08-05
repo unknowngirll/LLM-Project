@@ -11,20 +11,45 @@ from pathlib import Path
 
 # (model, params_B, mode, prompt, results subpath)
 RUNS = [
+    # (model, params_B, mode, prompt, results subpath)
+    # --- early runs on the 175-paper positives-only set ---
     ("Qwen3-4B-Instruct", 4,  "Instruct", "v2",     "dev/Qwen3-4B-Instruct-2507"),
     ("Qwen3-4B-Thinking", 4,  "Thinking", "v2",     "dev/Qwen3-4B-Thinking-2507"),
+
+    # --- single-prompt benchmark runs ---
     ("Qwen3.5-4B",        4,  "Instruct", "v3",     "nothink_35/Qwen3.5-4B"),
-    ("Qwen3-8B",          8,  "Instruct", "v3",     "nothink_8b/Qwen3-8B"),
-    ("Qwen3-8B",          8,  "Thinking", "v3",     "simple_8b/Qwen3-8B"),
-    ("Qwen3-8B",          8,  "Thinking", "v5",     "v5_think_8b/Qwen3-8B"),
-    ("Qwen3-8B",          8,  "Thinking", "v6lite", "q8b_think_v6lite/Qwen3-8B"),
+    ("Llama-3.1-8B",      8,  "Instruct", "v3",     "llama31_v3/Llama-3.1-8B-Instruct"),
     ("Qwen3.6-27B",      27,  "Instruct", "v3",     "qwen36_v3/Qwen3.6-27B"),
     ("Qwen3.6-27B",      27,  "Thinking", "v3",     "simple_36/Qwen3.6-27B"),
-    ("Llama-3.1-8B",      8,  "Instruct", "v3",     "llama31_v3/Llama-3.1-8B-Instruct"),
-    ("Gemma-4-12B",      12,  "Thinking", "v6",     "gemma4_v6/gemma-4-12B-it"),
+    ("Gemma-4-12B",      12,  "Thinking", "v6full", "gemma4_v6/gemma-4-12B-it"),
+
+    # --- Qwen3-8B, instruct, full prompt sweep ---
+    ("Qwen3-8B",          8,  "Instruct", "v1",     "psweep_v1/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v2",     "psweep_v2/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v3",     "psweep_v3/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v4",     "psweep_v4/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v5",     "psweep_v5/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v6lite", "psweep_v6lite/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Instruct", "v6full", "psweep_v6full/Qwen3-8B"),
+
+    # --- Qwen3-8B, thinking, full prompt sweep ---
+    ("Qwen3-8B",          8,  "Thinking", "v1",     "qthink_v1/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v2",     "qthink_v2/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v3",     "simple_8b/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v4",     "qthink_v4/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v5",     "v5_think_8b/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v6lite", "q8b_think_v6lite/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v6full", "q8b_think_v6full/Qwen3-8B"),
+
+    # --- Magistral-Small ---
     ("Magistral-Small",  24,  "Instruct", "v3",     "magistral_v3_new/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v1",     "magi_think_v1/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v2",     "magi_think_v2/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v3",     "magi_think_v3/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v4",     "magi_think_v4/Magistral-Small-2509"),
     ("Magistral-Small",  24,  "Thinking", "v5",     "magi_think_v5/Magistral-Small-2509"),
-    ("Magistral-Small",  24,  "Thinking", "v6",     "magi_think_v6/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v6lite", "magi_think_v6lite/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v6full", "magi_think_v6/Magistral-Small-2509"),
 ]
 
 NORMS = [

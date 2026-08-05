@@ -1,0 +1,11 @@
+tier,genes,correct,precision
+all_three,148,130,0.878
+two_of_three,56,35,0.625
+one_only,66,18,0.273
+
+config,F1,P,R,FP
+Magistral,0.796,0.787,0.806,46
+Qwen3-8B,0.739,0.776,0.706,43
+Gemma-4,0.745,0.742,0.749,55
+2 of 3,0.795,0.809,0.782,39
+3 of 3,0.721,0.878,0.611,18
