@@ -66,7 +66,7 @@ for key, col, lab in (("F1_instruct", C_I, "Instruct"),
     ax.plot(x, ys, "-o", color=col, lw=2.4, ms=8, label=lab)
     for i, y in enumerate(ys):
         if y is not None:
-            ax.annotate(f"{y:.3f}", (i, y), fontsize=7.5, ha="center", color=col,
+            ax.annotate(f"{y:.3f}", (i, y), fontsize=7.5, ha="center", color="black",
                         xytext=(0, 9 if key == "F1_thinking" else -15),
                         textcoords="offset points")
 
