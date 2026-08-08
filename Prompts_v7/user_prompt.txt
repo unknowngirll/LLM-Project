@@ -1,0 +1,334 @@
+=====================================================================
+EXAMPLE 1 - Genetic loss-of-function + Surgical  (confident symbol)
+=====================================================================
+INPUT ABSTRACT:
+"Aggrecanase-2 (ADAMTS5) is the primary aggrecanase in mouse cartilage.
+We induced OA in wild-type and Adamts5 knockout (Adamts5-/-) mice by
+surgical destabilization of the medial meniscus (DMM). Adamts5-/- mice
+showed significantly reduced cartilage destruction compared to wild-type."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "ADAMTS5",
+      "target_raw": "Adamts5",
+      "target_is_official_symbol": true,
+      "manipulation": "Global KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body",
+      "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Adamts5-/- mice showed significantly reduced cartilage destruction compared to wild-type"
+    }
+  ]
+}
+NOTE: "Adamts5" -> "ADAMTS5" is CLEANING, not mapping. Uppercasing the
+abstract's own symbol is always correct and always certain.
+
+=====================================================================
+EXAMPLE 2 - CLEAN THE ALIAS, DO NOT GUESS A SYMBOL FOR IT
+=====================================================================
+INPUT ABSTRACT:
+"Chondrocyte-specific deletion of Alk5 using Col2a1-CreERT2 mice
+accelerated cartilage degeneration with age. Separately, blockade of
+PAR2 with a neutralising antibody protected mice after DMM surgery."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "ALK5",
+      "target_raw": "Alk5",
+      "target_is_official_symbol": false,
+      "manipulation": "Conditional KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Ageing",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes",
+      "drug_detail": "N/A",
+      "genetic_detail": "Col2a1-CreERT2",
+      "evidence_snippet": "Chondrocyte-specific deletion of Alk5 using Col2a1-CreERT2 mice accelerated cartilage degeneration with age"
+    },
+    {
+      "observation_number": 2,
+      "target": "PAR2",
+      "target_raw": "PAR2",
+      "target_is_official_symbol": false,
+      "manipulation": "Pharmacological",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Not stated",
+      "drug_detail": "neutralising antibody, dose not stated",
+      "genetic_detail": "N/A",
+      "evidence_snippet": "blockade of PAR2 with a neutralising antibody protected mice after DMM surgery"
+    }
+  ]
+}
+NOTE: both targets are aliases, and both are emitted CLEANED, not
+translated - "ALK5" and "PAR2", each with the flag false. The
+downstream table resolves them. Guessing an activin-receptor symbol
+for Alk5, or the wrong protease-activated receptor for PAR2, destroys
+the record; the digit "2" in PAR2 identifies which sibling is meant,
+so it is carried through unchanged.
+
+=====================================================================
+EXAMPLE 3 - ONE OBSERVATION PER (GENE x MODEL) - THE COMMON MISS
+=====================================================================
+INPUT ABSTRACT:
+"Cartilage-specific deletion of FoxO1 and FoxO3 in adult mice led to
+spontaneous cartilage degradation and increased OA severity in a
+surgical model and after treadmill running."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "FOXO1", "target_raw": "FoxO1",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Ageing",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "deletion of FoxO1 and FoxO3 in adult mice led to spontaneous cartilage degradation"
+    },
+    {
+      "observation_number": 2,
+      "target": "FOXO1", "target_raw": "FoxO1",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Surgical",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "increased OA severity in a surgical model"
+    },
+    {
+      "observation_number": 3,
+      "target": "FOXO1", "target_raw": "FoxO1",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Exercise",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "increased OA severity ... after treadmill running"
+    },
+    {
+      "observation_number": 4,
+      "target": "FOXO3", "target_raw": "FoxO3",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Ageing",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "deletion of FoxO1 and FoxO3 in adult mice led to spontaneous cartilage degradation"
+    },
+    {
+      "observation_number": 5,
+      "target": "FOXO3", "target_raw": "FoxO3",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Surgical",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "increased OA severity in a surgical model"
+    },
+    {
+      "observation_number": 6,
+      "target": "FOXO3", "target_raw": "FoxO3",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Exercise",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "increased OA severity ... after treadmill running"
+    }
+  ]
+}
+NOTE: 2 genes x 3 models = 6 observations. Collapsing this into 2
+observations loses two-thirds of the record. Note also that the three
+rows for FOXO1 carry THREE DIFFERENT oa_induction values - "spontaneous
+cartilage degradation" becomes "Ageing", treadmill becomes "Exercise".
+Writing "Ageing" three times would be wrong.
+
+=====================================================================
+EXAMPLE 4 - DIFFERENT OUTCOME IN DIFFERENT MODELS; "No Change" is real
+=====================================================================
+INPUT ABSTRACT:
+"Mif-/- mice showed reduced cartilage damage during ageing, but after
+destabilisation of the medial meniscus their OARSI scores were not
+different from wild-type."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "MIF", "target_raw": "Mif",
+      "target_is_official_symbol": true,
+      "manipulation": "Global KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Ageing",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Whole body", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Mif-/- mice showed reduced cartilage damage during ageing"
+    },
+    {
+      "observation_number": 2,
+      "target": "MIF", "target_raw": "Mif",
+      "target_is_official_symbol": true,
+      "manipulation": "Global KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Surgical",
+      "oa_severity_outcome": "No Change",
+      "tissue_specificity": "Whole body", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "after destabilisation of the medial meniscus their OARSI scores were not different from wild-type"
+    }
+  ]
+}
+
+=====================================================================
+EXAMPLE 5 - miRNA: KEEP THE FAMILY LETTER, DROP ONLY THE ARM SUFFIX
+=====================================================================
+INPUT ABSTRACT:
+"miR-10a-5p knockout mice showed spontaneous degeneration of knee
+cartilage, whereas intra-articular delivery of a miR-10a-5p agomir
+alleviated cartilage damage after ACL transection."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "MIR-10A", "target_raw": "miR-10a-5p",
+      "target_is_official_symbol": false,
+      "manipulation": "Global KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Ageing",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "miR-10a-5p knockout mice showed spontaneous degeneration of knee cartilage"
+    },
+    {
+      "observation_number": 2,
+      "target": "MIR-10A", "target_raw": "miR-10a-5p agomir",
+      "target_is_official_symbol": false,
+      "manipulation": "Overexpression", "manipulation_direction": "Gain",
+      "species": "Mice", "oa_induction": "Surgical",
+      "oa_severity_outcome": "Decreased",
+      "tissue_specificity": "Not stated", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "intra-articular delivery of a miR-10a-5p agomir alleviated cartilage damage after ACL transection"
+    }
+  ]
+}
+NOTE: "-5p" removed, "a" KEPT -> MIR-10A. Emitting "MIR-10" is wrong.
+
+=====================================================================
+EXAMPLE 6 - LIGAND vs RECEPTOR: only the perturbed arm is the target
+=====================================================================
+INPUT ABSTRACT (illustrative, not a real study):
+"The LIGX-RECY signalling axis is activated in osteoarthritic
+cartilage. Recy-/- mice subjected to DMM developed markedly more
+severe cartilage erosion than littermate controls, accompanied by
+elevated Mmp13 expression."
+
+CORRECT OUTPUT:
+{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "RECY", "target_raw": "Recy",
+      "target_is_official_symbol": false,
+      "manipulation": "Global KO", "manipulation_direction": "Loss",
+      "species": "Mice", "oa_induction": "Surgical",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Whole body", "drug_detail": "N/A",
+      "genetic_detail": "Not stated",
+      "evidence_snippet": "Recy-/- mice subjected to DMM developed markedly more severe cartilage erosion than littermate controls"
+    }
+  ]
+}
+NOTE: exactly one observation. LIGX was named only as the axis partner
+and was never perturbed, so it is not a target (rule 7). Mmp13 was
+only measured, so it is a readout (X2). Emitting either one loses
+nothing from the record but adds a false positive.
+
+=====================================================================
+EXAMPLE 7 - REJECT: nutraceutical / natural product, no gene target
+=====================================================================
+INPUT ABSTRACT:
+"The combined therapy with chondroitin sulfate plus glucosamine sulfate
+does not improve joint damage in an experimental model of knee
+osteoarthritis in rabbits. Cartilage lesions and subchondral bone
+changes were comparable between treated and untreated animals."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+NOTE: chondroitin sulfate and glucosamine are not genes/proteins and
+no single molecular target is named (X1). Do not emit
+"CHONDROITINSULFATE" as a target.
+
+=====================================================================
+EXAMPLE 8 - REJECT: pain-only endpoint, structure explicitly unchanged
+=====================================================================
+INPUT ABSTRACT:
+"We developed TRPV4-knockout rats and assessed monoiodoacetate-induced
+OA pain. Trpv4 gene deletion did not suppress the development of
+osteoarthritis pathologically, but mechanical allodynia and reduced
+weight-bearing were completely suppressed in TRPV4-KO rats."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+NOTE: allodynia and weight-bearing are pain behaviours, not OA severity
+(X5), and the structural phenotype was explicitly unchanged.
+
+=====================================================================
+EXAMPLE 9 - REJECT: downstream readouts, and an in-vitro-only
+             perturbation next to an unrelated in vivo treatment
+=====================================================================
+INPUT ABSTRACT:
+"Silencing of METTL3 by shRNA in ATDC5 chondrocytes suppressed IL-1b
+induced NF-kB activation and reduced MMP-13 expression. The methylation
+inhibitor cycloleucine and the methyl donor betaine were used to treat
+collagenase-induced OA mice, which showed reduced cartilage erosion."
+
+CORRECT OUTPUT:
+{"result": "No valid OA animal model perturbations found"}
+NOTE: METTL3 was perturbed only in cultured cells (X6); the in vivo
+treatment was a non-specific chemical with no named gene target (X1);
+NF-kB and MMP-13 are measured readouts, not perturbations (X2).
+
+=====================================================================
+NOW EXTRACT DATA FROM THE FOLLOWING ABSTRACT.
+
+Before writing JSON, silently check:
+  (1) does anything survive the STEP 1b exclusions?
+  (2) how many DISTINCT OA models does the abstract use - emit one
+      observation per gene per model, and make sure two rows for the
+      same gene do not carry the same oa_induction;
+  (3) is oa_induction one of the SIX permitted values (Surgical,
+      Ageing, Protease, MIA, Exercise, High Fat Diet)? "Spontaneous",
+      "Transgenic", "Chemical" and "Mechanical" are NOT valid;
+  (4) for each target, have you emitted the cleaned raw name with
+      target_is_official_symbol=false rather than guessing a symbol
+      you would have to recall from memory?
+
+Output only JSON. First character "{", last character "}".
+No markdown fences. Do not include explanations.
+=====================================================================
+{abstract}

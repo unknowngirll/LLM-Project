@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>error_analysis_v6</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="error_analysis_v6_files/libs/clipboard/clipboard.min.js"></script>
+<script src="error_analysis_v6_files/libs/quarto-html/quarto.js"></script>
+<script src="error_analysis_v6_files/libs/quarto-html/popper.min.js"></script>
+<script src="error_analysis_v6_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="error_analysis_v6_files/libs/quarto-html/anchor.min.js"></script>
+<link href="error_analysis_v6_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="error_analysis_v6_files/libs/quarto-html/quarto-syntax-highlighting-01c78b5cd655e4cd89133cf59d535862.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="error_analysis_v6_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="error_analysis_v6_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="error_analysis_v6_files/libs/bootstrap/bootstrap-9ec6a832836a1aa7466e8a076bc3abae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="error-analysis-prompt-v6-full-lite-magistral-small-2509-and-qwen3-8b" class="level1">
+<h1>Error analysis — prompt v6 (full + lite), Magistral-Small-2509 and Qwen3-8B</h1>
+<p>Follows <code>error_analysis_magistral_v5.md</code>. Sources: <code>results/magistral_v6full_table.csv</code>, <code>results/magistral_v6lite_table.csv</code>, the <code>*_raw.csv</code> (pre-<code>normalise_genes.py</code>) counterparts, <code>results/qwen3-8b_v6{full,lite}_table_raw.csv</code>, and the four v6 trace files in <code>reasoning_traces/</code>. HGNC table read from <code>/home/njs289/CBF/llm_ripple/hgnc_complete_set.txt</code>.</p>
+<p>All figures below are recomputed from the tables with the same row-counting used in the v5 doc, so v5 and v6 are directly comparable.</p>
+<section id="headline" class="level2">
+<h2 class="anchored" data-anchor-id="headline">1. Headline</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>Prompt</th>
+<th>norm</th>
+<th>TP</th>
+<th>FP</th>
+<th>FN</th>
+<th>P</th>
+<th>R</th>
+<th><strong>F1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Magistral</td>
+<td>v5</td>
+<td>hgnc</td>
+<td>243</td>
+<td>100</td>
+<td>42</td>
+<td>0.708</td>
+<td>0.853</td>
+<td>0.774</td>
+</tr>
+<tr class="even">
+<td>Magistral</td>
+<td><strong>v6 full</strong></td>
+<td>hgnc</td>
+<td>233</td>
+<td>63</td>
+<td>52</td>
+<td><strong>0.787</strong></td>
+<td>0.818</td>
+<td><strong>0.802</strong></td>
+</tr>
+<tr class="odd">
+<td>Magistral</td>
+<td>v6 full</td>
+<td>none</td>
+<td>217</td>
+<td>82</td>
+<td>68</td>
+<td>0.726</td>
+<td>0.761</td>
+<td>0.743</td>
+</tr>
+<tr class="even">
+<td>Magistral</td>
+<td><strong>v6 lite</strong></td>
+<td>hgnc</td>
+<td>227</td>
+<td>56</td>
+<td>58</td>
+<td><strong>0.802</strong></td>
+<td>0.796</td>
+<td>0.799</td>
+</tr>
+<tr class="odd">
+<td>Magistral</td>
+<td>v6 lite</td>
+<td>none</td>
+<td>206</td>
+<td>77</td>
+<td>79</td>
+<td>0.728</td>
+<td>0.723</td>
+<td>0.725</td>
+</tr>
+<tr class="even">
+<td>Qwen3-8B</td>
+<td>v6 full</td>
+<td>none</td>
+<td>191</td>
+<td>79</td>
+<td>94</td>
+<td>0.707</td>
+<td>0.670</td>
+<td>0.688</td>
+</tr>
+<tr class="odd">
+<td>Qwen3-8B</td>
+<td>v6 lite</td>
+<td>none</td>
+<td>184</td>
+<td>78</td>
+<td>101</td>
+<td>0.702</td>
+<td>0.646</td>
+<td>0.673</td>
+</tr>
+</tbody>
+</table>
+<p>v6 bought <strong>+0.028 F1</strong> on Magistral, entirely through precision (+0.079), and gave back 0.035 of recall. Sampling is <code>temperature=0.7, top_p=0.95</code>, so treat a single run’s few-point delta as provisional.</p>
+<p><strong>v6 full and v6 lite are indistinguishable on Magistral</strong> (0.802 vs 0.799; lite is actually the more precise of the two). The four extra worked examples buy nothing measurable. On Qwen3-8B full is ahead by 0.015, also within noise. The lite prompt is the better default.</p>
+</section>
+<section id="what-worked" class="level2">
+<h2 class="anchored" data-anchor-id="what-worked">2. What worked</h2>
+<p><strong>2.1 The X1–X8 eligibility gate — the whole of the gain.</strong> Papers with zero gold observations that the model extracted from anyway:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>over-extracted no-gold papers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Magistral v5</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td>Magistral v6 full</td>
+<td><strong>9</strong></td>
+</tr>
+<tr class="odd">
+<td>Magistral v6 lite</td>
+<td><strong>4</strong></td>
+</tr>
+<tr class="even">
+<td>Qwen3-8B v6 full / lite</td>
+<td>2 / 4</td>
+</tr>
+</tbody>
+</table>
+<p>25 of the 31 v5 eligibility errors are gone; 3 new ones appeared (10806052, 11677139, 20621685). This is the single most successful change in the revision and should be carried forward untouched. The Qwen traces show the rules being cited by number, so they transfer across models.</p>
+<p><strong>2.2 De-guessing symbols worked exactly as designed.</strong> The HGNC post-processing gain was +0.01 F1 under v5 because the model had already written a confidently wrong symbol. Under v6 it is <strong>+0.059</strong> (full) and <strong>+0.074</strong> (lite) — the model now hands the mapper recoverable tokens. This was diagnostic #3 in the v5 doc’s proposed ablation and it passes.</p>
+<p><strong>2.3 Abstains fell.</strong> Induction <code>Not stated</code> 36 → 16, species 11 → 4 (Magistral full). RULE 4 and the COMMIT TO A VALUE block did their job.</p>
+<p><strong>2.4 Markdown fences fell</strong>, contrary to the concern in the v5 doc: counting only what follows <code>--- FINAL JSON ---</code>, 18/267 under v5 → <strong>2/267</strong> under v6 full, 3/267 lite, 0/267 for both Qwen runs. RULE 6 works; keep it.</p>
+<p><strong>2.5 <code>target_is_official_symbol</code> is well calibrated and currently unused.</strong> Of Magistral’s 243 observations flagged <code>true</code>, 239 really are official HGNC symbols (98.4% precision); only RAGE, CD59A, OPG and ZCCHC6 are misflagged. Qwen is noisier (196/216, 90.7%). Nothing in the pipeline reads this field.</p>
+</section>
+<section id="what-the-fp-and-fn-rows-actually-are" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-fp-and-fn-rows-actually-are">3. What the FP and FN rows actually are</h2>
+<p>The headline P/R hides the fact that <strong>most errors are a single mistake counted twice</strong>. When the model finds the right experiment but writes an identifier that does not match gold, the gold row becomes an FN <em>and</em> the predicted row becomes an FP. Splitting the rows by whether they are paired that way:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>What it is</th>
+<th>v5</th>
+<th><strong>v6 full</strong></th>
+<th>v6 lite</th>
+<th>Qwen v6 full</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong> eligibility</td>
+<td>paper has zero gold rows; model extracted anyway</td>
+<td>47 FP</td>
+<td><strong>14 FP</strong></td>
+<td>6 FP</td>
+<td>5 FP</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong> paired identity</td>
+<td>right paper, right experiment, wrong identifier ⇒ FP+FN from one mistake</td>
+<td>38 FP / 37 FN</td>
+<td><strong>38 FP / 32 FN</strong></td>
+<td>36 / 33</td>
+<td>64 / 65</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong> extra gene</td>
+<td>all gold genes found, plus a spurious extra molecule</td>
+<td>15 FP</td>
+<td><strong>11 FP</strong></td>
+<td>14 FP</td>
+<td>10 FP</td>
+</tr>
+<tr class="even">
+<td><strong>D</strong> pure miss</td>
+<td>gene absent from output, nothing emitted in its place</td>
+<td>5 FN</td>
+<td><strong>20 FN</strong></td>
+<td>25 FN</td>
+<td>29 FN</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>FP total / FN total</strong></td>
+<td>100 / 42</td>
+<td><strong>63 / 52</strong></td>
+<td>56 / 58</td>
+<td>79 / 94</td>
+</tr>
+</tbody>
+</table>
+<p>So for v6 full: <strong>60% of FP rows and 62% of FN rows are the same 24 papers’ class-B errors.</strong> Precision and recall are not two independent problems here; one identity mistake moves both.</p>
+<p><strong>Row counts overstate the number of distinct mistakes.</strong> <code>make_table.py</code> emits one row per <em>gold observation</em>, so missing a gene that has three gold rows produces three FNs. The 63 FP rows are 46 distinct (paper, gene) pairs (1.37×) and the 52 FN rows are 41 (1.27×). Read the taxonomy above as rows; read the paper counts below as mistakes.</p>
+<section id="a.-eligibility-class-a-the-v6-win" class="level3">
+<h3 class="anchored" data-anchor-id="a.-eligibility-class-a-the-v6-win">3A. Eligibility (class A) — the v6 win</h3>
+<p>Papers with no gold observations that the model extracted from anyway fell from <strong>31 papers (47 FP rows) under v5 to 9 papers (14 FP rows)</strong>, and to 4 papers under v6 lite. This is where the +0.079 precision came from, and it is the one result that transfers cleanly across models (Qwen: 2 papers). Carry X1–X8 forward untouched.</p>
+</section>
+<section id="b.-paired-identity-errors-class-b-24-papers-and-only-10-are-normalisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-paired-identity-errors-class-b-24-papers-and-only-10-are-normalisation">3B. Paired identity errors (class B) — 24 papers, and only 10 are normalisation</h3>
+<p>This is the class the v5 doc called “the dominant failure”, and it is worth separating properly, because the two halves need different fixes. Running the improved normaliser (§8) over what the model actually emitted:</p>
+<p><strong>Recovered — 10 papers, 12 FN rows. Pure normalisation, now fixed:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>PMID</th>
+<th>model emitted</th>
+<th>resolves to</th>
+<th>gold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>17326835</td>
+<td><code>GAL3</code></td>
+<td>LGALS3</td>
+<td>LGALS3</td>
+</tr>
+<tr class="even">
+<td>19342682</td>
+<td><code>RAGE</code></td>
+<td>AGER</td>
+<td>AGER</td>
+</tr>
+<tr class="odd">
+<td>25200274</td>
+<td><code>PAR1</code>, <code>PAR2</code></td>
+<td>F2R, F2RL1</td>
+<td>F2R, F2RL1</td>
+</tr>
+<tr class="even">
+<td>26698846, 31841119</td>
+<td><code>PAR2</code></td>
+<td>F2RL1</td>
+<td>F2RL1</td>
+</tr>
+<tr class="odd">
+<td>27541035</td>
+<td><code>OPG</code></td>
+<td>TNFRSF11B</td>
+<td>TNFRSF11B</td>
+</tr>
+<tr class="even">
+<td>29219023</td>
+<td><code>TENASCINC</code></td>
+<td>TNC</td>
+<td>TNC</td>
+</tr>
+<tr class="odd">
+<td>33133598</td>
+<td><code>ST2</code></td>
+<td>IL1RL1</td>
+<td>IL1RL1</td>
+</tr>
+<tr class="even">
+<td>33827816</td>
+<td><code>SPLA2</code></td>
+<td>PLA2G2A</td>
+<td>PLA2G2A</td>
+</tr>
+<tr class="odd">
+<td>34463587</td>
+<td><code>A20</code></td>
+<td>TNFAIP3</td>
+<td>TNFAIP3</td>
+</tr>
+</tbody>
+</table>
+<p>The model was right in every one of these. v6 successfully taught it to emit a recoverable alias and the mapper could not finish the job.</p>
+<p><strong>Not recovered — 14 papers, 20 FN rows. Real errors, needing prompt rules:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sub-class</th>
+<th>Papers</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ligand/receptor or signalling partner</td>
+<td>4</td>
+<td>34136574 <code>CXCR4</code> for CXCL12; 37144868 <code>GAS6</code> for AXL; 31901095 <code>FGFR</code> for FGF2; 25969431 <code>TLR4</code> for S100A9</td>
+</tr>
+<tr class="even">
+<td>Wrong family sibling or bare stem</td>
+<td>4</td>
+<td>30144298 <code>KDR</code> for FLT4; 34987154 <code>PPARA</code> for PPARG; 27681622 <code>NFKB1</code> for RELA; 24757033 <code>GSK3</code> for GSK3B</td>
+</tr>
+<tr class="odd">
+<td>Model guessed a symbol it did not know</td>
+<td>2</td>
+<td>24966136 <code>MDFIC</code> for Mig-6/ERRFI1; 29622035 <code>CSF2</code> for PTGS2</td>
+</tr>
+<tr class="even">
+<td>Normaliser resolved to the wrong gene</td>
+<td>2</td>
+<td>34176242 <code>FSH</code>→BRD2; 37462629 <code>PERF</code>→FABP9</td>
+</tr>
+<tr class="odd">
+<td>Gold convention, not recoverable from the abstract</td>
+<td>2</td>
+<td>33109602 gold merges a cluster as <code>MIR141200C</code>, model correctly split <code>MIR-141</code>/<code>MIR-200C</code>; 22057346 <code>CD59A</code> (mouse suffix, blocked because the target field is already uppercase)</td>
+</tr>
+</tbody>
+</table>
+<p>v7 rules 7 and 7b target the first two sub-classes, which are 8 of the 14.</p>
+</section>
+<section id="c.-extra-genes-class-c-11-fp-rows-8-papers" class="level3">
+<h3 class="anchored" data-anchor-id="c.-extra-genes-class-c-11-fp-rows-8-papers">3C. Extra genes (class C) — 11 FP rows, 8 papers</h3>
+<p>Papers where every gold gene was found, plus a spurious extra: mechanism partners and assay readouts emitted as perturbations. Down from 15 rows under v5. This is X2’s residue and is the smallest of the three FP classes.</p>
+</section>
+<section id="d.-pure-misses-class-d-20-fn-rows-14-papers" class="level3">
+<h3 class="anchored" data-anchor-id="d.-pure-misses-class-d-20-fn-rows-14-papers">3D. Pure misses (class D) — 20 FN rows, 14 papers</h3>
+<p>Grew from 5 rows under v5, and splits two ways:</p>
+<ul>
+<li><strong>9 papers (13 rows) where the model output nothing at all</strong> — 27345362, 29205898, 30972197, 31084709, 32938794, 34982732, 35061535, 35145063,
+<ol start="37681413" type="1">
+<li>These are the cost of the eligibility gate: X1–X8 over-firing on papers that do have gold. 4 of the 9 are new since v5.</li>
+</ol></li>
+<li><strong>5 papers (7 rows) where the model found other genes but dropped one</strong> — 31160553 (found WWP2, missed MIR-140), 31424112 (CCR2, missed CCL2), 32858189 (EDN1/EDNRB, missed EDNRA), 33441426 (EGFR/HBEGF, missed TGFA), 34039624 (RIC8A, missed CIRCPDE4B). Three of these are ligand/receptor or ligand/ligand pairs where only one arm was extracted — the same weakness as class B’s first sub-class.</li>
+</ul>
+<p><strong>So the ~13-row cost of the exclusion gate is real but is roughly a quarter of the FN total</strong>, and it bought a 33-row reduction in FP. The trade is favourable; the remaining question in §8 is whether the class-B half can be recovered without giving any of it back.</p>
+<p>Reading the traces for those 9 drops, one is not an exclusion error at all (32938794 produced no reasoning block — a truncated generation), and the rest divide into two groups. Six are X1 firing on a drug whose target is named only as a pathway or a class (“PI3K pathway inhibitor”, “HDAC class I inhibitor”) where gold is more permissive than the prompt; <strong>this is left alone</strong>, since loosening X1 is the most likely way to give back the class-A gain. The other two are correctable mis-specifications rather than judgement calls, and are fixed in v7 (§7, items 5 and 6).</p>
+</section>
+</section>
+<section id="the-reported-induction-accuracy-is-wrong-make_table.py-mispairs" class="level2">
+<h2 class="anchored" data-anchor-id="the-reported-induction-accuracy-is-wrong-make_table.py-mispairs">4. The reported induction accuracy is wrong — <code>make_table.py</code> mispairs</h2>
+<p><code>make_table.py:109-130</code> matches each gold observation to a prediction using <code>manipulation_direction</code> only, and <strong>never marks a prediction as consumed</strong>. On a paper where gold has one Surgical row and one Ageing row for the same gene, both gold rows are scored against <code>plist[0]</code>. The table therefore reports an induction error that the model did not make.</p>
+<p>Recovering the actual JSON from the traces shows the models are splitting correctly. 23233270, whose table rows read “Surgical → Spontaneous”:</p>
+<pre><code>Magistral v6 full:  SOST/Spontaneous, SOST/Spontaneous, SOST/Surgical
+Qwen3-8B  v6 full:  SCLEROSTIN/Spontaneous, /Chemical, /Surgical, /Surgical</code></pre>
+<p>Scoring the model’s <em>set</em> of induction values per paper against gold’s set:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Run</th>
+<th>table-reported induction acc.</th>
+<th>true coverage of gold induction values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Magistral v6 full</td>
+<td>0.704</td>
+<td><strong>0.831</strong></td>
+</tr>
+<tr class="even">
+<td>Magistral v6 lite</td>
+<td>0.665</td>
+<td>0.811</td>
+</tr>
+<tr class="odd">
+<td>Qwen3-8B v6 full</td>
+<td>0.634</td>
+<td>0.806</td>
+</tr>
+</tbody>
+</table>
+<p><strong>~13 points of the apparent induction error is a harness artifact.</strong> This also means the v5 doc’s “under-splitting is the dominant attribute bug — 32 of 43 wrong rows” was measured with the same broken pairing and overstates the case; STEP 2 was already working better than it looked. <code>score_v2.py</code> does greedy induction-aware matching with a <code>used</code> set and is the more trustworthy of the two, but the published tables come from <code>make_table.py</code>.</p>
+</section>
+<section id="the-real-induction-problem-the-prompts-vocabulary-is-not-golds" class="level2">
+<h2 class="anchored" data-anchor-id="the-real-induction-problem-the-prompts-vocabulary-is-not-golds">5. The real induction problem: the prompt’s vocabulary is not gold’s</h2>
+<p>Gold uses six values. The model was asked for a different, more abstract set:</p>
+<pre><code>gold : Surgical(376) Ageing(140) Protease(24) Exercise(14) MIA(14) High Fat Diet(2)
+model: Surgical(263) Spontaneous(159) Chemical(65) Not stated(55)
+       Transgenic(12) Metabolic(6) Mechanical(6)</code></pre>
+<p>Every value the model emits except <code>Surgical</code> needs a lossy crosswalk, and <code>Spontaneous</code> has become a catch-all — it is the single largest confusion (Surgical → Spontaneous, 29 rows) and the traces show why it is a category error:</p>
+<blockquote class="blockquote">
+<p><em>“it might be best to consider it as ‘Transgenic’ or ‘Spontaneous’ since it’s not a standard induction model”</em></p>
+</blockquote>
+<p>The model is putting the <strong>genotype</strong> in a field that describes the <strong>challenge</strong>. <code>Transgenic</code> is never a gold value at all. v7 removes the abstraction layer and asks for gold’s own six words, with an explicit translate-away list.</p>
+<p>The second-largest induction failure is genuine abstention on generic wording — <em>“‘experimental OA,’ which could be surgical or chemical … we will need to use ‘Not stated’”</em>. Since no gold row is <code>Not stated</code> and Surgical is 66% of gold, v7 makes generic experimental induction default to Surgical.</p>
+</section>
+<section id="qwen3-8b-specifics" class="level2">
+<h2 class="anchored" data-anchor-id="qwen3-8b-specifics">6. Qwen3-8B specifics</h2>
+<ul>
+<li>It <strong>narrates X1–X8 serially on every paper</strong> (“X1: … X2: … X7: …”), spending reasoning budget on a checklist that mostly does not fire. v7 tells it to apply the exclusions as a silent filter.</li>
+<li>STEP 3’s <em>“if the alias carries a family number or letter, DO NOT MAP IT”</em> over-generalises and blocks legitimate case-normalisation. The trace shows it stuck on whether <code>Col2a1</code> → <code>COL2A1</code> is allowed, across several paragraphs. v7 states that cleaning is not mapping and that uppercasing the abstract’s own symbol is always correct.</li>
+<li>Qwen is scored <strong>without</strong> <code>normalise_genes.py</code> (only <code>*_raw</code> tables exist), so the normaliser fixes in §8 matter more for it than for Magistral — or it should be scored through <code>normalise_genes.py</code> like Magistral is.</li>
+</ul>
+</section>
+<section id="v7-prompt-changes" class="level2">
+<h2 class="anchored" data-anchor-id="v7-prompt-changes">7. v7 prompt changes</h2>
+<p><code>Prompts_v7/</code> and <code>Prompts_v7_lite/</code>:</p>
+<ol type="1">
+<li><strong>X1–X8 kept verbatim</strong> (proven, +0.079 precision), plus one line telling the model not to narrate them.</li>
+<li><strong>No gene lists.</strong> The alias problem is a normalisation problem and is fixed in <code>normalise_genes.py</code> (§8). The prompt keeps only the general principle: emit the cleaned alias, flag it <code>false</code>, let the table resolve it.</li>
+<li><strong>“Cleaning is not mapping”</strong> — fixes the Qwen <code>Col2a1</code> hesitation and the over-broad family-number ban, which now applies only to <em>substituting</em> a different symbol.</li>
+<li><strong>Rule 7 — ligand/receptor, applied per arm rather than as a choice.</strong> The §3 breakdown changed this rule’s design. An earlier draft framed it purely as a precision fix (“extract the perturbed molecule, and ONLY that one”), which targets class B’s 4 substitution errors — but §3D shows three class-D papers failing the <em>opposite</em> way, extracting one arm when both were perturbed (31424112 CCR2 without CCL2, 32858189 EDN1/EDNRB without EDNRA, 33441426 EGFR/HBEGF without TGFA). A precision-only rule would have made those worse. Rule 7 now says to run the X2 test on each molecule independently and spells out that all three outcomes — ligand only, receptor only, both — are common, with the “both” case flagged as the easier one to miss. Rule 7b keeps the sibling discipline; 5b bans bare <code>NFKB</code> in favour of the named subunit.</li>
+<li><strong>Rule 6b — an administered protein is its own target.</strong> From 27345362 (whole paper dropped, gold CALCA): the model saw an administered hormone, applied the drug rule, looked for a downstream gene it acts on, found none and rejected the paper. Rule 6’s small-molecule framing was overriding STEP 1(a)’s “recombinant protein”. 6b states that a hormone, peptide, cytokine or growth factor IS its own gene’s perturbation, direction Gain, and that this does not reopen X1 — a protein is a gene product, glucosamine is not.</li>
+<li><strong>X4 narrowed to the intervertebral disc, and made per-observation.</strong> v6 added spine, growth plate, TMJ, tendon and ligament to X4 on no evidence; the v5 analysis had only ever justified intervertebral disc. Two papers show the cost: 30972197 (gold DNMT3B) was dropped for being TMJ, and 16947423 was dropped although it reported knee joints <em>and</em> TMJs. The TMJ is a synovial joint and gold treats it as in scope. STEP 1(d) now says so explicitly, and X4 states that it drops an observation rather than a paper.</li>
+<li><strong><code>oa_induction</code> switched to gold’s own six values</strong> — Surgical, Ageing, Protease, MIA, Exercise, High Fat Diet — with <code>Spontaneous</code>/<code>Transgenic</code>/ <code>Chemical</code>/<code>Mechanical</code>/<code>Metabolic</code> explicitly banned and a translate-away list. Removes the crosswalk and the <code>Spontaneous</code> catch-all.</li>
+<li><strong>“Several rows for one gene must differ”</strong> — a direct check against emitting two identical <code>Ageing</code> rows for a paper that aged <em>and</em> operated on a KO.</li>
+<li><strong>“A shared result sentence is reported once per model”</strong> — the traces show the model seeing both models and choosing one because it felt “safer”.</li>
+</ol>
+<p>Sizes: v7 full ≈ 11.3k tokens (v6 full 9.7k), v7 lite ≈ 7.4k (v6 lite 6.5k). <code>--max_seq_length 24000</code> remains sufficient for Magistral.</p>
+<p><strong>Scorer change made:</strong> <code>INDUCTION_TO_GOLD</code> in <code>score.py</code>, <code>score_v2.py</code>, <code>score_v4.py</code>, <code>make_table.py</code>, <code>make_table_v4.py</code> now also accepts gold’s own vocabulary. The addition is a no-op for v5/v6 runs — no earlier run ever emitted <code>protease</code>, <code>mia</code>, <code>exercise</code> or <code>high fat diet</code>.</p>
+<p><strong>Change still needed (not made): <code>make_table.py</code> pairing (§4).</strong> Match on induction as well as direction and consume each prediction once, as <code>score_v2.py</code> does. Left alone because fixing it changes every number in <code>RESULTS_*.md</code>; it should be a deliberate, separately-reported step.</p>
+</section>
+<section id="normalisation-resolve-aliases-from-the-paper-not-from-a-list" class="level2">
+<h2 class="anchored" data-anchor-id="normalisation-resolve-aliases-from-the-paper-not-from-a-list">8. Normalisation: resolve aliases from the paper, not from a list</h2>
+<p>§3 showed the recall regression is a mapper failure. The tempting fix — a hand-written <code>alias -&gt; symbol</code> table — is rejected here: every entry would have come from inspecting a dev-set false negative, which is memorising the answer key (§9). <code>normalise_genes.py</code> instead gains four changes, none of which names a gene.</p>
+<p><strong>Label-free, always on:</strong></p>
+<ol type="1">
+<li><strong>Filter HGNC to <code>locus_group ∈ {protein-coding gene, non-coding RNA}</code></strong> and drop Ig/TCR segments. Pseudogenes and Ig segments never appear in this corpus and only manufacture ambiguity: <code>OPG</code> collided with the pseudogene BTF3P11, <code>A20</code> with IGKV1-27. Both now resolve.</li>
+<li><strong>Index the <code>name</code>, <code>alias_name</code> and <code>prev_name</code> columns.</strong> Papers write the HGNC <em>gene name</em> — “sclerostin”, “opticin”, “perforin”, “tenascin C” — which the loader never read. Cheapest and largest of the four.</li>
+<li><strong>R5, mouse/rat ortholog suffix</strong>: strip a trailing lower-case letter when the stem is itself official (<code>Cd59a</code>→CD59, <code>Nos2a</code>→NOS2), which leaves real family members (PPARG, FOXO3, ADAMTS5) untouched.</li>
+</ol>
+<p><strong>R6 — context disambiguation, opt-in via <code>--abstracts</code>:</strong></p>
+<p>The old <code>len(v) == 1</code> rule discarded any alias with more than one candidate. That is precisely the OA literature’s commonest vocabulary: <code>RAGE</code> is {AGER, MOK}, <code>PAR2</code> is {F2RL1, NR1I2, SLC52A1}, <code>ST2</code> is {IL1RL1, SDCBP2, SULT2A1}, <code>COX2</code> is {MT-CO2, PTGER2, PTGS2}. Dropping them loses the record; picking arbitrarily invents one.</p>
+<p>But the paper says which is meant — it spells the name out. R6 scores each candidate gene’s descriptive names against the paper’s own text and takes the winner if it is unique and non-zero. <code>RAGE</code> → AGER because the abstract says “receptor for advanced glycation end products”, which overlaps AGER’s naming and not MOK’s. No pair is written down anywhere.</p>
+<p>Source trust is tiered, because breadth costs precision:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>tier</th>
+<th>accepted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HGNC, single candidate</td>
+<td>always</td>
+</tr>
+<tr class="even">
+<td>HGNC, several candidates</td>
+<td>only if the abstract picks a unique winner</td>
+</tr>
+<tr class="odd">
+<td>NCBI <code>gene_info</code> synonyms (<code>--ncbi_gene_info</code>)</td>
+<td>only if the abstract picks a unique winner</td>
+</tr>
+</tbody>
+</table>
+<p>NCBI synonyms are broader than HGNC’s and noisier — <code>FSH</code> is listed as a synonym of <em>BRD2</em> — so they are never trusted on their own. Adding them as a flat union without the abstract check makes things worse, not better.</p>
+<p><strong>Measured</strong> against the class-B papers from §3B — the 24 papers where the model found the right experiment and wrote an identifier gold did not match — each change added cumulatively:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>configuration</th>
+<th>B papers recovered</th>
+<th>FN rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mapper as it was (<code>alias_symbol</code> + <code>prev_symbol</code>, no locus filter)</td>
+<td>0 / 24</td>
+<td>0 / 32</td>
+</tr>
+<tr class="even">
+<td>+ locus filter</td>
+<td>2 / 24</td>
+<td>2 / 32</td>
+</tr>
+<tr class="odd">
+<td>+ <code>name</code> / <code>alias_name</code> / <code>prev_name</code> columns</td>
+<td>3 / 24</td>
+<td>3 / 32</td>
+</tr>
+<tr class="even">
+<td>+ R6 context disambiguation</td>
+<td>7 / 24</td>
+<td>8 / 32</td>
+</tr>
+<tr class="odd">
+<td>+ R6 with NCBI synonyms</td>
+<td><strong>10 / 24</strong></td>
+<td><strong>12 / 32</strong></td>
+</tr>
+</tbody>
+</table>
+<p>R6 is doing most of the work, and it is the part that needs no list. The starting 0/24 is the point worth keeping in view: the mapper as shipped could not recover a single one of these, which is why v6’s recall fell even though the model’s behaviour improved.</p>
+<p>Easy cases are untouched (PPARG, FOXO3, ADAMTS5, COL2A1, SOX9, IL33, SMAD3 all still resolve to themselves). The 14 unrecovered B papers are the real model errors itemised in §3B, not normalisation failures — except two, where the normaliser resolves to the <em>wrong</em> gene (<code>FSH</code>→BRD2 on a coincidental word overlap, <code>PERF</code>→FABP9). Both come from the NCBI tier, which is the row of the table to drop first if precision suffers.</p>
+<p>R6 needs the abstracts, which are not in this working copy; they are re-fetchable from PubMed E-utilities as the v5 analysis did. Without <code>--abstracts</code> the script falls back to the model’s own <code>evidence_snippet</code> text, which needs no new input but is much thinner — on a ~40-word window of the same papers, 7/24 rather than 10/24. <strong>Run it with and without <code>--abstracts</code> and report both</strong>; the gap is the value of context disambiguation, measured rather than assumed.</p>
+<p>Also fixed: with an absolute <code>--pred_dirs</code>, <code>os.path.join</code> discarded <code>--out_root</code> and the normalised files overwrote the input predictions.</p>
+</section>
+<section id="overfitting-audit-this-is-a-dev-set" class="level2">
+<h2 class="anchored" data-anchor-id="overfitting-audit-this-is-a-dev-set">9. Overfitting audit — this is a dev set</h2>
+<p>267 papers used for both development and evaluation. Every rule written by reading an error table is a fit to that table. Measuring it: what fraction of gold observation rows involve a gene whose symbol appears literally in the prompt text?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>gold genes named</th>
+<th>% of gold rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v3</td>
+<td>3 / 182</td>
+<td>1.8%</td>
+</tr>
+<tr class="even">
+<td>v5</td>
+<td>10 / 182</td>
+<td>7.4%</td>
+</tr>
+<tr class="odd">
+<td>v6 full</td>
+<td>29 / 182</td>
+<td>24.6%</td>
+</tr>
+<tr class="even">
+<td>v6 lite</td>
+<td>27 / 182</td>
+<td>23.5%</td>
+</tr>
+<tr class="odd">
+<td><strong>v7 full</strong></td>
+<td><strong>24 / 182</strong></td>
+<td><strong>21.4%</strong></td>
+</tr>
+<tr class="even">
+<td><strong>v7 lite</strong></td>
+<td><strong>22 / 182</strong></td>
+<td><strong>20.4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The trend from v3 to v6 is the danger: each revision reads the error table and writes more of it into the prompt. v7 reverses it slightly, and the deliberate rule is that <strong>anything that would be a lookup table belongs in the normaliser, where it can be derived from a public resource and ablated</strong> — not in prose the model memorises.</p>
+<p>The 24 gold genes still named in v7 are inside worked examples, or in the X2 readout list (MMP13, IL6, TNF, SOX9, RUNX2, ADAMTS5 — named as things that are <em>sometimes</em> readouts, which injects no answer). Examples 1–5 reuse the same dev-derived abstracts as v6, so the v6→v7 comparison stays like-for-like. Example 6 uses a synthetic <code>LIGX–RECY</code> axis so the ligand/receptor rule teaches the pattern rather than a specific answer.</p>
+<p><strong>What this means for the numbers.</strong> Any score on these 267 papers is an optimistic estimate:</p>
+<ul>
+<li><strong>Hold out a test split.</strong> The honest experiment is to fit on a subset and report on papers never used for error analysis. Nothing in v3→v7 has been validated this way, so the whole progression (0.524 → 0.802) is a development-set curve.</li>
+<li><strong>Treat the exclusion gate as the most trustworthy result.</strong> X1–X8 are categorical rules about study design (cell therapy, CIA, pain-only) that name no dev gene and were independently validated on Qwen under v3.</li>
+<li><strong>The normaliser changes are the most trustworthy of the recall-side fixes</strong>, because (1)–(3) use only public reference data and R6 uses only the paper’s own words. They are also verifiable without running any model: re-normalise the existing v6 predictions and the gain should appear immediately.</li>
+</ul>
+</section>
+<section id="suggested-run" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-run">10. Suggested run</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build_v5_dataset.py <span class="at">--like_dataset</span> data/eval_v3_dataset <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">--system_file</span> Prompts_v7/system_prompt.txt <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">--user_file</span>   Prompts_v7/user_prompt.txt <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">--out</span> data/eval_v7full_dataset      <span class="co"># and Prompts_v7_lite -&gt; eval_v7lite_dataset</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> run_magi_v7full.sh   <span class="co"># also run_magi_v7lite.sh, run_q8b_v7{full,lite}.sh</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># baseline normalisation</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> normalise_genes.py <span class="at">--pred_dirs</span> results/magi_think_v7full</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># with context disambiguation; report both, the gap is R6's contribution</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> normalise_genes.py <span class="at">--pred_dirs</span> results/magi_think_v7full <span class="dt">\</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--ncbi_gene_info</span> ref/Homo_sapiens.gene_info.gz <span class="dt">\</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--abstracts</span> data/abstracts.jsonl <span class="at">--out_root</span> results_norm_r6</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> score_v2.py <span class="at">--pred_dir</span> results_norm/magi_think_v7full</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> make_table.py <span class="at">--pred_dir</span> results_norm/magi_think_v7full <span class="dt">\</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">--out</span> results/magistral_v7full_table.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What to check, in order of how much it would change the conclusion:</p>
+<ol type="1">
+<li><strong>Re-normalise the v6 predictions first.</strong> The §8 changes are deterministic, so if the prediction dirs can be recovered the recall gain is confirmable before any inference runs. Do this before spending GPU time.</li>
+<li><strong>Did precision hold at ~0.79?</strong> R6 is the only change that can add false positives, by resolving an alias the paper did not mean. Compare against the run without <code>--abstracts</code>.</li>
+<li><strong>Is <code>Spontaneous</code> gone from the output?</strong> If it still appears, the closed vocabulary is not being respected and the induction gain will not materialise.</li>
+<li><strong>Report induction accuracy from <code>score_v2.py</code>, not <code>make_table.py</code></strong>, until §4 is fixed — or quote both and say which is which.</li>
+<li><strong>Run ≥2 seeds before reporting any delta under ~0.03 F1.</strong></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

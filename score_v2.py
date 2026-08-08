@@ -10,9 +10,14 @@ OUTCOME_TO_GOLD = {"increased": "detrimental", "decreased": "protective", "no ch
 SPECIES_NORM = {"mice": "mouse", "mouse": "mouse", "rats": "rat", "rat": "rat",
                 "rabbits": "rabbit", "rabbit": "rabbit", "guinea pigs": "guinea pig",
                 "guinea pig": "guinea pig", "pigs": "pig", "pig": "pig", "dogs": "dog", "dog": "dog"}
+# v6 and earlier emitted an abstract taxonomy that needed translating; v7 asks
+# the model for gold's own vocabulary directly. Both are accepted so older runs
+# stay rescorable.
 INDUCTION_TO_GOLD = {"surgical": {"surgical"}, "chemical": {"mia", "protease"},
                      "mechanical": {"exercise"}, "spontaneous": {"ageing"}, "ageing": {"ageing"},
-                     "metabolic": {"high fat diet"}, "transgenic": {"genetic", "ageing"}}
+                     "metabolic": {"high fat diet"}, "transgenic": {"genetic", "ageing"},
+                     "protease": {"protease"}, "mia": {"mia"}, "exercise": {"exercise"},
+                     "high fat diet": {"high fat diet"}}
 GOLD_EFFECT_TO_DIR = {"removal": "loss", "knockdown": "loss", "inhibition": "loss",
                       "haploinsufficiency": "loss", "deficiency": "loss", "overexpression": "gain",
                       "increase": "gain", "activation": "gain", "mutation": "other"}
