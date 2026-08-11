@@ -43,3 +43,8 @@ data/split_dataset/
 # backups
 *.bak
 py311_gemma/
+results_norm/
+results_norm2/
+results_jamie/
+results_cascade_all/
+results_consensus/
