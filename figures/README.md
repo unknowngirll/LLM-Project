@@ -43,3 +43,18 @@ The dashed line marks the 92 true negatives in the evaluation set. It is a
 reference point rather than a target: rejecting 92 abstracts does not
 guarantee rejecting the correct 92. Counts well above the line indicate
 over-rejection at the cost of recall.
+
+## Compute cost
+
+| File | Contents |
+|---|---|
+| `cost_accuracy_vs_speed.png` | F1 against median seconds per abstract, log x-axis; point size scales with parameter count, marker shape distinguishes instruct from thinking mode |
+| `cost_gpu_hours.png` | Projected single-GPU hours to process the full 11,000-abstract corpus |
+
+Throughput is estimated from the gaps between consecutive output-file
+timestamps, taking the median so that queue stalls and the initial model load
+do not dominate. Jobs were scheduled across three GPU classes on the cluster
+(H100, L40S, and the a-lowsmall partition), marked on each point, so these
+figures indicate relative cost rather than a controlled benchmark. Gemma-4-12B
+ran on the fastest available hardware and was still the slowest configuration
+tested.
