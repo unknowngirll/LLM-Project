@@ -1,1 +1,0 @@
-{"observations": [{"observation_number": 1, "target": "SPLA2", "manipulation_type": "Pharmacological", "genetic_detail": "N/A", "drug_detail": "sPLA2 inhibitor, dose not stated", "animal_species": "Mice", "tissue_specificity": "Cartilage", "oa_induction": "Not stated", "oa_severity_outcome": "Decreased", "evidence_snippet": "mitigate OA progression.", "target_raw": "sPLA2"}]}

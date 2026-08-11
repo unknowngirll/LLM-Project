@@ -1,1 +1,0 @@
-{"observations": [{"observation_number": 1, "target": "MIA", "manipulation_type": "Global KO", "genetic_detail": "Not stated", "drug_detail": "N/A", "animal_species": "Mice", "tissue_specificity": "Whole body", "oa_induction": "Not stated", "oa_severity_outcome": "Decreased", "evidence_snippet": "enhanced chondrocytic regeneration in the MIA-/- mice.", "target_raw": "Mia"}]}

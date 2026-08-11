@@ -1,2 +1,0 @@
-{
-  "result": "No valid OA animal model perturbations found"

@@ -1,1 +1,0 @@
-{"observations": [{"observation_number": 1, "target": "ERRFI1", "manipulation_type": "Global KO", "genetic_detail": "Not stated", "drug_detail": "N/A", "animal_species": "Mice", "tissue_specificity": "Whole body", "oa_induction": "Transgenic", "oa_severity_outcome": "Increased", "evidence_snippet": "loss of Mig-6 leads to early onset of this disease.", "target_raw": "Mig-6"}]}
