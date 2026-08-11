@@ -15,7 +15,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--prefix", default="results/prompt_two_models")
 a = ap.parse_args()
 
-VERSIONS = ["v1", "v2", "v3", "v4", "v5", "v6lite", "v6full"]
+VERSIONS = ["v1", "v2", "v3", "v4", "v5", "v6lite", "v6full", "v7lite", "v7full"]
 
 MODELS = {
     "Qwen3-8B": ("#3C8DBC", {
@@ -26,6 +26,8 @@ MODELS = {
         "v5": "v5_think_8b/Qwen3-8B",
         "v6lite": "q8b_think_v6lite/Qwen3-8B",
         "v6full": "q8b_think_v6full/Qwen3-8B",
+        "v7lite": "q8b_think_v7lite/Qwen3-8B",
+        "v7full": "q8b_think_v7full/Qwen3-8B",
     }),
     "Magistral-Small": ("#1B9E77", {
         "v1": "magi_think_v1/Magistral-Small-2509",
@@ -35,11 +37,13 @@ MODELS = {
         "v5": "magi_think_v5/Magistral-Small-2509",
         "v6lite": "magi_think_v6lite/Magistral-Small-2509",
         "v6full": "magi_think_v6/Magistral-Small-2509",
+        "v7lite": "magi_think_v7lite/Magistral-Small-2509",
+        "v7full": "magi_think_v7full/Magistral-Small-2509",
     }),
 }
 
 def f1(sub):
-    d = os.path.join("results_norm", sub)
+    d = os.path.join("results_norm2", sub)
     if not os.path.isdir(d):
         return None
     r = subprocess.run([sys.executable, "score_v2.py",
@@ -75,7 +79,7 @@ for name, (col, dirs) in MODELS.items():
 x = list(range(len(VERSIONS)))
 
 # ---- figure 1: F1 ----
-fig, ax = plt.subplots(figsize=(8.5, 4.8))
+fig, ax = plt.subplots(figsize=(10, 4.8))
 for name, (col, _) in MODELS.items():
     xs = [i for i, v in enumerate(VERSIONS) if data[name][v]["F1"] is not None]
     ys = [data[name][v]["F1"] for v in VERSIONS if data[name][v]["F1"] is not None]
@@ -102,7 +106,7 @@ print(f"\nsaved {a.prefix}_f1.png")
 plt.close(fig)
 
 # ---- figure 2: rejection ----
-fig, ax = plt.subplots(figsize=(8.5, 4.8))
+fig, ax = plt.subplots(figsize=(10, 4.8))
 w = 0.38
 for k, (name, (col, _)) in enumerate(MODELS.items()):
     xs = [i + (k - 0.5) * w for i, v in enumerate(VERSIONS)

@@ -40,6 +40,11 @@ RUNS = [
     ("Magistral-Small",  24,  "Thinking", "v5",     "magi_think_v5/Magistral-Small-2509"),
     ("Magistral-Small",  24,  "Thinking", "v6lite", "magi_think_v6lite/Magistral-Small-2509"),
     ("Magistral-Small",  24,  "Thinking", "v6full", "magi_think_v6/Magistral-Small-2509"),
+    # prompt v7
+    ("Qwen3-8B",          8,  "Thinking", "v7lite", "q8b_think_v7lite/Qwen3-8B"),
+    ("Qwen3-8B",          8,  "Thinking", "v7full", "q8b_think_v7full/Qwen3-8B"),
+    ("Magistral-Small",  24,  "Thinking", "v7lite", "magi_think_v7lite/Magistral-Small-2509"),
+    ("Magistral-Small",  24,  "Thinking", "v7full", "magi_think_v7full/Magistral-Small-2509"),
     # dynamic k-nearest few-shot
     ("Qwen3-8B",          8,  "Instruct", "v5 k=0", "dyn_k0/Qwen3-8B"),
     ("Qwen3-8B",          8,  "Instruct", "v5 k=3", "dyn_k3/Qwen3-8B"),
