@@ -1,0 +1,612 @@
+<think>
+*   Target: FoxO1, FoxO3, FoxO4.
+    *   Perturbations:
+        *   Col2Cre-FoxO1, 3, and 4 single KO and triple KO (Col2Cre-TKO).
+        *   AcanCreERT-TKO (Deletion of FoxO1/3/4 in mature mice).
+        *   Ectopic FoxO1 expression (In vitro - ignore).
+        *   Overexpression of FoxO1 (In OA chondrocytes - In vitro - ignore).
+    *   Models:
+        *   Spontaneous (Aging): Col2Cre-FoxO1/3/4 and AcanCreERT-TKO.
+        *   Surgical: AcanCreERT-TKO.
+        *   Mechanical: AcanCreERT-TKO (treadmill running).
+    *   Outcomes:
+        *   Col2Cre-FoxO1 KO: OA-like changes developed between 4-6 months (Increased).
+        *   Col2Cre-FoxO3 KO: More severe OA at 18 months (Increased).
+        *   Col2Cre-FoxO4 KO: No cartilage abnormalities until 18 months (No Change/Not stated? Actually "no cartilage abnormalities until 18 months" suggests "No Change" or "Not stated" for OA severity, but it says "at 18 months... FoxO3 KO mice had more severe OA". It doesn't explicitly say FoxO4 was different).
+        *   Col2Cre-TKO: OA-like changes between 4-6 months (Increased).
+        *   AcanCreERT-TKO: Spontaneous cartilage degradation and increased OA severity (Increased).
+        *   AcanCreERT-TKO (Surgical): Increased OA severity (Increased).
+        *   AcanCreERT-TKO (Mechanical): Increased OA severity (Increased).
+
+    *   *Observation 1: FoxO1 (Col2Cre-FoxO1 KO)*
+        *   Target: FoxO1
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+
+    *   *Observation 2: FoxO3 (Col2Cre-FoxO3 KO)*
+        *   Target: FoxO3
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "Col2Cre-FoxO3 KO mice had more severe OA than control mice" (at 18 months)
+
+    *   *Observation 3: FoxO4 (Col2Cre-FoxO4 KO)*
+        *   Target: FoxO4
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: No Change (The text says "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age", and then only mentions FoxO3 having severe OA. This implies FoxO4 didn't have severe OA at 18 months.)
+
+    *   *Observation 4: FoxO1 (Col2Cre-TKO)*
+        *   Target: FoxO1
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+
+    *   *Observation 5: FoxO3 (Col2Cre-TKO)*
+        *   Target: FoxO3
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+
+    *   *Observation 6: FoxO4 (Col2Cre-TKO)*
+        *   Target: FoxO4
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+
+    *   *Observation 7: FoxO1 (AcanCreERT-TKO)*
+        *   Target: FoxO1
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+
+    *   *Observation 8: FoxO3 (AcanCreERT-TKO)*
+        *   Target: FoxO3
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+
+    *   *Observation 9: FoxO4 (AcanCreERT-TKO)*
+        *   Target: FoxO4
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Spontaneous (Aging)
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+
+    *   *Observation 10: FoxO1 (AcanCreERT-TKO)*
+        *   Target: FoxO1
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Surgical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+
+    *   *Observation 11: FoxO3 (AcanCreERT-TKO)*
+        *   Target: FoxO3
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Surgical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+
+    *   *Observation 12: FoxO4 (AcanCreERT-TKO)*
+        *   Target: FoxO4
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Surgical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+
+    *   *Observation 13: FoxO1 (AcanCreERT-TKO)*
+        *   Target: FoxO1
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Mechanical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    *   *Observation 14: FoxO3 (AcanCreERT-TKO)*
+        *   Target: FoxO3
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Mechanical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    *   *Observation 15: FoxO4 (AcanCreERT-TKO)*
+        *   Target: FoxO4
+        *   Manipulation: Conditional KO (Loss)
+        *   Species: Mice
+        *   OA Induction: Mechanical
+        *   Outcome: Increased
+        *   Snippet: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    *   Target: FoxO1, FoxO3, FoxO4 (Cleaned names)
+    *   Target raw: FoxO1, FoxO3, FoxO4
+    *   Target is official symbol: true (FoxO1, FoxO3, FoxO4 are HGNC symbols)
+    *   Manipulation: Conditional KO
+    *   Manipulation direction: Loss
+    *   Species: Mice (Col2Cre and AcanCreERT-TKO are mouse drivers)
+    *   OA Induction: Spontaneous, Surgical, Mechanical
+    *   OA Severity Outcome: Increased (except for FoxO4 Col2Cre-FoxO4 KO which is No Change)
+    *   Tissue specificity: Chondrocytes (Col2Cre and AcanCreERT-TKO are cartilage-specific)
+    *   Genetic detail: Col2Cre, AcanCreERT-TKO
+
+    *   Check Example 3: 2 genes x 3 models = 6 observations.
+    *   My analysis:
+        *   Col2Cre-FoxO1 (Spontaneous)
+        *   Col2Cre-FoxO3 (Spontaneous)
+        *   Col2Cre-FoxO4 (Spontaneous)
+        *   Col2Cre-TKO (Spontaneous) - 3 genes
+        *   AcanCreERT-TKO (Spontaneous) - 3 genes
+        *   AcanCreERT-TKO (Surgical) - 3 genes
+        *   AcanCreERT-TKO (Mechanical) - 3 genes
+    *   Total: 3 + 3 + 3 + 3 + 3 = 15 observations.
+
+    *   Refining Observation 3 (FoxO4 Col2Cre-FoxO4 KO):
+        "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+        This implies FoxO4 KO mice did *not* have more severe OA at 18 months. So "No Change" is the correct outcome.
+
+    *   Refining Snippets:
+        1. FoxO1 (Col2Cre-FoxO1 KO, Spontaneous): "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+        2. FoxO3 (Col2Cre-FoxO3 KO, Spontaneous): "Col2Cre-FoxO3 KO mice had more severe OA than control mice"
+        3. FoxO4 (Col2Cre-FoxO4 KO, Spontaneous): "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age"
+        4. FoxO1 (Col2Cre-TKO, Spontaneous): "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+        5. FoxO3 (Col2Cre-TKO, Spontaneous): "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+        6. FoxO4 (Col2Cre-TKO, Spontaneous): "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+        7. FoxO1 (AcanCreERT-TKO, Spontaneous): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+        8. FoxO3 (AcanCreERT-TKO, Spontaneous): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+        9. FoxO4 (AcanCreERT-TKO, Spontaneous): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+        10. FoxO1 (AcanCreERT-TKO, Surgical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+        11. FoxO3 (AcanCreERT-TKO, Surgical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+        12. FoxO4 (AcanCreERT-TKO, Surgical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+        13. FoxO1 (AcanCreERT-TKO, Mechanical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+        14. FoxO3 (AcanCreERT-TKO, Mechanical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+        15. FoxO4 (AcanCreERT-TKO, Mechanical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    *   Double check "OA-like changes": This is a structural phenotype (cartilage, synovium, subchondral bone).
+    *   Double check "spontaneous cartilage degradation": Structural phenotype.
+    *   Double check "increased OA severity": Structural phenotype.
+    *   Check Species: "Col2Cre" and "AcanCreERT2" are standard mouse Cre drivers.
+
+    *   FoxO1, FoxO3, FoxO4 are HGNC symbols.
+    *   `target_is_official_symbol`: true.
+
+    *   `Col2Cre` -> "Conditional KO"
+    *   `AcanCreERT-TKO` -> "Conditional KO"
+    *   `manipulation_direction`: "Loss" (since they are KOs)
+
+    *   Wait, look at the text for FoxO4 again: "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+    *   This implies at 18 months, FoxO4 KO mice had "no cartilage abnormalities" while FoxO3 KO mice had "more severe OA".
+    *   Therefore, for FoxO4, the outcome is "No Change".
+
+    *   Are there any other models?
+    *   "OA-like changes developed... between 4 and 6 months of age" -> Spontaneous.
+    *   "AcanCreERT-TKO also led to spontaneous cartilage degradation" -> Spontaneous.
+    *   "increased OA severity in a surgical model" -> Surgical.
+    *   "increased OA severity ... after treadmill running" -> Mechanical.
+    *   Total models: Spontaneous, Surgical, Mechanical.
+
+    *   Wait, the triple KO (Col2Cre-TKO) is also a perturbation.
+    *   Does "Col2Cre-TKO" count as a separate gene or should I treat it as FoxO1, FoxO3, and FoxO4?
+    *   RULE: "A double knockout, a co-treatment, or a ligand+receptor pair produces ONE OBSERVATION PER GENE. Do NOT write 'GeneA + GeneB' in the target field. An Adamts4;Adamts5 double KO in DMM = two observations."
+    *   So "Col2Cre-TKO" means FoxO1 KO, FoxO3 KO, and FoxO4 KO.
+
+    *   Final count:
+        *   Col2Cre-FoxO1 (Spontaneous)
+        *   Col2Cre-FoxO3 (Spontaneous)
+        *   Col2Cre-FoxO4 (Spontaneous)
+        *   Col2Cre-TKO (Spontaneous) -> FoxO1, FoxO3, FoxO4
+        *   AcanCreERT-TKO (Spontaneous) -> FoxO1, FoxO3, FoxO4
+        *   AcanCreERT-TKO (Surgical) -> FoxO1, FoxO3, FoxO4
+        *   AcanCreERT-TKO (Mechanical) -> FoxO1, FoxO3, FoxO4
+        *   Wait, I counted Col2Cre-TKO as a separate model? No, Col2Cre-TKO and Col2Cre-FoxO1 are both "Spontaneous" (Aging).
+        *   Let's re-list:
+            1. FoxO1 (Col2Cre-FoxO1, Spontaneous)
+            2. FoxO3 (Col2Cre-FoxO3, Spontaneous)
+            3. FoxO4 (Col2Cre-FoxO4, Spontaneous)
+            4. FoxO1 (Col2Cre-TKO, Spontaneous)
+            5. FoxO3 (Col2Cre-TKO, Spontaneous)
+            6. FoxO4 (Col2Cre-TKO, Spontaneous)
+            7. FoxO1 (AcanCreERT-TKO, Spontaneous)
+            8. FoxO3 (AcanCreERT-TKO, Spontaneous)
+            9. FoxO4 (AcanCreERT-TKO, Spontaneous)
+            10. FoxO1 (AcanCreERT-TKO, Surgical)
+            11. FoxO3 (AcanCreERT-TKO, Surgical)
+            12. FoxO4 (AcanCreERT-TKO, Surgical)
+            13. FoxO1 (AcanCreERT-TKO, Mechanical)
+            14. FoxO3 (AcanCreERT-TKO, Mechanical)
+            15. FoxO4 (AcanCreERT-TKO, Mechanical)
+
+    *   Wait, is "Col2Cre-TKO" a different model than "Col2Cre-FoxO1"?
+    *   The abstract says: "OA-like changes developed... in Col2Cre-TKO and Col2Cre-FoxO1 KO mice."
+    *   They are both in the "Spontaneous" category.
+    *   The instruction says: "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR THAT THE ABSTRACT ACTUALLY REPORTS AN OUTCOME FOR."
+    *   Since "Col2Cre-TKO" and "Col2Cre-FoxO1" are both "Spontaneous", do I emit them separately?
+    *   Usually, a "model" is the *challenge* (e.g., DMM, Treadmill, Aging).
+    *   If the challenge is "Aging" (Spontaneous), and the abstract reports an outcome for "FoxO1 KO" and "FoxO1/3/4 TKO", they are both "FoxO1 x Spontaneous".
+    *   However, Example 3 shows that if a sentence says "deletion of FoxO1 and FoxO3 ... led to spontaneous ... and ... surgical ... and ... treadmill", it's 2 genes x 3 models = 6 observations.
+    *   In my case, the "models" are:
+        1. Spontaneous (Aging)
+        2. Surgical
+        3. Mechanical
+    *   So for each gene (FoxO1, FoxO3, FoxO4), I should have one observation for each model.
+    *   Does "Col2Cre-TKO" vs "Col2Cre-FoxO1" matter? They are both "Spontaneous".
+    *   If I have 3 genes and 3 models, I should have 9 observations.
+    *   Let's re-read: "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    *   If "Col2Cre-FoxO1" and "Col2Cre-TKO" are both "Spontaneous", they are the same (gene x model) pair?
+    *   No, "Col2Cre-TKO" is a different *perturbation* than "Col2Cre-FoxO1".
+    *   But the rule says "gene x model".
+    *   Wait, "Col2Cre-TKO" is FoxO1, FoxO3, and FoxO4 all being perturbed.
+    *   "Col2Cre-FoxO1" is only FoxO1 being perturbed.
+    *   Both are "Spontaneous" models.
+    *   Let's look at the "Col2Cre-TKO" and "Col2Cre-FoxO1" sentence again: "OA-like changes developed ... in Col2Cre-TKO and Col2Cre-FoxO1 KO mice."
+    *   Since they are both "Spontaneous", and the target is the same (FoxO1), is it one observation?
+    *   Actually, if the abstract reports different things for different perturbations, we'd split them. But here it's the same outcome for both.
+    *   However, to be safe and follow the "one observation per (gene x model)" strictly:
+        Model 1: Spontaneous. Genes: FoxO1, FoxO3, FoxO4. (3 observations)
+        Model 2: Surgical. Genes: FoxO1, FoxO3, FoxO4. (3 observations)
+        Model 3: Mechanical. Genes: FoxO1, FoxO3, FoxO4. (3 observations)
+        Total = 9.
+    *   Wait, what about the "Col2Cre-FoxO3" and "Col2Cre-FoxO4" results?
+        FoxO3 (Spontaneous): "more severe OA"
+        FoxO4 (Spontaneous): "no cartilage abnormalities"
+        These are separate outcomes.
+    *   What about the "Col2Cre-TKO" result?
+        "OA-like changes developed... in Col2Cre-TKO"
+        This is also Spontaneous.
+    *   If I treat "Col2Cre-TKO" as its own "model", that's not right. "Spontaneous" is the model.
+    *   So for "Spontaneous", I have:
+        - FoxO1 (from Col2Cre-FoxO1 and Col2Cre-TKO)
+        - FoxO3 (from Col2Cre-FoxO3 and Col2Cre-TKO)
+        - FoxO4 (from Col2Cre-FoxO4 and Col2Cre-TKO)
+    *   Wait, "Col2Cre-TKO" and "Col2Cre-FoxO1" are both reported in the same sentence.
+    *   Let's look at Example 3 again. "deletion of FoxO1 and FoxO3 ... led to spontaneous ... and ... surgical ... and ... treadmill".
+    *   This resulted in 6 observations (2 genes x 3 models).
+    *   My abstract has:
+        - FoxO1, FoxO3, FoxO4 in Spontaneous (from Col2Cre-TKO)
+        - FoxO1, FoxO3, FoxO4 in Spontaneous (from Col2Cre-FoxO1/3/4)
+        - FoxO1, FoxO3, FoxO4 in Spontaneous (from AcanCreERT-TKO)
+        - FoxO1, FoxO3, FoxO4 in Surgical (from AcanCreERT-TKO)
+        - FoxO1, FoxO3, FoxO4 in Mechanical (from AcanCreERT-TKO)
+    *   This is still 3 genes x 3 models = 9 observations.
+    *   Wait, is "Spontaneous" one model or are there multiple "Spontaneous" models?
+    *   The instruction says: "List every OA MODEL / CHALLENGE... Look for: surgical induction, ageing / spontaneous phenotype, treadmill or forced running, chemical injection, high-fat diet."
+    *   So "Spontaneous" is one model.
+    *   Therefore, 3 genes x 3 models = 9 observations.
+    *   Let's re-verify the FoxO4 outcome for Spontaneous.
+    *   "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+    *   This means FoxO4 KO = No Change.
+    *   But "Col2Cre-TKO" (which includes FoxO4) showed "OA-like changes" (Increased).
+    *   So for FoxO4, there are two different outcomes in the Spontaneous model depending on whether it's a single KO or a TKO.
+    *   Rule: "If the abstract gives different outcomes in different models (protected after surgery, no change with ageing), record them separately and do not average them."
+    *   This applies to different models. What about different perturbations within the same model?
+    *   "A single sentence often contains several models. Split it."
+    *   If I have two different perturbations (Single KO vs TKO) in the same model (Spontaneous), and they have different outcomes, I should probably treat the TKO as a separate "model" or just list them as separate observations.
+    *   However, the instruction says "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    *   If I have two different outcomes for (FoxO4 x Spontaneous), I have a conflict.
+    *   Let's look at the text again.
+    *   "OA-like changes developed ... in Col2Cre-TKO and Col2Cre-FoxO1 KO mice." (Both Increased)
+    *   "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice." (FoxO3 Increased, FoxO4 No Change)
+    *   "AcanCreERT-TKO also led to spontaneous cartilage degradation and increased OA severity in a surgical model or treadmill running." (All 3 genes Increased)
+    *   So for "Spontaneous":
+        - FoxO1: Increased (from Col2Cre-FoxO1 and Col2Cre-TKO and AcanCreERT-TKO)
+        - FoxO3: Increased (from Col2Cre-FoxO3 and Col2Cre-TKO and AcanCreERT-TKO)
+        - FoxO4: This is tricky. In Col2Cre-FoxO4 KO it's "No Change". In Col2Cre-TKO it's "Increased". In AcanCreERT-TKO it's "Increased".
+    *   Since "Increased" is the majority and "No Change" is specific to the single KO, I will provide the observations for the models clearly.
+    *   Wait, if I have different outcomes for the same gene in the same model, I should probably treat the "Col2Cre-FoxO4 KO" as a separate model or separate observation.
+    *   Let's stick to the 3 models: Spontaneous, Surgical, Mechanical.
+    *   For Spontaneous:
+        - FoxO1: Increased
+        - FoxO3: Increased
+        - FoxO4: Increased (from TKO and AcanCreERT-TKO) and "No Change" (from Col2Cre-FoxO4 KO).
+    *   I will list the "Increased" ones as they are the primary findings. Actually, I'll list all of them to be safe.
+    *   Wait, "Col2Cre-FoxO4 KO" is a specific experiment. "Col2Cre-TKO" is a specific experiment.
+    *   If I treat "Col2Cre-FoxO4 KO" and "Col2Cre-TKO" as different "models", then I have:
+        1. Spontaneous (Col2Cre-FoxO1)
+        2. Spontaneous (Col2Cre-FoxO3)
+        3. Spontaneous (Col2Cre-FoxO4)
+        4. Spontaneous (Col2Cre-TKO)
+        5. Spontaneous (AcanCreERT-TKO)
+        6. Surgical (AcanCreERT-TKO)
+        7. Mechanical (AcanCreERT-TKO)
+    *   This would be 3 (from 1-3) + 3 (from 4) + 3 (from 5) + 3 (from 6) + 3 (from 7) = 15 observations.
+    *   This seems the most robust way to capture all data.
+
+    *   Observation 1: FoxO1, Col2Cre-FoxO1, Spontaneous, Increased
+    *   Observation 2: FoxO3, Col2Cre-FoxO3, Spontaneous, Increased
+    *   Observation 3: FoxO4, Col2Cre-FoxO4, Spontaneous, No Change
+    *   Observation 4: FoxO1, Col2Cre-TKO, Spontaneous, Increased
+    *   Observation 5: FoxO3, Col2Cre-TKO, Spontaneous, Increased
+    *   Observation 6: FoxO4, Col2Cre-TKO, Spontaneous, Increased
+    *   Observation 7: FoxO1, AcanCreERT-TKO, Spontaneous, Increased
+    *   Observation 8: FoxO3, AcanCreERT-TKO, Spontaneous, Increased
+    *   Observation 9: FoxO4, AcanCreERT-TKO, Spontaneous, Increased
+    *   Observation 10: FoxO1, AcanCreERT-TKO, Surgical, Increased
+    *   Observation 11: FoxO3, AcanCreERT-TKO, Surgical, Increased
+    *   Observation 12: FoxO4, AcanCreERT-TKO, Surgical, Increased
+    *   Observation 13: FoxO1, AcanCreERT-TKO, Mechanical, Increased
+    *   Observation 14: FoxO3, AcanCreERT-TKO, Mechanical, Increased
+    *   Observation 15: FoxO4, AcanCreERT-TKO, Mechanical, Increased
+
+    Wait, "Col2Cre-TKO" and "Col2Cre-FoxO1" are both Spontaneous.
+    If I put them in the same model, I have to choose one outcome.
+    But "Col2Cre-TKO" and "Col2Cre-FoxO1" both show "Increased" for FoxO1.
+    So FoxO1 x Spontaneous = Increased.
+    "Col2Cre-TKO" and "Col2Cre-FoxO3" both show "Increased" for FoxO3.
+    So FoxO3 x Spontaneous = Increased.
+    "Col2Cre-TKO" and "Col2Cre-FoxO4" show different outcomes for FoxO4.
+    This is why I'll treat the "Col2Cre-FoxO4 KO" as a separate observation.
+
+    Actually, let's simplify. The prompt says: "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    Model 1: Spontaneous.
+    Model 2: Surgical.
+    Model 3: Mechanical.
+    For Spontaneous:
+    FoxO1: Increased
+    FoxO3: Increased
+    FoxO4: Increased (since TKO and AcanCreERT-TKO both show this, and it's the more prominent finding).
+    Wait, if I ignore the "No Change" for FoxO4, I might be missing a valid observation.
+    I will include the "No Change" for FoxO4 as a separate observation if I can justify it as a separate "model" (e.g., Col2Cre-FoxO4 KO).
+    But the instruction says "Spontaneous" is the model.
+    Let's look at Example 4: "Mif-/- mice showed reduced cartilage damage during ageing, but after destabilisation ... OARSI scores were not different".
+    This is 2 models (Spontaneous and Surgical) for 1 gene.
+    My abstract has 3 models (Spontaneous, Surgical, Mechanical) for 3 genes.
+    So 3 genes x 3 models = 9 observations.
+    Wait, what about the "Col2Cre-TKO" vs "Col2Cre-FoxO1"?
+    They are both the "Spontaneous" model.
+    I'll just group them.
+    FoxO1 x Spontaneous = Increased
+    FoxO3 x Spontaneous = Increased
+    FoxO4 x Spontaneous = Increased (TKO) / No Change (Single KO).
+    I'll provide the TKO result for FoxO4 as it's the primary focus of the paper's "TKO" section.
+    No, I'll provide both if possible? No, the rule is "ONE observation per (gene x model)".
+    I will choose "Increased" for FoxO4 x Spontaneous because it's the result for the TKO and the AcanCreERT-TKO.
+
+    Wait, let me re-read the FoxO4 part: "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+    This is a very specific result for FoxO4.
+    I'll just include it as a separate observation and call the model "Spontaneous" and the snippet the specific one.
+    Wait, if I have two observations for (FoxO4 x Spontaneous), I'm violating the "one observation per (gene x model)" rule.
+    Let's look at the rule again: "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    This is a hard rule.
+    So I must pick one. "Increased" is the result for the TKO and the AcanCreERT-TKO.
+
+    Let's double check the FoxO1 outcome for "Col2Cre-TKO" and "Col2Cre-FoxO1". Both are "Increased".
+    So FoxO1 x Spontaneous = Increased.
+    FoxO3 x Spontaneous = Increased.
+    FoxO4 x Spontaneous = Increased (I will go with the TKO result).
+
+    Wait, let me re-read the "AcanCreERT-TKO" part.
+    "Deletion of FoxO1/3/4 ... also led to spontaneous cartilage degradation and increased OA severity in a surgical model or treadmill running."
+    This is 3 genes x 3 models = 9 observations.
+    Plus the 3 genes x 1 model (Spontaneous) from the Col2Cre experiments.
+    Total = 12 observations.
+
+    Let's re-verify the "Spontaneous" model for the Col2Cre experiments.
+    "OA-like changes developed ... between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice."
+    "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+    So:
+    FoxO1 x Spontaneous = Increased
+    FoxO3 x Spontaneous = Increased
+    FoxO4 x Spontaneous = No Change (This is the specific result for the single KO).
+    Wait, if I use "No Change" for FoxO4 x Spontaneous, I'm ignoring the "Increased" result from the TKO and the AcanCreERT-TKO.
+    This is a conflict.
+    However, the "AcanCreERT-TKO" is a *different* perturbation.
+    If I treat "AcanCreERT-TKO" as a separate "model" (even though it's spontaneous), that would solve it.
+    But the rule says "Spontaneous" is the model.
+    Okay, I will provide 12 observations:
+    1-3: FoxO1, FoxO3, FoxO4 (Spontaneous - Col2Cre)
+    4-6: FoxO1, FoxO3, FoxO4 (Spontaneous - AcanCreERT-TKO)
+    7-9: FoxO1, FoxO3, FoxO4 (Surgical - AcanCreERT-TKO)
+    10-12: FoxO1, FoxO3, FoxO4 (Mechanical - AcanCreERT-TKO)
+    Wait, that's only 12. Where is the Col2Cre-TKO?
+    The Col2Cre-TKO is also Spontaneous.
+    If I have two different perturbations (Col2Cre-FoxO1 and Col2Cre-TKO) that both show "Increased" for FoxO1, it's still just one (FoxO1 x Spontaneous).
+    If I have two different perturbations (Col2Cre-FoxO4 and Col2Cre-TKO) that show different outcomes for FoxO4, I have to choose.
+    I'll choose the "Increased" one because it's the result for the TKO and the AcanCreERT-TKO.
+
+    Let me re-read the rule: "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    Okay, I will stick to 9 observations (3 genes x 3 models).
+    Wait, the AcanCreERT-TKO is a *different* perturbation.
+    Does "model" mean "the challenge" or "the experimental setup"?
+    "Look for: surgical induction, ageing / spontaneous phenotype, treadmill or forced running, chemical injection, high-fat diet."
+    These are the "models".
+    So "Spontaneous" is one model.
+    "Surgical" is one model.
+    "Mechanical" is one model.
+    So 3 genes x 3 models = 9 observations.
+    This is the safest way to follow the rule.
+
+    Wait, I just noticed something. "Col2Cre-FoxO1, 3, and 4 single knockout (KO) and triple KO mice (Col2Cre-TKO) were analyzed."
+    And then: "OA-like changes developed ... in Col2Cre-TKO and Col2Cre-FoxO1 KO mice."
+    And then: "Col2Cre-FoxO3 and FoxO4 KO mice showed no cartilage abnormalities until 18 months of age when Col2Cre-FoxO3 KO mice had more severe OA than control mice."
+    This is clearly 3 genes x 1 model (Spontaneous).
+    Then: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation and increased OA severity in a surgical model or treadmill running."
+    This is 3 genes x 3 models (Spontaneous, Surgical, Mechanical).
+    Total = 3 + 3 + 3 = 9 observations.
+
+    Let's double check the FoxO4 outcome again.
+    In the Col2Cre-TKO and AcanCreERT-TKO, FoxO4 KO led to "OA-like changes" and "spontaneous cartilage degradation".
+    In the Col2Cre-FoxO4 KO, it showed "no cartilage abnormalities until 18 months".
+    Since the TKO and AcanCreERT-TKO are the primary focus and both show "Increased", I will use "Increased" for FoxO4 x Spontaneous.
+
+    Wait, I'll check the snippet for FoxO4 x Spontaneous.
+    I'll use the snippet for the TKO: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+    Wait, that snippet doesn't mention FoxO4.
+    I'll use: "OA-like changes developed ... in Col2Cre-TKO"
+
+    Actually, let's re-count.
+    If I treat "Col2Cre-TKO" and "AcanCreERT-TKO" as different "models" because they are different perturbations, then I would have more. But the instructions are very specific about "Spontaneous", "Surgical", etc.
+    I'll stick to 9.
+
+    Wait, one more look. "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation".
+    This is a *different* Spontaneous model than the Col2Cre one.
+    Does it matter? The rule says "Emit ONE OBSERVATION FOR EVERY (gene x model) PAIR".
+    If the model is "Spontaneous", I only get one observation per gene.
+    This seems like it would lose data.
+    But the rule is "ABSOLUTE".
+    I will follow the rule. 3 genes x 3 models = 9 observations.
+
+    Wait, I'll check the "No Change" for FoxO4 again.
+    If I report "Increased" for FoxO4 x Spontaneous, I am technically correct because the TKO showed it.
+    If I report "No Change", I am also technically correct because the single KO showed it.
+    "Increased" is a stronger result for the paper's overall conclusion.
+
+    Wait, I'll look at Example 3 again.
+    "deletion of FoxO1 and FoxO3 ... led to spontaneous ... and ... surgical ... and ... treadmill"
+    This was 2 genes x 3 models = 6 observations.
+    My abstract has 3 genes x 3 models.
+    So 9 observations.
+
+    Let's re-verify the "Surgical" and "Mechanical" models for AcanCreERT-TKO.
+    "increased OA severity in a surgical model or treadmill running"
+    Yes, those are "Surgical" and "Mechanical".
+
+    One last check: Is "OA-like changes" a structural phenotype?
+    "cartilage, synovium, and subchondral bone" - Yes.
+    Is "spontaneous cartilage degradation" a structural phenotype?
+    Yes.
+    Is "increased OA severity" a structural phenotype?
+    Yes.
+
+    Final list of 9 observations:
+    1. FoxO1, Spontaneous, Increased
+    2. FoxO3, Spontaneous, Increased
+    3. FoxO4, Spontaneous, Increased
+    4. FoxO1, Surgical, Increased
+    5. FoxO3, Surgical, Increased
+    6. FoxO4, Surgical, Increased
+    7. FoxO1, Mechanical, Increased
+    8. FoxO3, Mechanical, Increased
+    9. FoxO4, Mechanical, Increased
+
+    Wait, let me double check the "Col2Cre-FoxO1" outcome.
+    "OA-like changes developed ... in Col2Cre-TKO and Col2Cre-FoxO1 KO mice."
+    Yes, "Increased".
+    "Col2Cre-FoxO3 ... had more severe OA".
+    Yes, "Increased".
+    "Col2Cre-FoxO4 ... showed no cartilage abnormalities until 18 months".
+    This is "No Change".
+    So for Spontaneous, I have:
+    FoxO1: Increased
+    FoxO3: Increased
+    FoxO4: No Change (Single KO) OR Increased (TKO).
+    I'll go with "Increased" because it's the result for the TKO and the AcanCreERT-TKO.
+
+    Wait, I'll use the AcanCreERT-TKO snippet for the Spontaneous results to be safe, as it covers all three genes.
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+
+    Wait, the Col2Cre-TKO result is also very good.
+    "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO"
+
+    I'll use the AcanCreERT-TKO one for Spontaneous, Surgical, and Mechanical.
+    For Spontaneous: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+    For Surgical: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+    For Mechanical: "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    Wait, I should make sure the snippets are verbatim.
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    Let me re-check the word "also". I'll include it.
+    Actually, I'll just use the relevant part.
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to increased OA severity in a surgical model"
+    "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to increased OA severity ... after treadmill running"
+
+    Wait, "increased OA severity in a surgical model or treadmill running" is one sentence.
+    I'll split it.
+    Snippet 1 (Surgical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity in a surgical model"
+    Snippet 2 (Mechanical): "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to ... increased OA severity ... after treadmill running"
+
+    One more thing: "Col2Cre-TKO" and "Col2Cre-FoxO1" are both Spontaneous.
+    The "OA-like changes" snippet: "OA-like changes developed in cartilage, synovium, and subchondral bone between 4 and 6 months of age in Col2Cre-TKO and Col2Cre-FoxO1 KO mice"
+    This is also a valid snippet for Spontaneous.
+    I'll use the AcanCreERT-TKO one as it's more concise.
+
+    Wait, I'll check the "No Change" for FoxO4 again.
+    If I use "Increased" for FoxO4 x Spontaneous, am I ignoring the "No Change"?
+    Yes. Is that okay?
+    The rule is "Emit ONE observation per (gene x model)".
+    If I have two different outcomes for the same pair, I have to choose one.
+    "Increased" is the result for 2 out of 3 perturbations in the Spontaneous model.
+    So "Increased" is the most representative.
+
+    Actually, I'll double check if "Col2Cre-TKO" is a different model.
+    No, it's a "Spontaneous" model.
+    Okay, 9 observations it is.
+
+    Wait, I just realized "Col2Cre-FoxO1, 3, and 4 single knockout (KO) and triple KO mice (Col2Cre-TKO)"
+    The "Col2Cre-FoxO1" is a single KO.
+    The "Col2Cre-TKO" is a triple KO.
+    They are both Spontaneous.
+    Okay.
+
+    Wait, I'll check the target names again.
+    FoxO1, FoxO3, FoxO4.
+    Target raw: FoxO1, FoxO3, FoxO4.
+    Target is official symbol: true.
+
+    Let's do this.</think>{
+  "observations": [
+    {
+      "observation_number": 1,
+      "target": "FOXO1",
+      "target_raw": "FoxO1",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes",
+      "drug_detail": "N/A",
+      "genetic_detail": "Col2Cre",
+      "evidence_snippet": "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+    },
+    {
+      "observation_number": 2,
+      "target": "FOXO3",
+      "target_raw": "FoxO3",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes",
+      "drug_detail": "N/A",
+      "genetic_detail": "Col2Cre",
+      "evidence_snippet": "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous cartilage degradation"
+    },
+    {
+      "observation_number": 3,
+      "target": "FOXO4",
+      "target_raw": "FoxO4",
+      "target_is_official_symbol": true,
+      "manipulation": "Conditional KO",
+      "manipulation_direction": "Loss",
+      "species": "Mice",
+      "oa_induction": "Spontaneous",
+      "oa_severity_outcome": "Increased",
+      "tissue_specificity": "Chondrocytes",
+      "drug_detail": "N/A",
+      "genetic_detail": "Col2Cre",
+      "evidence_snippet": "Deletion of FoxO1/3/4 in mature mice using Aggrecan(Acan)-CreERT2 (AcanCreERT-TKO) also led to spontaneous

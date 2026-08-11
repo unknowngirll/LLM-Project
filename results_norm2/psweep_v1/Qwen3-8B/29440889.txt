@@ -1,0 +1,1 @@
+{"observations": [{"observation_number": 1, "target": "IHH", "manipulation_type": "RNAi", "genetic_detail": "Not stated", "drug_detail": "N/A", "animal_species": "Rats", "tissue_specificity": "Cartilage", "oa_induction": "Surgical", "oa_severity_outcome": "Decreased", "evidence_snippet": "intraarticular injection of LNP-Ihh siRNA attenuated OA progression", "target_raw": "Ihh"}]}

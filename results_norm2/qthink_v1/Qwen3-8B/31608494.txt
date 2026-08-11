@@ -1,0 +1,1 @@
+{"observations": [{"observation_number": 1, "target": "SMO", "manipulation_type": "Conditional KO", "genetic_detail": "Not stated", "drug_detail": "N/A", "animal_species": "Mice", "tissue_specificity": "Whole body", "oa_induction": "Surgical", "oa_severity_outcome": "Decreased", "evidence_snippet": "Smo deletion significantly suppressed PTOA progression.", "target_raw": "Smo"}]}
