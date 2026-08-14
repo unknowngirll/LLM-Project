@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-plot_consensus.py - two figures for the multi-model consensus experiment.
+plot_consensus.py - two horizontal figures for the multi-model consensus work.
 
 A: precision, recall and F1 for each single model, every pairwise combination
    under both agreement rules, and both three-model voting rules
-B: the confidence ladder - how often an extracted gene is correct given how
-   many of the three models extracted it
+B: the confidence ladder, broken down by which models agreed rather than by
+   how many, so that every subset is named explicitly
 
 All inputs are scored after the revised HGNC normalisation.
 """
 import os, re, sys, csv, json, glob, subprocess, argparse
-from collections import Counter
+from collections import Counter, defaultdict
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
@@ -29,27 +29,19 @@ QWN = "results_norm2/q8b_think_v6full/Qwen3-8B"
 GEM = "results_norm2/gemma4_v6/gemma-4-12B-it"
 CONS = "results_consensus2"
 
-# label, directory, category
 CONFIGS = [
-    ("Magistral\nalone",        MAG,                          "single"),
-    ("Qwen3-8B\nalone",         QWN,                          "single"),
-    ("Gemma-4\nalone",          GEM,                          "single"),
-    ("Magistral + Qwen\nboth",  f"{CONS}/MagQwen_intersection", "both"),
-    ("Magistral + Gemma\nboth", f"{CONS}/MagGem_intersection",  "both"),
-    ("Qwen + Gemma\nboth",      f"{CONS}/QwenGem_intersection", "both"),
-    ("Magistral + Qwen\neither", f"{CONS}/MagQwen_union",       "either"),
-    ("Magistral + Gemma\neither", f"{CONS}/MagGem_union",       "either"),
-    ("Qwen + Gemma\neither",    f"{CONS}/QwenGem_union",        "either"),
-    ("All three\n2 of 3",       f"{CONS}/vote2",               "three"),
-    ("All three\n3 of 3",       f"{CONS}/vote3",               "three"),
+    ("Magistral alone",                      MAG, "single"),
+    ("Qwen3-8B alone",                       QWN, "single"),
+    ("Gemma-4 alone",                        GEM, "single"),
+    ("Magistral + Qwen, gene in both",   f"{CONS}/MagQwen_intersection", "both"),
+    ("Magistral + Gemma, gene in both",  f"{CONS}/MagGem_intersection",  "both"),
+    ("Qwen + Gemma, gene in both",       f"{CONS}/QwenGem_intersection", "both"),
+    ("Magistral + Qwen, gene in either",  f"{CONS}/MagQwen_union",  "either"),
+    ("Magistral + Gemma, gene in either", f"{CONS}/MagGem_union",   "either"),
+    ("Qwen + Gemma, gene in either",      f"{CONS}/QwenGem_union",  "either"),
+    ("All three, 2 of 3 agree",           f"{CONS}/vote2", "three"),
+    ("All three, 3 of 3 agree",           f"{CONS}/vote3", "three"),
 ]
-
-CAT_COLOUR = {"single": "#BDBDBD", "both": "#3C8DBC",
-              "either": "#E8A33D", "three": "#1B9E77"}
-CAT_LABEL = {"single": "Single model",
-             "both": "Pair, gene found by both",
-             "either": "Pair, gene found by either",
-             "three": "Three-model vote"}
 
 def score(d):
     if not os.path.isdir(d):
@@ -72,56 +64,47 @@ for label, d, cat in CONFIGS:
     s = score(d)
     if s is None:
         print("  missing:", d, flush=True); continue
-    rows.append({"config": label.replace("\n", " "), "category": cat,
-                 "dir": d, **s})
-    print("  %-26s F1=%.3f P=%.3f R=%.3f FP=%d TN=%d"
-          % (label.replace("\n", " "), s["F1"], s["P"], s["R"],
-             s["FP"], s["TN"]), flush=True)
+    rows.append({"config": label, "category": cat, "dir": d, **s})
+    print("  %-38s F1=%.3f P=%.3f R=%.3f FP=%d TN=%d"
+          % (label, s["F1"], s["P"], s["R"], s["FP"], s["TN"]), flush=True)
 
-# ---------- figure A ----------
-labels = [c[0] for c in CONFIGS if any(r["dir"] == c[1] for r in rows)]
-data = [next(r for r in rows if r["dir"] == c[1])
-        for c in CONFIGS if any(r["dir"] == c[1] for r in rows)]
-cats = [c[2] for c in CONFIGS if any(r["dir"] == c[1] for r in rows)]
+# ---------------- figure A: horizontal grouped bars ----------------
+y = np.arange(len(rows))
+h = 0.26
+fig, ax = plt.subplots(figsize=(9.5, 8))
 
-x = np.arange(len(data))
-w = 0.27
-fig, ax = plt.subplots(figsize=(13.5, 5.4))
+ax.barh(y - h, [r["P"] for r in rows],  height=h, color="#3C8DBC", label="Precision")
+ax.barh(y,     [r["R"] for r in rows],  height=h, color="#E8A33D", label="Recall")
+ax.barh(y + h, [r["F1"] for r in rows], height=h, color="#666666", label="F1")
 
-ax.bar(x - w, [r["P"] for r in data], width=w, color="#3C8DBC", label="Precision")
-ax.bar(x,     [r["R"] for r in data], width=w, color="#E8A33D", label="Recall")
-ax.bar(x + w, [r["F1"] for r in data], width=w, color="#666666", label="F1")
+for i, r in enumerate(rows):
+    for off, key in ((-h, "P"), (0, "R"), (h, "F1")):
+        ax.annotate("%.3f" % r[key], (r[key], i + off), fontsize=7.5,
+                    va="center", ha="left", color="black",
+                    xytext=(3, 0), textcoords="offset points")
 
-for i, r in enumerate(data):
-    ax.annotate("%.3f" % r["F1"], (i + w, r["F1"]), fontsize=7.5,
-                ha="center", color="black", xytext=(0, 3),
-                textcoords="offset points")
+seen = None
+for i, r in enumerate(rows):
+    if seen is not None and r["category"] != seen:
+        ax.axhline(i - 0.5, color="#DDD", lw=1, zorder=0)
+    seen = r["category"]
 
-# separators between the four groups
-seen, bounds = None, []
-for i, c in enumerate(cats):
-    if seen is not None and c != seen:
-        bounds.append(i - 0.5)
-    seen = c
-for b in bounds:
-    ax.axvline(b, color="#DDD", lw=1, zorder=0)
-
-ax.set_xticks(x)
-ax.set_xticklabels(labels, fontsize=8.5)
-ax.set_ylabel("Score (HGNC-normalised)")
-ax.set_ylim(0, 1.0)
-ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=10,
-          borderaxespad=0)
+ax.set_yticks(y)
+ax.set_yticklabels([r["config"] for r in rows], fontsize=9.5)
+ax.invert_yaxis()
+ax.set_xlabel("Score (HGNC-normalised)")
+ax.set_xlim(0, 1.06)
+ax.legend(loc="lower right", fontsize=10)
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
-ax.grid(axis="y", alpha=.22); ax.set_axisbelow(True)
+ax.grid(axis="x", alpha=.22); ax.set_axisbelow(True)
 
 for ext in ("png", "pdf"):
     fig.savefig("%s_scores.%s" % (a.prefix, ext), dpi=300, bbox_inches="tight")
 print("\nsaved %s_scores.png" % a.prefix)
 plt.close(fig)
 
-# ---------- figure B: confidence ladder ----------
+# ---------------- figure B: which models agreed ----------------
 gold = {}
 for l in open(a.gold, encoding="utf-8"):
     if l.strip():
@@ -146,52 +129,70 @@ def genes(path):
     return {(o.get("target") or "").strip().upper()
             for o in d.get("observations", []) if o.get("target")}
 
-tier = {1: [0, 0], 2: [0, 0], 3: [0, 0]}
+MODELS = [("Magistral", MAG), ("Qwen", QWN), ("Gemma", GEM)]
+subsets = defaultdict(lambda: [0, 0])          # frozenset -> [n, correct]
+
 for f in sorted(glob.glob(MAG + "/*.txt")):
     fn = os.path.basename(f); pmid = fn[:-4]
     if pmid not in gold:
         continue
-    votes = Counter()
-    for d in (MAG, QWN, GEM):
-        votes.update(genes(os.path.join(d, fn)))
-    for g, v in votes.items():
-        tier[v][0] += 1
-        tier[v][1] += (g in gold[pmid])
+    found = {name: genes(os.path.join(d, fn)) for name, d in MODELS}
+    allg = set().union(*found.values())
+    for g in allg:
+        who = frozenset(n for n in found if g in found[n])
+        subsets[who][0] += 1
+        subsets[who][1] += (g in gold[pmid])
 
-lab = ["All three models", "Two of three", "One model only"]
-prec = [tier[3][1] / tier[3][0] if tier[3][0] else 0,
-        tier[2][1] / tier[2][0] if tier[2][0] else 0,
-        tier[1][1] / tier[1][0] if tier[1][0] else 0]
-counts = [tier[3][0], tier[2][0], tier[1][0]]
-cols = ["#1B9E77", "#3C8DBC", "#E8482C"]
+ORDER = [
+    (frozenset({"Magistral", "Qwen", "Gemma"}), "Magistral + Qwen + Gemma", "#1B9E77"),
+    (frozenset({"Magistral", "Qwen"}),          "Magistral + Qwen",         "#3C8DBC"),
+    (frozenset({"Magistral", "Gemma"}),         "Magistral + Gemma",        "#4FA3D1"),
+    (frozenset({"Qwen", "Gemma"}),              "Qwen + Gemma",             "#7FBEE0"),
+    (frozenset({"Magistral"}),                  "Magistral only",           "#E8482C"),
+    (frozenset({"Qwen"}),                       "Qwen only",                "#F07A5F"),
+    (frozenset({"Gemma"}),                      "Gemma only",               "#F5A38F"),
+]
 
-fig, ax = plt.subplots(figsize=(7.5, 4.8))
-bars = ax.bar(lab, [p * 100 for p in prec], color=cols, width=.55)
-for b, p, n in zip(bars, prec, counts):
-    ax.annotate("%.1f%%\n(%d genes)" % (p * 100, n),
-                (b.get_x() + b.get_width() / 2, p * 100),
-                ha="center", fontsize=9.5, color="black",
-                xytext=(0, 5), textcoords="offset points")
-ax.set_ylabel("Extracted genes matching the gold standard (%)")
-ax.set_xlabel("Number of models extracting the gene\n"
-              "(Magistral-Small, Qwen3-8B, Gemma-4-12B)")
-ax.set_ylim(0, 100)
+bars = [(lab, col, subsets[key][0], subsets[key][1])
+        for key, lab, col in ORDER if subsets[key][0] > 0]
+
+fig, ax = plt.subplots(figsize=(9, 5.2))
+yy = np.arange(len(bars))
+pct = [100.0 * c / n for _, _, n, c in bars]
+ax.barh(yy, pct, color=[c for _, c, _, _ in bars], height=.62)
+
+for i, (lab, col, n, c) in enumerate(bars):
+    ax.annotate("%.1f%%  (%d of %d genes)" % (pct[i], c, n), (pct[i], i),
+                va="center", ha="left", fontsize=9.5, color="black",
+                xytext=(5, 0), textcoords="offset points")
+
+ax.set_yticks(yy)
+ax.set_yticklabels([lab for lab, _, _, _ in bars], fontsize=10)
+ax.invert_yaxis()
+ax.set_xlabel("Extracted genes matching the gold standard (%)")
+ax.set_xlim(0, 118)
+ax.set_xticks([0, 20, 40, 60, 80, 100])
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
-ax.grid(axis="y", alpha=.22); ax.set_axisbelow(True)
+ax.grid(axis="x", alpha=.22); ax.set_axisbelow(True)
+
 for ext in ("png", "pdf"):
     fig.savefig("%s_ladder.%s" % (a.prefix, ext), dpi=300, bbox_inches="tight")
 print("saved %s_ladder.png" % a.prefix)
 
 with open(a.prefix + ".csv", "w", newline="", encoding="utf-8") as fh:
-    w2 = csv.writer(fh)
-    w2.writerow(["tier", "genes", "correct", "precision"])
-    for v, name in ((3, "all_three"), (2, "two_of_three"), (1, "one_only")):
-        n, c = tier[v]
-        w2.writerow([name, n, c, round(c / n, 3) if n else 0])
-    w2.writerow([])
-    w2.writerow(["configuration", "category", "F1", "P", "R", "TP", "FP", "FN", "TN"])
+    w = csv.writer(fh)
+    w.writerow(["models_agreeing", "genes", "correct", "proportion_correct"])
+    for lab, _, n, c in bars:
+        w.writerow([lab, n, c, round(c / n, 3)])
+    w.writerow([])
+    w.writerow(["configuration", "category", "F1", "P", "R",
+                "TP", "FP", "FN", "TN"])
     for r in rows:
-        w2.writerow([r["config"], r["category"], r["F1"], r["P"], r["R"],
-                     r["TP"], r["FP"], r["FN"], r["TN"]])
+        w.writerow([r["config"], r["category"], r["F1"], r["P"], r["R"],
+                    r["TP"], r["FP"], r["FN"], r["TN"]])
 print("saved %s.csv" % a.prefix)
+
+print("\nagreement breakdown:")
+for lab, _, n, c in bars:
+    print("  %-26s %3d genes, %3d correct (%.1f%%)" % (lab, n, c, 100.0 * c / n))
