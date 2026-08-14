@@ -1,11 +1,17 @@
 tier,genes,correct,precision
-all_three,148,130,0.878
-two_of_three,56,35,0.625
-one_only,66,18,0.273
+all_three,159,147,0.925
+two_of_three,49,33,0.673
+one_only,48,12,0.25
 
-config,F1,P,R,FP
-Magistral,0.796,0.787,0.806,46
-Qwen3-8B,0.739,0.776,0.706,43
-Gemma-4,0.745,0.742,0.749,55
-2 of 3,0.795,0.809,0.782,39
-3 of 3,0.721,0.878,0.611,18
+configuration,category,F1,P,R,TP,FP,FN,TN
+Magistral alone,single,0.834,0.824,0.844,178,38,33,83
+Qwen3-8B alone,single,0.832,0.87,0.796,168,25,43,90
+Gemma-4 alone,single,0.811,0.808,0.815,172,41,39,90
+Magistral + Qwen both,both,0.818,0.908,0.744,157,16,54,90
+Magistral + Gemma both,both,0.82,0.898,0.754,159,18,52,90
+Qwen + Gemma both,both,0.81,0.897,0.739,156,18,55,91
+Magistral + Qwen either,either,0.846,0.801,0.896,189,47,22,83
+Magistral + Gemma either,either,0.825,0.758,0.905,191,61,20,83
+Qwen + Gemma either,either,0.831,0.793,0.872,184,48,27,89
+All three 2 of 3,three,0.859,0.865,0.853,180,28,31,89
+All three 3 of 3,three,0.791,0.924,0.692,146,12,65,91
