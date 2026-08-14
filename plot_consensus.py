@@ -33,14 +33,14 @@ CONFIGS = [
     ("Magistral alone",                      MAG, "single"),
     ("Qwen3-8B alone",                       QWN, "single"),
     ("Gemma-4 alone",                        GEM, "single"),
-    ("Magistral + Qwen, gene in both",   f"{CONS}/MagQwen_intersection", "both"),
-    ("Magistral + Gemma, gene in both",  f"{CONS}/MagGem_intersection",  "both"),
-    ("Qwen + Gemma, gene in both",       f"{CONS}/QwenGem_intersection", "both"),
-    ("Magistral + Qwen, gene in either",  f"{CONS}/MagQwen_union",  "either"),
-    ("Magistral + Gemma, gene in either", f"{CONS}/MagGem_union",   "either"),
-    ("Qwen + Gemma, gene in either",      f"{CONS}/QwenGem_union",  "either"),
-    ("All three, 2 of 3 agree",           f"{CONS}/vote2", "three"),
-    ("All three, 3 of 3 agree",           f"{CONS}/vote3", "three"),
+    ("Two models: Magistral & Qwen\n(gene must be in both)",   f"{CONS}/MagQwen_intersection", "both"),
+    ("Two models: Magistral & Gemma\n(gene must be in both)",  f"{CONS}/MagGem_intersection",  "both"),
+    ("Two models: Qwen & Gemma\n(gene must be in both)",       f"{CONS}/QwenGem_intersection", "both"),
+    ("Two models: Magistral & Qwen\n(gene in either is enough)",  f"{CONS}/MagQwen_union",  "either"),
+    ("Two models: Magistral & Gemma\n(gene in either is enough)", f"{CONS}/MagGem_union",   "either"),
+    ("Two models: Qwen & Gemma\n(gene in either is enough)",      f"{CONS}/QwenGem_union",  "either"),
+    ("Three models: any 2 of 3\nmust agree",           f"{CONS}/vote2", "three"),
+    ("Three models: all 3\nmust agree",           f"{CONS}/vote3", "three"),
 ]
 
 def score(d):
@@ -71,7 +71,7 @@ for label, d, cat in CONFIGS:
 # ---------------- figure A: horizontal grouped bars ----------------
 y = np.arange(len(rows))
 h = 0.26
-fig, ax = plt.subplots(figsize=(9.5, 8))
+fig, ax = plt.subplots(figsize=(10, 9))
 
 ax.barh(y - h, [r["P"] for r in rows],  height=h, color="#3C8DBC", label="Precision")
 ax.barh(y,     [r["R"] for r in rows],  height=h, color="#E8A33D", label="Recall")
@@ -90,11 +90,12 @@ for i, r in enumerate(rows):
     seen = r["category"]
 
 ax.set_yticks(y)
-ax.set_yticklabels([r["config"] for r in rows], fontsize=9.5)
+ax.set_yticklabels([r["config"] for r in rows], fontsize=9)
 ax.invert_yaxis()
 ax.set_xlabel("Score (HGNC-normalised)")
-ax.set_xlim(0, 1.06)
-ax.legend(loc="lower right", fontsize=10)
+ax.set_xlim(0, 1.10)
+ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1.0),
+          fontsize=10, borderaxespad=0)
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 ax.grid(axis="x", alpha=.22); ax.set_axisbelow(True)
