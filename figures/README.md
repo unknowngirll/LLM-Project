@@ -58,3 +58,17 @@ do not dominate. Jobs were scheduled across three GPU classes on the cluster
 figures indicate relative cost rather than a controlled benchmark. Gemma-4-12B
 ran on the fastest available hardware and was still the slowest configuration
 tested.
+
+## Consensus (revised normalisation)
+
+| File | Contents |
+|---|---|
+| `consensus_ladder.png` | Proportion of extracted genes matching the gold standard, grouped by how many of the three models extracted that gene |
+| `consensus_scores.png` | Precision, recall and F1 for each single model and each consensus rule |
+
+Three models contribute: Magistral-Small and Gemma-4-12B on the full v6 prompt,
+and Qwen3-8B on v6 full. All outputs are scored after the revised HGNC
+normalisation, so these figures are comparable with the main results tables.
+The ladder panel is not a measure of the consensus rules themselves — it asks
+how often an individual extracted gene is correct given the number of models
+that agreed on it.
