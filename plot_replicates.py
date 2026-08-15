@@ -22,13 +22,13 @@ a = ap.parse_args()
 RUNS = {
     "Magistral-24B": [
         "magi_think_v6/Magistral-Small-2509",
-        "magi_v6_s2/Magistral-Small-2509",
-        "magi_v6_s3/Magistral-Small-2509",
+        "magi_v6_r2/Magistral-Small-2509",
+        "magi_v6_r3/Magistral-Small-2509",
     ],
     "Qwen3-8B": [
         "q8b_think_v6full/Qwen3-8B",
-        "q8_v6_s2/Qwen3-8B",
-        "q8_v6_s3/Qwen3-8B",
+        "q8_v6_r2/Qwen3-8B",
+        "q8_v6_r3/Qwen3-8B",
     ],
 }
 COLOUR = {"Magistral-24B": "#1B9E77", "Qwen3-8B": "#3C8DBC"}
@@ -82,6 +82,12 @@ for ax, (key, label) in zip(axes, METRICS):
         ax.annotate(f"{m:.3f}\n\u00b1{sd:.3f}", (x, m), fontsize=8.5,
                     ha="center", va="bottom", color="black",
                     xytext=(0, 9), textcoords="offset points")
+    # keep a sensible window even when the spread is tiny, so that a
+    # difference of a thousandth is not magnified into a visual gap
+    allv = [r[key] for r in rows]
+    lo, hi = min(allv), max(allv)
+    pad = max((hi - lo) * 0.6, 0.015)
+    ax.set_ylim(lo - pad, hi + pad)
     ax.set_xticks(range(len(models)))
     ax.set_xticklabels(models, fontsize=9.5)
     ax.set_xlim(-0.55, len(models) - 0.45)
