@@ -1,4 +1,4 @@
-# Automated Metadata Extraction for Osteoarthritis Research
+# Automated Extraction for Osteoarthritis Research
 
 **Project Overview**
 This repository contains a specialized bioinformatics pipeline designed to automate the extraction of structured metadata from Osteoarthritis (OA) literature. By leveraging local, open-weight Large Language Models (LLMs), this project transforms unstructured PubMed abstracts into a structured knowledge base to support the assisted curation of the **OATargets** database.
