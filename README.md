@@ -1,47 +1,47 @@
 # Automated Metadata Extraction for Osteoarthritis Research
- Project Overview by Nilla Rezaei
 
-This repository contains a specialized pipeline designed to automate the extraction of structured metadata from Osteoarthritis (OA) literature. As part of a bioinformatics research initiative at the University of Liverpool, this project leverages Large Language Models (LLMs) to transform unstructured PubMed abstracts into a structured knowledge base, specifically aimed at expanding the OA Target database.
-Key Goals:
+**Project Overview**
+This repository contains a specialized bioinformatics pipeline designed to automate the extraction of structured metadata from Osteoarthritis (OA) literature. By leveraging local, open-weight Large Language Models (LLMs), this project transforms unstructured PubMed abstracts into a structured knowledge base to support the assisted curation of the **OATargets** database.
 
-    Automation: Minimize manual curation of OA animal model studies.
+Faced with a rapidly growing corpus of over 11,839 candidate papers, manual biocuration has become a significant bottleneck[cite: 1, 5]. This pipeline addresses that challenge through zero-shot extraction, rigorous prompt engineering, and a robust post-extraction gene symbol normalisation framework.
 
-    Benchmarking: Comparing commercial (GPT-4o, Claude 3.5, Gemini Pro) vs. local open-weight models (Qwen, Llama, Gemma).
+## Key Features & Pipeline Workflow
 
-    Scalability: Processing a corpus of 11,839 unique PMIDs (Mouse, Rat, Rabbit, Pig) identified via NCBI Entrez.
+1. **Local Open-Weight LLMs:** Complete transition from commercial APIs to cost-effective, privacy-preserving local models (Magistral, Qwen, Gemma, Llama) ranging from 4B to 27B parameters, deployed on HPC clusters (e.g., Barkla2)[cite: 1, 5].
+2. **Iterative Prompt Engineering (v1 to v7):** Carefully crafted instruction schemas dictating extraction targets (Gene, Species, Induction Method, Perturbation Direction, Severity Outcome) and strict rejection criteria for false positives[cite: 1, 5].
+3. **Gene Symbol Normalisation (HGNC v2):** A critical post-processing engine. Since authors frequently use arbitrary aliases (e.g., *SDF-1*), this multi-step deterministic pipeline resolves raw extracted names to official HGNC symbols, filtering pseudogenes and resolving ambiguous aliases[cite: 1, 5].
+4. **Ensemble Consensus:** A model-agreement evaluation technique where unanimity among different models is used to predict extraction correctness, acting as a highly reliable filter for expert human review[cite: 1, 5].
 
-Workflow
+## Benchmarking Results
 
-The extraction process follows a rigorous validation-first approach:
+The pipeline was rigorously evaluated against a gold-standard development set of 267 abstracts (175 positives, 92 true negatives) from OATargets[cite: 1, 5]. 
 
-    Literature Mining: Systematic retrieval of PMIDs using NCBI E-utilities.
+### The Impact of Gene Normalisation
+The most significant finding of this project is that extraction capability is bottlenecked by biological nomenclature, not just LLM reasoning. Standardising raw model outputs via our `HGNC v2` pipeline yielded a massive performance jump, often raising baseline F1 scores by >0.20 on identical text outputs.
 
-    Prompt Engineering: Implementation of a strict, rule-based JSON extraction prompt.
+**Top Performing Configurations (F1 Scores):**
 
-    LLM Inference: Data extraction across multiple LLM architectures.
+| Model | Params | Mode | Prompt | Raw Output (`none`) | Normalised (`HGNC v2`) |
+|---|---|---|---|---|---|
+| **Magistral-Small** | 24B | Thinking | v7full | 0.704 | **0.856** |
+| **Magistral-Small** | 24B | Thinking | v4 | 0.597 | **0.848** |
+| **Qwen3-8B** | 8B | Thinking | v6full | 0.642 | **0.832** |
+| **Qwen3.6-27B** | 27B | Instruct | v3 | 0.592 | **0.825** |
+| **Gemma-4-12B** | 12B | Thinking | v6full | 0.621 | **0.811** |
 
-    Validation: Scoring outputs against the OA Target gold standard.
+### Attribute-Level Accuracy
+Identifying the perturbed gene proved to be the most challenging step. However, once a gene was successfully matched and normalised, the models demonstrated exceptional accuracy in extracting secondary metadata under the `HGNC v2` normalisation:
+* **Animal Species:** ~ 97 - 99%
+* **Induction Method:** ~ 85 - 91%
+* **Severity Outcome:** ~ 94 - 96%
 
-    Visualization: Performance metrics analyzed and plotted using R (ggplot2).
+## Key Conclusions
 
- Benchmarking Results (Commercial Baseline)
+* **Prompt vs. Model Capacity:** Prompt revisions interact strongly with model capacity. Stricter exclusion rules (like `v7full`) improved the 24B Magistral model but caused the 8B Qwen model to over-reject valid papers[cite: 1, 5].
+* **Assisted Curation via Consensus:** While combining models did not beat the best single model's overall F1 score, model agreement is a powerful predictor of truth. Genes identified by three models working in consensus matched curated ground truth data in **87.1%** of cases[cite: 1, 5]. This tiered approach is highly effective for triaging literature for human biocurators.
 
-Preliminary results using commercial APIs showed high fidelity across four critical features:
-
-    Target Gene: >80% accuracy.
-
-    Animal Species: 100% accuracy.
-
-    Perturbation Type: High precision in identifying Genetic vs. Pharmacological models.
-
-    Phenotype Outcome: Claude and Gemini demonstrated superior reasoning in biological effect deduction.
-
-Next Steps: Local Deployment (Barkla2)
-
-The next phase involves transitioning from commercial APIs to local deployment on the Barkla2 High-Performance Computing (HPC) cluster.
-
-    Local Models: Testing Qwen3.6-35B-A3B, Llama 3, and Gemma.
-
-    Quantization: Utilizing 4-bit and 8-bit precision for efficient resource management.
-
-    Scale: Expanding the OA Target database using the optimal localized pipeline.
+## Repository Structure
+* `/prompts/` - Iterative versions (v1-v7) of system and user prompts used for zero-shot extraction.
+* `/scripts/` - Inference scripts for running 4-bit quantized models locally via HuggingFace and Unsloth.
+* `/normalisation/` - The `HGNC v2` mapping rules and standardisation cascade.
+* `/analysis/` - R and Python scripts used for scoring (`score_v2.py`) and calculating precision, recall, and F1 metrics.
