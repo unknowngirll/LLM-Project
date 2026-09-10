@@ -1,0 +1,7 @@
+model,run,F1,precision,recall
+Magistral-Small,1,0.834,0.824,0.844
+Magistral-Small,2,0.861,0.855,0.867
+Magistral-Small,3,0.867,0.856,0.877
+Qwen3-8B,1,0.832,0.87,0.796
+Qwen3-8B,2,0.808,0.841,0.777
+Qwen3-8B,3,0.84,0.872,0.81

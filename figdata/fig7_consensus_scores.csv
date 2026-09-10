@@ -1,0 +1,12 @@
+rule,category,F1,precision,recall,TP,FP,FN,TN
+Magistral alone,single,0.794,0.831,0.759,202,41,64,85
+Qwen3-8B alone,single,0.714,0.796,0.647,172,44,94,85
+Gemma-4 alone,single,0.75,0.786,0.718,191,52,75,88
+"Magistral + Qwen, both",both,0.726,0.861,0.628,167,27,99,88
+"Magistral + Gemma, both",both,0.78,0.87,0.707,188,28,78,89
+"Qwen + Gemma, both",both,0.716,0.846,0.62,165,30,101,88
+"Magistral + Qwen, either",either,0.78,0.781,0.778,207,58,59,83
+"Magistral + Gemma, either",either,0.765,0.759,0.771,205,65,61,84
+"Qwen + Gemma, either",either,0.747,0.75,0.744,198,66,68,85
+Any two of three,three,0.786,0.841,0.737,196,37,70,87
+All three,three,0.717,0.871,0.609,162,24,104,89

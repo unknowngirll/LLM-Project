@@ -50,3 +50,7 @@ results_cascade_all/
 results_consensus/
 results_consensus2/
 results_consensus2/
+add_rejection_precision.py
+export_attributes.py
+export_for_R.py
+R/archive/

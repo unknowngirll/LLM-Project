@@ -1,0 +1,15 @@
+set,subset,genes,correct,proportion
+held-out,All three,186,162,0.871
+held-out,Magistral + Gemma,30,26,0.8667
+held-out,Magistral + Qwen,8,5,0.625
+held-out,Qwen + Gemma,9,3,0.3333
+held-out,Magistral only,19,9,0.4737
+held-out,Qwen only,13,2,0.1538
+held-out,Gemma only,18,0,0.0
+development,All three,159,147,0.9245
+development,Magistral + Gemma,19,13,0.6842
+development,Magistral + Qwen,15,11,0.7333
+development,Qwen + Gemma,15,9,0.6
+development,Magistral only,24,8,0.3333
+development,Qwen only,4,1,0.25
+development,Gemma only,20,3,0.15
